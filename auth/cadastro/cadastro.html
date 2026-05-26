@@ -1,0 +1,115 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - DEVBLOG]
+  ARQUIVO: auth/cadastro/cadastro.html (Página de Cadastro de Usuários)
+  ========================================================================
+  Olá, Aluno! Este arquivo demonstra a estrutura de um formulário de cadastro
+  com validação nativa de preenchimento e campos organizados lado a lado.
+-->
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevBlog — Criar Conta</title>
+    
+    <!-- Importação de fontes e biblioteca de ícones do Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS LINKINGS (Nota Pedagógica):
+         - Usamos "../../" para conseguir sair da pasta "auth/cadastro" e conectar
+           o style.css global da raiz.
+    -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="cadastro.css" />
+  </head>
+  <body>
+
+    <div class="cadastro-pagina">
+
+      <!-- TOPO DO FORMULÁRIO (Navegação minimalista) -->
+      <div class="cadastro-topo">
+        <a href="../../index.html" class="logo">Dev<span>Blog</span></a>
+        <a href="../login/login.html" class="cadastro-topo-link">Já tenho uma conta <i class="fas fa-arrow-right"></i></a>
+      </div>
+
+      <!-- CORPO CENTRALIZADO (Controle do formulário) -->
+      <div class="cadastro-corpo">
+        <div class="cadastro-form-card">
+
+          <h1 class="cadastro-titulo">Crie sua conta</h1>
+          <p class="cadastro-subtitulo">
+            Junte-se a centenas de devs que já escrevem no DevBlog.
+          </p>
+
+          <form class="cadastro-form" action="#">
+
+            <!-- A classe "campos-duplos" ativa um Flexbox ou Grid para alinhar
+                 o campo de "Nome" e "Sobrenome" perfeitamente lado a lado.
+            -->
+            <div class="campos-duplos">
+              <div class="campo-grupo">
+                <label class="campo-label" for="nome">Nome</label>
+                <input class="campo-input" type="text" id="nome" placeholder="João" required />
+              </div>
+              <div class="campo-grupo">
+                <label class="campo-label" for="sobrenome">Sobrenome</label>
+                <input class="campo-input" type="text" id="sobrenome" placeholder="Silva" required />
+              </div>
+            </div>
+
+            <div class="campo-grupo">
+              <label class="campo-label" for="email">E-mail</label>
+              <input class="campo-input" type="email" id="email" placeholder="seu@email.com" required />
+            </div>
+
+            <div class="campo-grupo">
+              <label class="campo-label" for="senha">Senha</label>
+              <input class="campo-input" type="password" id="senha" placeholder="Mínimo 8 caracteres" required />
+
+              <!-- BARRA DE FORÇA DA SENHA (Nota Pedagógica):
+                   - Esta barra é dividida em três pequenos blocos horizontais no CSS
+                     para representar a complexidade de segurança da senha digitada pelo usuário.
+              -->
+              <div class="barra-senha-container media">
+                <div class="barra-senha-segmento"></div>
+                <div class="barra-senha-segmento"></div>
+                <div class="barra-senha-segmento"></div>
+              </div>
+            </div>
+
+            <div class="campo-grupo">
+              <label class="campo-label" for="confirmar">Confirmar senha</label>
+              <input class="campo-input" type="password" id="confirmar" placeholder="Repita a senha" required />
+            </div>
+
+            <!-- Caixa de aceitação de Termos de Uso (checkbox de seleção) -->
+            <div class="cadastro-termos">
+              <input type="checkbox" id="termos" required />
+              <label for="termos">
+                Eu concordo com os <a href="#">Termos de Uso</a> e a
+                <a href="#">Política de Privacidade</a> do DevBlog.
+              </label>
+            </div>
+
+            <!-- Botão de submissão com ícone do Font Awesome -->
+            <button class="btn-primario cadastro-btn-submit" type="submit">
+              Criar minha conta <i class="fas fa-user-plus"></i>
+            </button>
+
+          </form>
+
+          <p class="cadastro-login-link">
+            Já tem uma conta? <a href="../login/login.html">Entrar</a>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

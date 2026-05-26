@@ -1,0 +1,774 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - DEVBLOG]
+   ARQUIVO: index.css (Estilos exclusivos da Página Inicial / Landing Page)
+   ================================================================
+   Olá, Aluno! Este arquivo cuida do design visual exclusivo da nossa Home.
+   Aqui aplicamos conceitos avançados como CSS Grid, Flexbox, Animações 3D e 
+   efeitos sofisticados de cores de forma super didática.
+================================================================ */
+
+/* ================================================================
+   1. HERO SECTION (APRESENTAÇÃO / ABERTURA)
+================================================================ */
+.hero {
+  /* CSS GRID LAYOUT: divide o topo em duas colunas no computador.
+     - "1.1fr 0.9fr" divide a tela em duas frações quase iguais: 
+       a coluna de texto ganha um pouco mais de espaço físico (1.1) do que a imagem (0.9).
+  */
+  display: grid; /* display: grid -> organiza em linhas e colunas, como uma tabela ou grade de xadrez */
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center; /* Alinha o texto e a imagem perfeitamente ao meio na linha horizontal */
+  gap: 60px; /* gap/margin -> distância para o vizinho, como a calçada entre duas casas */
+  padding: 80px 60px; /* padding -> espaço interno, como o estofado de uma poltrona */
+  min-height: calc(100vh - 74px); /* Faz a seção ocupar toda a altura restante da tela visível */
+  
+  /* Cria uma luz decorativa laranja muito suave e difusa saindo do canto esquerdo superior */
+  background: radial-gradient(circle at 10% 20%, rgba(232, 93, 38, 0.03) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.hero-conteudo {
+  /* FLEXBOX: empilha a tag, o título, o texto e os botões em linha vertical verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Alinha todos os textos à esquerda */
+  gap: 24px; /* Espaço uniforme de 24px entre cada parágrafo/botão */
+}
+
+/* A tag elegante com borda fina laranja e fundo pastel translúcido */
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--cor-acento-claro);
+  color: var(--cor-acento);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: var(--raio-pill);
+  border: 1px solid rgba(232, 93, 38, 0.15);
+}
+
+/* O ícone de fa-sparkles na tag fica piscando graças a esta animação cíclica */
+.hero-tag i {
+  animation: pulsar 2s infinite ease-in-out;
+}
+
+.hero-titulo {
+  font-family: var(--fonte-titulo); /* Fonte serifada Playfair Display para dar imponência */
+  font-size: 58px; /* Título bem visível e impactante */
+  line-height: 1.12; /* Ajusta o espaço entre as linhas para não encavalarem */
+  color: var(--cor-escuro);
+  font-weight: 700;
+}
+
+.hero-subtitulo {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--cor-texto-suave); /* Cinza mais amigável de ler */
+  max-width: 520px; /* Limita a largura do texto para que o leitor não precise mover muito os olhos lateralmente */
+}
+
+.hero-botoes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* ================================================================
+   MOCKUP DE CÓDIGO 3D (EFEITOS EM PERSPECTIVA)
+================================================================ */
+.hero-imagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px; /* EFEITO 3D: define o ponto de vista tridimensional do leitor */
+}
+
+.code-card {
+  width: 100%;
+  max-width: 460px;
+  background-color: #121214;
+  border: 1.5px solid #2d2d30;
+  border-radius: 14px; /* border-radius -> arredonda os cantos, como um cartão de crédito */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); /* box-shadow -> sombra projetada, como a sombra de um objeto sob uma luz */
+  overflow: hidden;
+  font-family: 'Consolas', 'Fira Code', 'Courier New', Courier, monospace; /* Fonte mono-espaçada típica de editores */
+  font-size: 14px;
+  
+  /* ROTAÇÃO 3D: rotaciona o card levemente em torno dos eixos Y e X para dar efeito flutuante inclinado */
+  transform: rotateY(-6deg) rotateX(6deg) rotateZ(1deg);
+  
+  /* Transição suave ao tirar/colocar o mouse de cima do card */
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s ease; /* transition -> movimento suave entre dois estados, como uma porta se abrindo devagar */
+}
+
+/* Quando o usuário passa o mouse por cima do card do VS Code, ele se alinha perfeitamente
+   na horizontal e emite um brilho neon alaranjado fantástico de fundo! */
+.code-card:hover {
+  transform: rotateY(-1deg) rotateX(1deg) rotateZ(0deg) translateY(-4px);
+  box-shadow: 0 30px 60px rgba(232, 93, 38, 0.15);
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #18181c;
+  padding: 12px 18px;
+  border-bottom: 1.5px solid #2d2d30;
+}
+
+/* As três bolinhas do terminal de simulação do macOS/Linux */
+.code-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.code-header .dot.red { background-color: #ef4444; }
+.code-header .dot.yellow { background-color: #f59e0b; }
+.code-header .dot.green { background-color: #10b981; }
+
+.code-title {
+  color: #888;
+  font-size: 12px;
+  margin-left: 8px;
+  letter-spacing: 0.5px;
+}
+
+.code-body {
+  padding: 24px;
+  color: #e1e1e6;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+/* Colorização didática para sintaxe JS no terminal decorativo */
+.keyword { color: #e85d26; font-weight: 500; }
+.variable { color: #f43f5e; }
+.property { color: #06b6d4; }
+.string { color: #10b981; }
+.function { color: #3b82f6; }
+.console { color: #a855f7; }
+.method { color: #eab308; }
+
+/* ================================================================
+   2. SEÇÕES PADRÃO (ESTRUTURA GERAL DE ENQUADRAMENTO)
+================================================================ */
+.categorias-secao,
+.destaques-secao,
+.beneficios-secao,
+.newsletter-secao {
+  padding: 100px 60px; /* Grande respiro vertical de 100px entre as seções */
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+/* O Cabeçalho centralizado das seções */
+.secao-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 56px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.secao-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cor-acento);
+  background-color: var(--cor-acento-claro);
+  padding: 4px 12px;
+  border-radius: var(--raio-pill);
+}
+
+.secao-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 42px;
+  line-height: 1.2;
+  color: var(--cor-escuro);
+}
+
+.secao-subtitulo {
+  font-size: 16px;
+  color: var(--cor-texto-suave);
+  line-height: 1.6;
+}
+
+/* ================================================================
+   3. SEÇÃO DE CATEGORIAS POPULARES (GRID DE TECNOLOGIAS)
+================================================================ */
+.categorias-secao {
+  background-color: #fff;
+}
+
+.categorias-grid {
+  /* GRID DE 4 COLUNAS IGUAIS: "repeat(4, 1fr)" cria quatro trilhos de largura equivalente */
+  display: grid; /* display: grid -> organiza em linhas e colunas, como uma tabela ou grade de xadrez */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px; /* gap/margin -> distância para o vizinho, como a calçada entre duas casas */
+}
+
+.categoria-card {
+  display: flex; /* display: flex -> organiza os filhos em fila, como pessoas numa esteira de supermercado */
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px; /* padding -> espaço interno, como o estofado de uma poltrona */
+  background-color: var(--cor-fundo);
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio); /* border-radius -> arredonda os cantos, como um cartão de crédito */
+  transition: transform var(--transicao), border-color var(--transicao), box-shadow var(--transicao); /* transition -> movimento suave entre dois estados, como uma porta se abrindo devagar */
+}
+
+/* Ao passar o mouse, o card sobe 6px em direção ao topo e exibe sombra */
+.categoria-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-lg);
+}
+
+.categoria-icone {
+  font-size: 36px;
+  width: 68px;
+  height: 68px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transicao);
+}
+
+/* Micro-animação: o ícone gira levemente 4 graus e aumenta 10% no hover */
+.categoria-card:hover .categoria-icone {
+  transform: scale(1.1) rotate(4deg);
+}
+
+.categoria-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cor-escuro);
+}
+
+.categoria-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--cor-texto-suave);
+  flex: 1; /* Pede para a descrição ocupar todo o espaço restante do card */
+}
+
+.categoria-link-texto {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cor-acento);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.2s;
+}
+
+/* A setinha aponta um pouco mais para o lado no hover */
+.categoria-card:hover .categoria-link-texto {
+  gap: 12px;
+}
+
+/* Cores e Detalhes visuais únicos para cada tecnologia */
+.categoria-card.html { border-bottom: 4px solid #e85d26; }
+.categoria-card.html .categoria-icone { background-color: #fde8dc; color: #e85d26; }
+
+.categoria-card.css { border-bottom: 4px solid #2563eb; }
+.categoria-card.css .categoria-icone { background-color: #dbeafe; color: #2563eb; }
+
+.categoria-card.js { border-bottom: 4px solid #d97706; }
+.categoria-card.js .categoria-icone { background-color: #fef3c7; color: #d97706; }
+
+.categoria-card.carreira { border-bottom: 4px solid #16a34a; }
+.categoria-card.carreira .categoria-icone { background-color: #dcfce7; color: #16a34a; }
+
+/* ================================================================
+   4. SEÇÃO DE ARTIGOS EM DESTAQUE (LIGAÇÕES DE CARD GLOBAL)
+================================================================ */
+.destaques-grid {
+  /* Grade mista: o card da esquerda (destaque) ganha 62% da tela,
+     e a coluna de empilhamento vertical da direita ganha 38%. */
+  display: grid;
+  grid-template-columns: 1.85fr 1.15fr;
+  gap: 32px;
+}
+
+.artigos-coluna-destaques {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.artigo-card {
+  background-color: #fff;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--transicao), transform var(--transicao);
+}
+
+.artigo-card:hover {
+  box-shadow: var(--sombra-lg);
+  transform: translateY(-4px);
+}
+
+.artigo-card-imagem {
+  height: 220px;
+  background-color: var(--cor-escuro);
+  overflow: hidden;
+  position: relative;
+}
+
+.artigo-card-imagem-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-size: 54px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.08);
+  background: linear-gradient(135deg, #121214 0%, #222226 100%);
+}
+
+.artigo-card-corpo {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.artigo-card-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  line-height: 1.35;
+  color: var(--cor-escuro);
+  transition: color var(--transicao);
+}
+
+.artigo-card:hover .artigo-card-titulo {
+  color: var(--cor-acento);
+}
+
+.artigo-card-texto {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--cor-texto-suave);
+  flex: 1;
+}
+
+.artigo-card-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1.5px solid var(--cor-borda);
+}
+
+.artigo-card-meta {
+  font-size: 12px;
+  color: var(--cor-cinza);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.artigo-card-link {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--cor-acento);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.artigo-card-link:hover {
+  gap: 10px;
+}
+
+/* O CARD DESTAQUE se deita na horizontal a partir de telas médias! */
+.artigo-card.destaque {
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .artigo-card.destaque {
+    flex-direction: row; /* Fica na horizontal */
+  }
+
+  .artigo-card.destaque .artigo-card-imagem {
+    width: 44%; /* A imagem ganha 44% da largura da caixa */
+    height: auto;
+    flex-shrink: 0; /* Impede a imagem de esmagar */
+  }
+}
+
+/* ================================================================
+   5. SEÇÃO DE BENEFÍCIOS
+================================================================ */
+.beneficios-secao {
+  background-color: #fff;
+}
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.beneficio-card {
+  background-color: var(--cor-fundo);
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.beneficio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-md);
+}
+
+.beneficio-icone {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--cor-acento-claro);
+  color: var(--cor-acento);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.beneficio-card h3 {
+  font-size: 20px;
+  color: var(--cor-escuro);
+  font-weight: 700;
+}
+
+.beneficio-card p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--cor-texto-suave);
+}
+
+/* ================================================================
+   6. SEÇÃO DE NEWSLETTER (CARD PREMIUM E GLASSMORPHISM)
+================================================================ */
+.newsletter-secao {
+  background-color: var(--cor-fundo);
+}
+
+.newsletter-card {
+  max-width: 860px;
+  margin: 0 auto;
+  
+  /* Gradiente moderno metálico escuro profundo */
+  background: linear-gradient(135deg, #101012 0%, #1e1e24 100%);
+  border: 1.5px solid #2d2d35;
+  border-radius: 20px;
+  padding: 60px 48px;
+  box-shadow: var(--sombra-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efeito radial de iluminação laranja por trás do formulário de e-mail */
+.newsletter-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(232, 93, 38, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.newsletter-conteudo {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.newsletter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cor-acento);
+  font-weight: 500;
+  background-color: rgba(232, 93, 38, 0.1);
+  padding: 6px 14px;
+  border-radius: var(--raio-pill);
+  border: 1px solid rgba(232, 93, 38, 0.2);
+}
+
+.newsletter-conteudo h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 38px;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.newsletter-conteudo p {
+  font-size: 15.5px;
+  color: #9f9fa3;
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+/* FLEXBOX horizontal alinhando caixa de e-mail e botão */
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 12px;
+}
+
+.input-newsletter-wrapper {
+  position: relative;
+  flex: 1; /* A caixa de input consome todo o espaço flexível lateral restante */
+}
+
+/* O ícone do envelopinho posicionado perfeitamente por dentro da caixa de texto */
+.input-envelope-icone {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b6b76;
+  font-size: 16px;
+}
+
+.input-newsletter-wrapper input {
+  width: 100%;
+  padding: 14px 16px 14px 46px; /* O padding-left de 46px evita que o texto digite por cima do ícone! */
+  background-color: #16161a;
+  border: 1.5px solid #2d2d35;
+  border-radius: var(--raio-pill);
+  font-size: 14.5px;
+  color: #fff;
+  outline: none;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.input-newsletter-wrapper input:focus {
+  border-color: var(--cor-acento);
+  box-shadow: 0 0 0 3px rgba(232, 93, 38, 0.15); /* Sombra neon azulada de foco */
+}
+
+.input-newsletter-wrapper input::placeholder {
+  color: #55555c;
+}
+
+.newsletter-sub {
+  font-size: 12px !important;
+  color: #6b6b76 !important;
+}
+
+/* ================================================================
+   7. RODAPÉ ESTILIZADO EM COLUNAS
+================================================================ */
+.rodape {
+  background-color: var(--cor-escuro);
+  color: #8f8f94;
+  padding: 80px 60px 40px 60px;
+  border: none;
+}
+
+.rodape-container {
+  display: grid;
+  grid-template-columns: 1.8fr 0.9fr 0.9fr; /* 3 colunas de larguras variadas */
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+  border-bottom: 1.5px solid #1f1f23;
+}
+
+.rodape-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.rodape-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 28px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.rodape-logo span {
+  color: var(--cor-acento);
+}
+
+.rodape-sub {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 360px;
+}
+
+.rodape-redes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rodape-redes a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #18181c;
+  border: 1px solid #2d2d30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b3b3b7;
+  font-size: 15px;
+  transition: all var(--transicao);
+}
+
+.rodape-redes a:hover {
+  background-color: var(--cor-acento);
+  color: #fff;
+  border-color: var(--cor-acento);
+  transform: translateY(-2px);
+}
+
+.rodape-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rodape-links h4 {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rodape-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rodape-links ul a {
+  font-size: 14px;
+  color: #8f8f94;
+  transition: color var(--transicao);
+}
+
+.rodape-links ul a:hover {
+  color: var(--cor-acento);
+}
+
+.rodape-copy {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 12.5px;
+  color: #5d5d62;
+}
+
+/* ================================================================
+   8. RESPONSIVIDADE (MEDIA QUERIES - MÁGICA DO CELULAR)
+================================================================ */
+/* Quando a largura da tela for de 1024px ou menos (tablets), o Grid se reestrutura */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr; /* Vira apenas 1 coluna de largura total */
+    gap: 48px;
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .hero-conteudo {
+    align-items: center; /* Alinha o texto da Hero ao centro do tablet */
+  }
+
+  .hero-titulo {
+    font-size: 46px;
+  }
+
+  .categorias-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+  }
+
+  .destaques-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Quando a largura da tela for de 768px ou menos (celulares normais) */
+@media (max-width: 768px) {
+  .categorias-secao,
+  .destaques-secao,
+  .beneficios-secao,
+  .newsletter-secao {
+    padding: 60px 24px;
+  }
+
+  .secao-titulo {
+    font-size: 32px;
+  }
+
+  .categorias-grid,
+  .beneficios-grid {
+    grid-template-columns: 1fr; /* Tudo empilha em 1 coluna única no smartphone */
+  }
+
+  .newsletter-card {
+    padding: 40px 24px;
+  }
+
+  .newsletter-conteudo h2 {
+    font-size: 28px;
+  }
+
+  .newsletter-form {
+    flex-direction: column; /* O botão de inscrição desce para baixo do e-mail no celular */
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    width: 100%; /* Botão largo no celular para facilitar o clique com o polegar */
+  }
+
+  .rodape-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

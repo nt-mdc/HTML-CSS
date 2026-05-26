@@ -1,0 +1,366 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - DEVBLOG]
+   artigos.css — CSS ESPECÍFICO DA PÁGINA PÚBLICA DE ARTIGOS
+   Linka junto com style.css no <head> do artigos.html
+   ================================================================
+   Olá, Aluno! Este arquivo contém estilos focados no layout de cards,
+   posicionamento colante (sticky) para buscas e técnicas de corte de textos.
+================================================================ */
+
+
+/* ================================================================
+   BANNER HERO — Cabeçalho da página de artigos
+================================================================ */
+.artigos-banner {
+  /* Pense na caixa do Banner como um painel gigante:
+     - "background-color: var(--cor-escuro)": Fundo preto escuro.
+     - "padding: 80px 60px": Fornece um estofado de segurança interno.
+     - "display: flex; flex-direction: column": Empilha os textos de cima para baixo.
+  */
+  background-color: var(--cor-escuro);
+  color: var(--cor-fundo);
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative; /* Define que elementos filhos absolutos fiquem presos dentro do banner */
+  overflow: hidden; /* Corta qualquer elemento que queira escapar visualmente das bordas */
+}
+
+.artigos-banner-tag {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cor-acento);
+  font-weight: 500;
+  animation: subirFadeIn 0.5s ease both; /* Animação de subida suave ao carregar */
+}
+
+.artigos-banner-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 52px;
+  max-width: 600px;
+  line-height: 1.15;
+  animation: subirFadeIn 0.5s ease 0.1s both; /* Atraso de 0.1s para criar efeito cascata */
+}
+
+.artigos-banner-sub {
+  font-size: 16px;
+  color: #888;
+  max-width: 480px;
+  line-height: 1.7;
+  animation: subirFadeIn 0.5s ease 0.2s both; /* Atraso de 0.2s */
+}
+
+
+/* ================================================================
+   EFEITO AVANÇADO — NÚMERO DECORATIVO GIGANTE NO FUNDO
+   ================================================================
+   O que faz: insere um número translúcido titânico de fundo por 
+   trás dos textos para trazer profundidade visual de alta qualidade.
+*/
+.banner-numero-fundo {
+  position: absolute; /* Solta o número do fluxo e deixa ele voar */
+  right: 40px; /* Gruda a 40px da direita */
+  top: 50%;
+  transform: translateY(-50%); /* Garante centralização vertical perfeita */
+  font-family: var(--fonte-titulo);
+  font-size: 200px; /* Tamanho colossal de 200px */
+  color: rgba(255, 255, 255, 0.03); /* Apenas 3% de opacidade branca (super sutil!) */
+  line-height: 1;
+  pointer-events: none; /* CLIQUES passam por dentro dele sem interferir */
+  user-select: none; /* O leitor não consegue selecionar com o mouse */
+}
+
+
+/* ================================================================
+   BARRA DE BUSCA E FILTROS (STICKY E POSICIONAMENTO)
+================================================================ */
+.artigos-controles {
+  padding: 32px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-bottom: 1px solid var(--cor-borda);
+  background-color: var(--cor-fundo);
+  
+  /* POSITION STICKY (Nota Pedagógica):
+     - Esta barra "gruda" no topo do navegador quando o leitor faz scroll!
+     - "top: 73px" define a distância exata abaixo da nossa Navbar para ela grudar.
+  */
+  position: sticky;
+  top: 73px;
+  z-index: 90;
+  animation: fadeIn 0.4s ease both;
+}
+
+.busca-container {
+  position: relative; /* Define que a caixa é a âncora de posições internas */
+  max-width: 480px;
+}
+
+.busca-icone {
+  position: absolute; /* Prende o ícone de lupa dentro do input */
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cor-cinza);
+  font-size: 16px;
+  pointer-events: none;
+}
+
+.busca-input {
+  width: 100%;
+  padding: 12px 16px 12px 44px; /* Note o padding-left largo de 44px para o texto não sobrepor a lupa */
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio-pill);
+  font-size: 14px;
+  color: var(--cor-texto);
+  background-color: #fff;
+  outline: none;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.busca-input:focus {
+  border-color: var(--cor-acento);
+  box-shadow: 0 0 0 3px rgba(232, 93, 38, 0.10); /* Glow suave de foco laranja */
+}
+
+.filtros-lista {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap; /* Caso existam muitas categorias, elas quebram de linha suavemente */
+}
+
+.filtro-btn {
+  padding: 7px 18px;
+  border-radius: var(--raio-pill);
+  border: 1.5px solid var(--cor-borda);
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.filtro-btn:hover {
+  border-color: var(--cor-acento);
+  color: var(--cor-acento);
+}
+
+.filtro-btn.ativo {
+  background-color: var(--cor-acento);
+  border-color: var(--cor-acento);
+  color: #fff;
+}
+
+
+/* ================================================================
+   GRADE DE ARTIGOS (GRID LAYOUT DE 3 COLUNAS)
+================================================================ */
+.artigos-grid-container {
+  padding: 48px 60px;
+}
+
+.artigos-grid-titulo {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cor-cinza);
+  margin-bottom: 28px;
+}
+
+.artigos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas de larguras rigorosamente iguais */
+  gap: 24px;
+}
+
+
+/* ================================================================
+   CARD DE ARTIGO
+================================================================ */
+.artigo-card {
+  background-color: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow var(--transicao), transform var(--transicao);
+  animation: subirFadeIn 0.5s ease both;
+}
+
+/* Efeito Hover de Flutuação e Sombra */
+.artigo-card:hover {
+  box-shadow: var(--sombra-lg);
+  transform: translateY(-5px);
+}
+
+.artigo-card-imagem {
+  height: 180px;
+  background-color: var(--cor-escuro);
+  overflow: hidden;
+  position: relative;
+}
+
+.artigo-card-imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajusta a imagem mantendo a proporção de corte perfeita */
+  transition: transform 0.4s ease;
+}
+
+/* Efeito Zoom da imagem ao passar o mouse */
+.artigo-card:hover .artigo-card-imagem img {
+  transform: scale(1.05);
+}
+
+.artigo-card-imagem-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-size: 48px;
+  color: rgba(255,255,255,0.08);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.artigo-card-corpo {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.artigo-card-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  line-height: 1.35;
+  color: var(--cor-texto);
+  transition: color var(--transicao);
+}
+
+.artigo-card:hover .artigo-card-titulo {
+  color: var(--cor-acento);
+}
+
+.artigo-card-texto {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--cor-texto-suave);
+  flex: 1;
+}
+
+.artigo-card-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.artigo-card-meta {
+  font-size: 12px;
+  color: var(--cor-cinza);
+}
+
+.artigo-card-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cor-acento);
+  transition: letter-spacing var(--transicao);
+}
+
+.artigo-card-link:hover {
+  letter-spacing: 0.5px;
+}
+
+
+/* ================================================================
+   CARD DESTAQUE — Ocupa espaço duplo (2 colunas) na horizontal
+================================================================ */
+.artigo-card.destaque {
+  grid-column: span 2; /* Pede ao Grid Layout para esticar em 2 colunas */
+  flex-direction: row; /* Deita os blocos na horizontal (imagem na esquerda, corpo na direita) */
+}
+
+.artigo-card.destaque .artigo-card-imagem {
+  width: 45%; /* Imagem ganha 45% da largura lateral do card */
+  height: auto;
+  flex-shrink: 0;
+}
+
+.artigo-card.destaque .artigo-card-titulo {
+  font-size: 24px;
+}
+
+.artigo-card.destaque .artigo-card-texto {
+  -webkit-line-clamp: 4; /* Aumenta o clamp do texto para 4 linhas */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ================================================================
+   🎓 CLAMP DE TEXTO (CORTAR EXCESSO COM RETICÊNCIAS)
+   ================================================================
+   Truque sensacional que corta o parágrafo no limite de linhas desejado
+   com reticências automáticas via motor de renderização nativo.
+*/
+.texto-2-linhas {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.texto-3-linhas {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ================================================================
+   PAGINAÇÃO (FLEXBOX CENTRALIZADO)
+================================================================ */
+.paginacao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 60px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.paginacao-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--raio-sm);
+  border: 1.5px solid var(--cor-borda);
+  background-color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+  transition: all var(--transicao);
+}
+
+.paginacao-btn:hover {
+  border-color: var(--cor-acento);
+  color: var(--cor-acento);
+}
+
+.paginacao-btn.ativo {
+  background-color: var(--cor-acento);
+  border-color: var(--cor-acento);
+  color: #fff;
+}

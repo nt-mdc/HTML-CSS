@@ -1,0 +1,186 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - DEVBLOG]
+  ARQUIVO: admin/novo-artigo/novo-artigo.html (Editor de Artigos)
+  ========================================================================
+  Olá, Aluno! Este arquivo demonstra a estrutura de um painel de inserção 
+  de conteúdo (Editor CMS), com campos de digitação ricos, botões de atalho
+  para formatação e área lateral de configurações de capa e status.
+-->
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevBlog — Novo Artigo</title>
+    
+    <!-- Importação de fontes e biblioteca de ícones do Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS LINKINGS (Nota Pedagógica):
+         - Como este arquivo está dentro de duas subpastas (admin/novo-artigo),
+           precisamos subir dois níveis com "../../" para conectar o style.css global da raiz.
+    -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="novo-artigo.css" />
+  </head>
+  <body>
+
+    <!-- CABEÇALHO DO EDITOR -->
+    <header class="cabecalho">
+      <a href="../../index.html" class="logo">Dev<span>Blog</span></a>
+      <nav class="navbar">
+        <a href="../dashboard.html" class="nav-link"><i class="fas fa-arrow-left"></i> Voltar ao painel</a>
+        <a href="../../auth/login/login.html" class="btn-sair">Sair</a>
+      </nav>
+    </header>
+
+    <!-- ÁREA DO EDITOR (Layout dividido em duas colunas assimétricas com Grid Layout)
+         - 70% de espaço para a redação do texto na esquerda.
+         - 30% de espaço para as configurações na direita.
+    -->
+    <div class="editor-pagina">
+
+      <!-- COLUNA PRINCIPAL: Áreas de digitação -->
+      <div class="editor-coluna-principal">
+
+        <!-- CARD 1: Título e Editor Textual -->
+        <div class="editor-card">
+
+          <div class="campo-grupo">
+            <label class="campo-label">Título do artigo</label>
+            <!-- textarea de tamanho expansível ideal para títulos longos de matérias -->
+            <textarea
+              class="input-titulo-artigo"
+              placeholder="Digite um título incrível..."
+              rows="2"
+            ></textarea>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid var(--cor-borda); margin: 16px 0;" />
+
+          <!-- BARRA DE ATALHOS DE FORMATAÇÃO (Simulando ferramentas do Word/Markdown) -->
+          <div class="editor-barra-ferramentas">
+            <button class="editor-btn-ferramenta"><strong>N</strong></button>
+            <button class="editor-btn-ferramenta"><em>I</em></button>
+            <button class="editor-btn-ferramenta"><u>S</u></button>
+            <button class="editor-btn-ferramenta">H1</button>
+            <button class="editor-btn-ferramenta">H2</button>
+            <button class="editor-btn-ferramenta"><i class="fas fa-list-ul"></i> Lista</button>
+            <button class="editor-btn-ferramenta"><i class="fas fa-link"></i> Link</button>
+            <button class="editor-btn-ferramenta"><i class="fas fa-image"></i> Imagem</button>
+          </div>
+
+          <div class="campo-grupo">
+            <!-- Textarea expandido de digitação livre de corpo de artigo -->
+            <textarea
+              class="editor-textarea"
+              placeholder="Escreva o conteúdo do seu artigo aqui..."
+            ></textarea>
+            <!-- CONTADOR DE CARACTERES (Simulação funcional) -->
+            <div class="contador-wrapper">
+              <span class="contador-caracteres">0 / 5000 caracteres</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CARD 2: Resumo Curto -->
+        <div class="editor-card">
+          <h2 class="editor-card-titulo">Resumo do artigo</h2>
+          <div class="campo-grupo">
+            <label class="campo-label">Descrição curta (aparece nos cards públicos da listagem)</label>
+            <textarea
+              class="campo-input"
+              rows="3"
+              placeholder="Um parágrafo curto que resume o artigo..."
+              style="resize: vertical;"
+            ></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUNA LATERAL: Configurações de Publicação e Preview -->
+      <div class="editor-coluna-lateral">
+
+        <!-- CARD 1: Dados de Publicação (Status e Categorias) -->
+        <div class="editor-card">
+          <h2 class="editor-card-titulo">Publicação</h2>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="status">Status</label>
+            <!-- dropdown nativo limpo e acessível para o usuário selecionar o status -->
+            <select class="campo-select" id="status">
+              <option value="rascunho">Rascunho</option>
+              <option value="publicado">Publicado</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo mt-md">
+            <label class="campo-label" for="categoria">Categoria</label>
+            <select class="campo-select" id="categoria">
+              <option>Selecione...</option>
+              <option>HTML</option>
+              <option>CSS</option>
+              <option>JavaScript</option>
+              <option>Carreira</option>
+              <option>Projeto</option>
+              <option>Dicas</option>
+            </select>
+          </div>
+
+          <!-- TAG CHIPS (Etiquetas dinâmicas com botão de exclusão de tag) -->
+          <div class="campo-grupo mt-md">
+            <label class="campo-label">Tags</label>
+            <div class="tags-container">
+              <span class="tag-chip">
+                HTML
+                <button class="tag-chip-remover">×</button>
+              </span>
+              <span class="tag-chip">
+                Iniciante
+                <button class="tag-chip-remover">×</button>
+              </span>
+              <input class="tags-input-fantasma" type="text" placeholder="+ Adicionar tag" />
+            </div>
+          </div>
+
+          <div class="editor-acoes mt-lg">
+            <button class="btn-primario">Publicar artigo <i class="fas fa-paper-plane"></i></button>
+            <button class="btn-secundario">Salvar rascunho</button>
+          </div>
+        </div>
+
+        <!-- CARD 2: Área de Capa (Upload)
+             - Simula uma área interativa de arrastar arquivos com borda pontilhada sutil no CSS.
+        -->
+        <div class="editor-card">
+          <h2 class="editor-card-titulo">Imagem de capa</h2>
+          <div class="upload-capa">
+            <div class="upload-capa-icone"><i class="fas fa-cloud-upload-alt"></i></div>
+            <p class="upload-capa-texto">Clique para escolher uma imagem</p>
+            <p class="upload-capa-sub">PNG, JPG, WEBP · Máx. 2MB</p>
+          </div>
+        </div>
+
+        <!-- CARD 3: Preview em tempo real da Listagem
+             - Simula o formato exato que o card assumirá na listagem pública do artigos.html
+        -->
+        <div class="preview-card">
+          <div class="preview-capa-placeholder">Sem imagem de capa</div>
+          <div class="preview-corpo">
+            <span class="preview-tag-categoria">CSS</span>
+            <h3 class="preview-titulo">Seu título aparecerá aqui</h3>
+            <p class="preview-meta">Publicado em 25 mai. 2026 · por Nathan</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,447 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - DEVBLOG]
+   style.css — CSS GLOBAL E COMPARTILHADO DO PORTAL
+   Este arquivo é linkado em TODAS as páginas do projeto.
+   ================================================================
+   Olá, Aluno! Este é o coração do nosso design system.
+   Contém: variáveis globais, reset de navegadores, botões,
+   campos de formulário, animações de transição e classes utilitárias.
+================================================================ */
+
+
+/* ================================================================
+   1. VARIÁVEIS CSS (Custom Properties)
+   ================================================================
+   O que são: Apelidos reutilizáveis para valores repetitivos.
+   Se precisarmos alterar a cor laranja de destaque, mudamos apenas
+   aqui no ":root" e todo o portal se atualiza de forma mágica!
+*/
+:root {
+  /* Cores Temáticas */
+  --cor-fundo: #fafaf8; /* Creme suave e elegante que não cansa a vista */
+  --cor-escuro: #0f0f0f; /* Preto sofisticado em vez do preto puro (#000) */
+  --cor-texto: #1a1a1a;
+  --cor-texto-suave: #555;
+  --cor-cinza: #888;
+  --cor-borda: #e8e8e4;
+  --cor-acento: #e85d26; /* O laranja de destaque do DevBlog */
+  --cor-acento-claro: #fde8dc;
+  --cor-acento-hover: #cf4e1e;
+  --cor-sucesso: #22c55e;
+  --cor-erro: #ef4444;
+  --cor-aviso: #f59e0b;
+
+  /* Fontes do Sistema */
+  --fonte-titulo: 'Playfair Display', serif;
+  --fonte-corpo: 'DM Sans', sans-serif;
+
+  /* Espaçamentos Padronizados (Facilita a consistência visual) */
+  --espaco-xs: 4px;
+  --espaco-sm: 8px;
+  --espaco-md: 16px;
+  --espaco-lg: 24px;
+  --espaco-xl: 40px;
+  --espaco-2xl: 60px;
+
+  /* Bordas Arredondadas e Sombras Complexas */
+  --raio: 12px;
+  --raio-sm: 8px;
+  --raio-pill: 100px;
+  --sombra-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --sombra-md: 0 4px 24px rgba(0, 0, 0, 0.10);
+  --sombra-lg: 0 12px 48px rgba(0, 0, 0, 0.14);
+
+  /* Transição Suave padrão para efeitos hover */
+  --transicao: 0.25s ease;
+}
+
+
+/* ================================================================
+   2. RESET — Zerando estilos nativos do navegador
+   ================================================================
+   Por que fazemos: Cada navegador (Chrome, Safari, Firefox) traz
+   margens e espaçamentos internos padrão diferentes. Zeramos tudo
+   para garantir que o design apareça idêntico em qualquer tela.
+*/
+* {
+  margin: 0; /* margin -> distância para o vizinho, como a calçada entre duas casas */
+  padding: 0; /* padding -> espaço interno, como o estofado de uma poltrona */
+  box-sizing: border-box; /* Garante que bordas e paddings não aumentem o tamanho total definido da caixa */
+}
+
+html {
+  scroll-behavior: smooth; /* Cria rolagem suave ao clicar em links âncora (#sobre, #contato) */
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none; /* Remove as bolinhas pretas das listas */
+}
+
+a {
+  text-decoration: none; /* Remove o sublinhado azul padrão dos links */
+  color: inherit; /* Herda a cor do elemento pai */
+}
+
+img {
+  max-width: 100%; /* Garante que nenhuma imagem estoure a largura do celular */
+  display: block;
+}
+
+button {
+  cursor: pointer; /* Transforma a seta do mouse na mãozinha de clique */
+  font-family: var(--fonte-corpo);
+}
+
+input,
+textarea,
+select {
+  font-family: var(--fonte-corpo);
+}
+
+
+/* ================================================================
+   3. CABEÇALHO GLOBAL (FLEXBOX DINÂMICO)
+================================================================ */
+.cabecalho {
+  display: flex; /* display: flex -> organiza os filhos em fila, como pessoas numa esteira de supermercado */
+  align-items: center; /* Alinha a logo e links exatamente ao centro vertical */
+  justify-content: space-between; /* Empurra a logo para a esquerda extrema e a barra de navegação para a direita extrema */
+  padding: 20px 60px; /* padding -> espaço interno, como o estofado de uma poltrona */
+  background-color: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky; /* position: sticky -> gruda na tela ao rolar, como um post-it na borda do monitor */
+  top: 0;
+  z-index: 100; /* z-index -> camada de profundidade, como folhas empilhadas numa mesa */
+}
+
+.logo {
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  color: var(--cor-texto);
+  font-weight: 700;
+}
+
+.logo span {
+  color: var(--cor-acento); /* Pinta apenas o "Blog" de laranja */
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 32px; /* Corredor de 32px de segurança */
+}
+
+.nav-lista {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  transition: color var(--transicao);
+}
+
+.nav-link:hover,
+.nav-link.ativo {
+  color: var(--cor-acento);
+}
+
+
+/* ================================================================
+   4. RODAPÉ GLOBAL (ESTILOS COMPARTILHADOS)
+================================================================ */
+.rodape {
+  background-color: var(--cor-escuro);
+  color: var(--cor-cinza);
+  text-align: center;
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.rodape-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  color: var(--cor-fundo);
+}
+
+.rodape-logo span {
+  color: var(--cor-acento);
+}
+
+.rodape-texto {
+  font-size: 13px;
+}
+
+
+/* ================================================================
+   5. BOTÕES COM DESIGN SYSTEM
+================================================================ */
+
+/* Botão Laranja Sólido (Ação Principal) */
+.btn-primario {
+  display: inline-flex; /* display: flex -> organiza os filhos em fila, como pessoas numa esteira de supermercado */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--cor-acento);
+  color: #fff;
+  border: none;
+  padding: 14px 28px; /* padding -> espaço interno, como o estofado de uma poltrona */
+  border-radius: var(--raio-pill); /* border-radius -> arredonda os cantos, como um cartão de crédito */
+  font-size: 15px;
+  font-weight: 500;
+  transition: background-color var(--transicao), transform var(--transicao); /* transition -> movimento suave entre dois estados, como uma porta se abrindo devagar */
+}
+
+.btn-primario:hover {
+  background-color: var(--cor-acento-hover);
+  transform: translateY(-2px); /* Efeito flutuante de subida no clique */
+}
+
+/* Botão Contornado Translúcido (Ação Secundária) */
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--cor-texto);
+  border: 1.5px solid var(--cor-borda);
+  padding: 13px 28px;
+  border-radius: var(--raio-pill);
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color var(--transicao), color var(--transicao), transform var(--transicao);
+}
+
+.btn-secundario:hover {
+  border-color: var(--cor-acento);
+  color: var(--cor-acento);
+  transform: translateY(-2px);
+}
+
+/* Botão de Alerta Vermelho (Deletar Artigos) */
+.btn-perigo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  color: var(--cor-erro);
+  border: 1.5px solid var(--cor-erro);
+  padding: 8px 18px;
+  border-radius: var(--raio-pill);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+.btn-perigo:hover {
+  background-color: var(--cor-erro);
+  color: #fff;
+}
+
+/* Botão de Contorno Arredondado do Header */
+.btn-sair {
+  background-color: transparent;
+  border: 1.5px solid var(--cor-texto);
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: var(--raio-pill);
+  transition: background-color var(--transicao), color var(--transicao);
+}
+
+.btn-sair:hover {
+  background-color: var(--cor-texto);
+  color: var(--cor-fundo);
+}
+
+
+/* ================================================================
+   6. CAMPOS DE ENTRADA DE FORMULÁRIO (INPUTS E BOX MODEL)
+================================================================ */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.3px;
+}
+
+.campo-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  font-size: 15px;
+  color: var(--cor-texto);
+  background-color: #fff;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+  outline: none; /* Remove a borda azul grossa padrão de navegadores */
+}
+
+/* Glow Estilizado de Foco */
+.campo-input:focus {
+  border-color: var(--cor-acento);
+  box-shadow: 0 0 0 3px rgba(232, 93, 38, 0.12);
+}
+
+.campo-input::placeholder {
+  color: #bbb;
+}
+
+.campo-input.erro {
+  border-color: var(--cor-erro);
+}
+
+.campo-mensagem-erro {
+  font-size: 12px;
+  color: var(--cor-erro);
+}
+
+
+/* ================================================================
+   7. BADGES / TAGS UTILITÁRIAS
+================================================================ */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--raio-pill);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badge-laranja {
+  background-color: var(--cor-acento-claro);
+  color: var(--cor-acento);
+}
+
+.badge-verde {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.badge-cinza {
+  background-color: #f1f1ef;
+  color: var(--cor-cinza);
+}
+
+.badge-azul {
+  background-color: #dbeafe;
+  color: #2563eb;
+}
+
+
+/* ================================================================
+   8. ANIMAÇÕES DE TRANSIÇÃO (KEYFRAMES)
+   ================================================================
+   O que são: Linhas de tempo de movimento. Dizem para o navegador
+   como realizar uma coreografia na tela de 0% do tempo a 100%.
+*/
+
+/* Coreografia de Fade In simples */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Coreografia de subida fluida de baixo para cima com fade in (Efeito Cortina) */
+@keyframes subirFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px); /* Começa 24px deslocado para baixo */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Finaliza no local original */
+  }
+}
+
+/* Coreografia de Zoom de escala para cards */
+@keyframes escalarEntrar {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Coreografia cíclica de pulsação suave */
+@keyframes pulsar {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+
+/* Classes utilitárias prontas para aplicar em tags do HTML */
+.animar-fade {
+  animation: fadeIn 0.5s ease both;
+}
+
+.animar-subir {
+  animation: subirFadeIn 0.5s ease both;
+}
+
+.animar-escalar {
+  animation: escalarEntrar 0.4s ease both;
+}
+
+/* Atrasos (Delays) em cascata para animar cards em sequência (Efeito dominó) */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+
+/* ================================================================
+   9. DIVISOR DECORATIVO CONCEITUAL (::before e ::after)
+   ================================================================
+   O que faz: cria um divisor visual decorativo puro em CSS, 
+   sem a necessidade de inflar o arquivo HTML dos alunos.
+*/
+.divisor {
+  position: relative;
+  text-align: center;
+  margin: var(--espaco-lg) 0;
+}
+
+.divisor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--cor-borda);
+}
+
+.divisor span {
+  position: relative;
+  background-color: var(--cor-fundo);
+  padding: 0 12px;
+  font-size: 13px;
+  color: var(--cor-cinza);
+}

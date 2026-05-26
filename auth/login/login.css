@@ -1,0 +1,197 @@
+/* ================================================================
+   login.css — CSS ESPECÍFICO DA PÁGINA DE LOGIN
+   Linka junto com style.css no <head> do login.html
+================================================================ */
+
+
+/* ================================================================
+   LAYOUT — Tela dividida em dois painéis
+================================================================ */
+.login-pagina {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+
+/* ================================================================
+   PAINEL ESQUERDO — Decorativo (fundo escuro com logo)
+================================================================ */
+.login-painel-esquerdo {
+  background-color: var(--cor-escuro);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  color: var(--cor-fundo);
+}
+
+.login-painel-esquerdo .logo {
+  color: var(--cor-fundo);
+}
+
+.login-frase {
+  font-family: var(--fonte-titulo);
+  font-size: 48px;
+  line-height: 1.2;
+  color: var(--cor-fundo);
+}
+
+.login-frase span {
+  color: var(--cor-acento);
+}
+
+.login-rodape-painel {
+  font-size: 13px;
+  color: #555;
+}
+
+
+/* ================================================================
+   🎓 AVANÇADO — GRADE DE PONTOS DECORATIVA (::before + background)
+   Ainda não vimos isso em aula!
+
+   O que faz: cria um padrão de pontos no fundo do painel esquerdo
+   sem precisar de nenhuma imagem ou elemento extra no HTML.
+
+   Como usar: aplique .fundo-pontos em qualquer container escuro
+   onde você queira adicionar textura de fundo — ex: .banner, .rodape
+================================================================ */
+.fundo-pontos {
+  position: relative;
+  overflow: hidden;
+}
+
+.fundo-pontos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+
+/* ================================================================
+   🎓 AVANÇADO — LINHA DECORATIVA COM GRADIENTE
+   Ainda não vimos isso em aula!
+
+   O que faz: cria uma linha laranja que vai de sólida a transparente.
+   É um detalhe pequeno, mas deixa o design muito mais refinado.
+
+   Como usar: coloque a classe .linha-acento em um <div> vazio
+   em qualquer cabeçalho de seção.
+================================================================ */
+.linha-acento {
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(to right, var(--cor-acento), transparent);
+  border-radius: 4px;
+  margin-bottom: var(--espaco-md);
+}
+
+
+/* ================================================================
+   PAINEL DIREITO — Formulário de login
+================================================================ */
+.login-painel-direito {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  background-color: var(--cor-fundo);
+}
+
+.login-form-card {
+  width: 100%;
+  max-width: 400px;
+  animation: subirFadeIn 0.5s ease both;
+}
+
+.login-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 34px;
+  margin-bottom: var(--espaco-sm);
+}
+
+.login-subtitulo {
+  font-size: 15px;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-xl);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+.login-esqueceu {
+  font-size: 13px;
+  color: var(--cor-acento);
+  text-align: right;
+  display: block;
+  margin-top: -8px;
+  transition: opacity var(--transicao);
+}
+
+.login-esqueceu:hover {
+  opacity: 0.75;
+}
+
+.login-btn-submit {
+  width: 100%;
+  margin-top: var(--espaco-sm);
+  padding: 15px;
+  font-size: 15px;
+}
+
+.login-cadastro-link {
+  text-align: center;
+  margin-top: var(--espaco-lg);
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+}
+
+.login-cadastro-link a {
+  color: var(--cor-acento);
+  font-weight: 500;
+  transition: opacity var(--transicao);
+}
+
+.login-cadastro-link a:hover {
+  opacity: 0.75;
+}
+
+
+/* ================================================================
+   🎓 AVANÇADO — EFEITO DE BRILHO NO CARD AO PASSAR O MOUSE
+   Ainda não vimos isso em aula!
+
+   O que faz: quando o mouse passa sobre o card do formulário,
+   um brilho sutil aparece no canto superior esquerdo.
+
+   Como usar: aplique .card-brilho em qualquer .artigo ou
+   .card-stat para dar mais profundidade ao hover.
+================================================================ */
+.card-brilho {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-brilho::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top left, rgba(232,93,38,0.06), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card-brilho:hover::after {
+  opacity: 1;
+}

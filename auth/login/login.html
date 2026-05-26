@@ -1,0 +1,112 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - DEVBLOG]
+  ARQUIVO: auth/login/login.html (Página de Login)
+  ========================================================================
+  Olá, Aluno! Este arquivo demonstra a estrutura de uma tela de login
+  profissional dividida em dois blocos verticais (painéis).
+-->
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevBlog — Login</title>
+    
+    <!-- Importação de fontes e biblioteca de ícones do Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS LINKINGS (Nota Pedagógica):
+         - Como este arquivo está dentro de duas subpastas (auth/login),
+           precisamos subir dois níveis com "../../" para conectar o style.css global da raiz.
+    -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+
+    <!-- A classe "login-pagina" ativa um grid de 2 colunas perfeitamente iguais no computador -->
+    <div class="login-pagina">
+
+      <!-- PAINEL ESQUERDO — Decorativo e Conceitual 
+           - A classe "fundo-pontos" insere uma malha de pontinhos no fundo puramente com CSS.
+      -->
+      <div class="login-painel-esquerdo fundo-pontos">
+        <a href="../../index.html" class="logo">Dev<span>Blog</span></a>
+
+        <div>
+          <!-- A classe "linha-acento" desenha uma linha com gradiente laranja sutil -->
+          <div class="linha-acento"></div>
+          <h2 class="login-frase">
+            Escreva.<br>
+            Publique.<br>
+            <span>Inspire.</span>
+          </h2>
+        </div>
+
+        <p class="login-rodape-painel">
+          Plataforma de blog para desenvolvedores · 2026
+        </p>
+      </div>
+
+      <!-- PAINEL DIREITO — Área ativa do formulário 
+           - Usamos Flexbox para centralizar a caixinha do formulário perfeitamente ao meio.
+      -->
+      <div class="login-painel-direito">
+        <!-- A classe "card-brilho" ativa um reflexo radial translúcido moderno ao passar o mouse -->
+        <div class="login-form-card card-brilho">
+
+          <h1 class="login-titulo">Bem-vindo de volta</h1>
+          <p class="login-subtitulo">Entre com sua conta para continuar</p>
+
+          <!-- A tag <form> representa o formulário físico que envia os dados informados -->
+          <form class="login-form" action="#">
+
+            <!-- Cada bloco de campo é envolvido por "campo-grupo" para empilhamento vertical do Label e Input -->
+            <div class="campo-grupo">
+              <!-- O atributo "for" conecta a etiqueta visual diretamente ao ID do input para acessibilidade -->
+              <label class="campo-label" for="email">E-mail</label>
+              <input
+                class="campo-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seu@email.com"
+                required
+              />
+            </div>
+
+            <div class="campo-grupo">
+              <label class="campo-label" for="senha">Senha</label>
+              <input
+                class="campo-input"
+                type="password"
+                id="senha"
+                name="senha"
+                placeholder="••••••••"
+                required
+              />
+              <a href="#" class="login-esqueceu">Esqueceu a senha?</a>
+            </div>
+
+            <!-- Botão de Login com ícone interno de entrar -->
+            <button class="btn-primario login-btn-submit" type="submit">
+              Entrar na conta <i class="fas fa-sign-in-alt"></i>
+            </button>
+
+          </form>
+
+          <p class="login-cadastro-link">
+            Ainda não tem conta? <a href="../cadastro/cadastro.html">Criar conta grátis</a>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

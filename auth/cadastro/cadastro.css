@@ -1,0 +1,253 @@
+/* ================================================================
+   cadastro.css — CSS ESPECÍFICO DA PÁGINA DE CADASTRO
+   Linka junto com style.css no <head> do cadastro.html
+================================================================ */
+
+
+/* ================================================================
+   LAYOUT — Centralizado com painel de fundo escuro no topo
+================================================================ */
+.cadastro-pagina {
+  min-height: 100vh;
+  background-color: var(--cor-fundo);
+  display: flex;
+  flex-direction: column;
+}
+
+.cadastro-topo {
+  background-color: var(--cor-escuro);
+  padding: 32px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cadastro-topo .logo {
+  color: var(--cor-fundo);
+}
+
+.cadastro-topo-link {
+  font-size: 14px;
+  color: var(--cor-cinza);
+  transition: color var(--transicao);
+}
+
+.cadastro-topo-link:hover {
+  color: var(--cor-acento);
+}
+
+.cadastro-corpo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.cadastro-form-card {
+  width: 100%;
+  max-width: 520px;
+  background-color: #fff;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 48px;
+  box-shadow: var(--sombra-md);
+  animation: subirFadeIn 0.5s ease both;
+}
+
+.cadastro-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 30px;
+  margin-bottom: var(--espaco-sm);
+}
+
+.cadastro-subtitulo {
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+  margin-bottom: var(--espaco-xl);
+}
+
+
+/* ================================================================
+   GRID DE CAMPOS — Dois campos lado a lado (nome + sobrenome)
+================================================================ */
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+.campos-duplos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espaco-md);
+}
+
+
+/* ================================================================
+   🎓 AVANÇADO — BARRA DE FORÇA DA SENHA
+   Ainda não vimos isso em aula!
+
+   O que faz: uma barrinha colorida embaixo do campo de senha
+   que muda de cor conforme a senha fica mais forte.
+   Aqui só o CSS — a lógica de "mudar de cor" usaria JavaScript.
+
+   Como usar: coloque .barra-senha embaixo do input de senha.
+   Para ativar as cores, adicione as classes .fraca / .media / .forte
+   via JavaScript quando o usuário digitar.
+================================================================ */
+.barra-senha-container {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.barra-senha-segmento {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--cor-borda);
+  transition: background-color 0.3s ease;
+}
+
+/* Quando JS adicionar a classe .fraca no container: */
+.barra-senha-container.fraca .barra-senha-segmento:nth-child(1) {
+  background-color: var(--cor-erro);
+}
+
+/* Quando JS adicionar a classe .media no container: */
+.barra-senha-container.media .barra-senha-segmento:nth-child(1),
+.barra-senha-container.media .barra-senha-segmento:nth-child(2) {
+  background-color: var(--cor-aviso);
+}
+
+/* Quando JS adicionar a classe .forte no container: */
+.barra-senha-container.forte .barra-senha-segmento {
+  background-color: var(--cor-sucesso);
+}
+
+
+/* ================================================================
+   TERMOS E SUBMIT
+================================================================ */
+.cadastro-termos {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--cor-texto-suave);
+  margin-top: var(--espaco-sm);
+}
+
+.cadastro-termos input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: var(--cor-acento);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.cadastro-termos a {
+  color: var(--cor-acento);
+  transition: opacity var(--transicao);
+}
+
+.cadastro-termos a:hover {
+  opacity: 0.75;
+}
+
+.cadastro-btn-submit {
+  width: 100%;
+  padding: 15px;
+  font-size: 15px;
+  margin-top: var(--espaco-sm);
+}
+
+.cadastro-login-link {
+  text-align: center;
+  margin-top: var(--espaco-lg);
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+}
+
+.cadastro-login-link a {
+  color: var(--cor-acento);
+  font-weight: 500;
+}
+
+
+/* ================================================================
+   🎓 AVANÇADO — INDICADOR DE PASSO (stepper visual)
+   Ainda não vimos isso em aula!
+
+   O que faz: mostra em qual etapa do cadastro o usuário está.
+   A linha conectando os passos usa ::before com position absolute.
+
+   Como usar: coloque .stepper acima do .cadastro-form-card
+   em formulários de múltiplos passos (ex: checkout, onboarding).
+   JS adicionaria a classe .ativo no passo atual.
+================================================================ */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: var(--espaco-xl);
+}
+
+.stepper-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.stepper-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 100px;
+  height: 1px;
+  background-color: var(--cor-borda);
+}
+
+.stepper-circulo {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--cor-borda);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--cor-cinza);
+  background-color: #fff;
+  transition: all var(--transicao);
+  z-index: 1;
+}
+
+.stepper-label {
+  font-size: 11px;
+  color: var(--cor-cinza);
+  white-space: nowrap;
+}
+
+.stepper-item.ativo .stepper-circulo {
+  border-color: var(--cor-acento);
+  background-color: var(--cor-acento);
+  color: #fff;
+}
+
+.stepper-item.ativo .stepper-label {
+  color: var(--cor-acento);
+  font-weight: 500;
+}
+
+.stepper-item.completo .stepper-circulo {
+  border-color: var(--cor-sucesso);
+  background-color: var(--cor-sucesso);
+  color: #fff;
+}

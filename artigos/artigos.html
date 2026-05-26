@@ -1,0 +1,239 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - DEVBLOG]
+  ARQUIVO: artigos/artigos.html (Página de listagem pública de artigos)
+  ========================================================================
+  Olá, Aluno! Este arquivo constrói a nossa "mesa de revistas",
+  exibindo a listagem completa de artigos com suporte a buscas e filtros.
+-->
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevBlog — Artigos</title>
+    
+    <!-- Importação de Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    
+    <!-- Importação da biblioteca Font Awesome para ícones consistentes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS LINKINGS (Nota Pedagógica):
+         - Como esta página está DENTRO da pasta "artigos", para acessar o "style.css" que está
+           na pasta raiz, precisamos usar "../" para subir um nível de pasta.
+    -->
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="artigos.css" />
+  </head>
+  <body>
+
+    <!-- CABEÇALHO COMPARTILHADO
+         - Note os caminhos corrigidos com "../" para conseguir ir para a Home ou Dashboard.
+    -->
+    <header class="cabecalho">
+      <a href="../index.html" class="logo">Dev<span>Blog</span></a>
+      <nav class="navbar">
+        <ul class="nav-lista">
+          <li><a href="../index.html" class="nav-link">Início</a></li>
+          <!-- A classe "ativo" pinta permanentemente o link "Artigos" para dar orientação espacial -->
+          <li><a href="artigos.html" class="nav-link ativo">Artigos</a></li>
+          <li><a href="../index.html#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="../index.html#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <a href="../admin/dashboard.html" class="btn-sair">Painel Admin</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- BANNER HERO DA SEÇÃO
+           - Uma caixa escura imponente contendo uma marca d'água enorme ao fundo (24).
+      -->
+      <section class="artigos-banner">
+        <span class="artigos-banner-tag"><i class="fas fa-sparkles"></i> Todos os artigos</span>
+        <h1 class="artigos-banner-titulo">Conteúdo para<br>devs que evoluem</h1>
+        <p class="artigos-banner-sub">
+          HTML, CSS, JavaScript e muito mais — escrito por quem
+          está na prática, para quem está começando.
+        </p>
+        <!-- A classe "banner-numero-fundo" renderiza o número 24 de forma quase invisível atrás do texto -->
+        <div class="banner-numero-fundo">24</div>
+      </section>
+
+      <!-- BARRA DE BUSCA E FILTROS RÁPIDOS
+           - Exemplo prático de posicionamento relativo e absoluto para colocar a lupa do Font Awesome dentro do input.
+      -->
+      <div class="artigos-controles">
+        <div class="busca-container">
+          <span class="busca-icone"><i class="fas fa-search"></i></span>
+          <input class="busca-input" type="text" placeholder="Buscar artigos..." />
+        </div>
+
+        <div class="filtros-lista">
+          <!-- A classe "ativo" pinta o filtro de laranja para mostrar qual categoria está ativa -->
+          <button class="filtro-btn ativo">Todos</button>
+          <button class="filtro-btn">HTML</button>
+          <button class="filtro-btn">CSS</button>
+          <button class="filtro-btn">JavaScript</button>
+          <button class="filtro-btn">Carreira</button>
+          <button class="filtro-btn">Projeto</button>
+          <button class="filtro-btn">Dicas</button>
+        </div>
+      </div>
+
+      <!-- GRADE DE ARTIGOS (GRID LAYOUT) -->
+      <section class="artigos-grid-container">
+        <p class="artigos-grid-titulo">24 artigos publicados</p>
+
+        <div class="artigos-grid">
+
+          <!-- ARTIGO DESTAQUE (Ocupa espaço duplo: 2 colunas da nossa grade de 3 colunas)
+               - A classe "destaque" no artigos.css altera o flex-direction para deitar o card na horizontal.
+               - As classes "animar-subir" e "delay-1" fazem o card subir suavemente com atraso escalonado.
+          -->
+          <article class="artigo-card destaque animar-subir delay-1">
+            <div class="artigo-card-imagem">
+              <!-- Placeholder escuro com gradiente caso não haja imagem de capa cadastrada -->
+              <div class="artigo-card-imagem-placeholder">HTML</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-laranja"><i class="fab fa-html5"></i> HTML</span>
+              <h2 class="artigo-card-titulo">O que é o HTML e por que ele é a base de tudo na web?</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                HTML é a linguagem de marcação que estrutura todo o conteúdo de uma página web.
+                Sem ele, não existiria texto, imagem, link, vídeo ou qualquer outro elemento
+                que você vê no navegador. Entender HTML é o primeiro passo para qualquer desenvolvedor.
+              </p>
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 25 mai. 2026 · <i class="far fa-clock"></i> 4 min</span>
+                <a href="#" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTIGO NORMAL (CSS) -->
+          <article class="artigo-card animar-subir delay-2">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">CSS</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-azul"><i class="fab fa-css3-alt"></i> CSS</span>
+              <h2 class="artigo-card-titulo">CSS: dando vida e estilo ao seu site</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                Enquanto o HTML organiza o conteúdo, o CSS cuida da aparência.
+                Cores, fontes, espaçamentos e animações — tudo controlado por CSS.
+              </p>
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 20 mai. 2026 · <i class="far fa-clock"></i> 5 min</span>
+                <a href="#" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTIGO NORMAL (JavaScript) -->
+          <article class="artigo-card animar-subir delay-3">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">JS</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-laranja" style="background-color: #fef3c7; color: #d97706;"><i class="fab fa-js"></i> JavaScript</span>
+              <h2 class="artigo-card-titulo">JavaScript: tornando páginas interativas</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                O JS é a linguagem que faz botões funcionarem, formulários validarem
+                e páginas reagirem ao usuário em tempo real.
+              </p>
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 15 mai. 2026 · <i class="far fa-clock"></i> 6 min</span>
+                <a href="#" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTIGO NORMAL (Carreira - Ícone do Font Awesome em vez de emoji) -->
+          <article class="artigo-card animar-subir delay-4">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">
+                <i class="fas fa-briefcase" style="font-size: 48px; color: rgba(255,255,255,0.08);"></i>
+              </div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-verde"><i class="fas fa-briefcase"></i> Carreira</span>
+              <h2 class="artigo-card-titulo">Por onde começar na programação web?</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                Com tantas tecnologias disponíveis, é fácil se perder. Veja um roteiro
+                simples para quem quer entrar na área de desenvolvimento.
+              </p>
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 10 mai. 2026 · <i class="far fa-clock"></i> 7 min</span>
+                <a href="#" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTIGO NORMAL (Dicas - Ícone do Font Awesome) -->
+          <article class="artigo-card animar-subir delay-5">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">
+                <i class="fas fa-lightbulb" style="font-size: 48px; color: rgba(255,255,255,0.08);"></i>
+              </div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-cinza"><i class="fas fa-lightbulb"></i> Dicas</span>
+              <h2 class="artigo-card-titulo">Como organizar seu código desde o início</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                Boas práticas de organização economizam horas de trabalho no futuro.
+                Aprenda a nomear classes e separar arquivos.
+              </p>
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 05 mai. 2026 · <i class="far fa-clock"></i> 4 min</span>
+                <a href="#" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ARTIGO NORMAL (Projeto - Ícone do Font Awesome) -->
+          <article class="artigo-card animar-subir delay-6">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">
+                <i class="fas fa-rocket" style="font-size: 48px; color: rgba(255,255,255,0.08);"></i>
+              </div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-laranja"><i class="fas fa-rocket"></i> Projeto</span>
+              <h2 class="artigo-card-titulo">Monte seu primeiro portfólio do zero</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                Um portfólio simples já é suficiente para impressionar recrutadores.
+                Veja o passo a passo para criar o seu com HTML e CSS.
+              </p>
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 01 mai. 2026 · <i class="far fa-clock"></i> 8 min</span>
+                <a href="#" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- PAGINAÇÃO (FLEXBOX CENTRALIZADO) -->
+      <div class="paginacao">
+        <button class="paginacao-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="paginacao-btn ativo">1</button>
+        <button class="paginacao-btn">2</button>
+        <button class="paginacao-btn">3</button>
+        <button class="paginacao-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+    </main>
+
+    <!-- RODAPÉ COMPARTILHADO -->
+    <footer class="rodape">
+      <p class="rodape-logo">Dev<span>Blog</span></p>
+      <p class="rodape-texto">© 2026 · Feito com <i class="fas fa-heart" style="color: var(--cor-acento);"></i> por Devs · Todos os direitos reservados</p>
+    </footer>
+
+  </body>
+</html>
