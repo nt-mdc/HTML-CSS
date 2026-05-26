@@ -11,17 +11,20 @@
 
 <head>
     <meta charset="UTF-8" /> <!-- Codificação de caracteres universal (suporta acentos e caracteres especiais). -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Garante o redimensionamento fluído em celulares. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante o redimensionamento fluído em celulares. -->
     <title>DevBlog — Ideias que inspiram desenvolvedores</title>
 
     <!-- Fontes externas do Google Fonts (Playfair Display para títulos elegantes e DM Sans para leitura agradável). -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+
     <!-- Biblioteca de Ícones do Font Awesome 6.4.0 (usado em botões, tags e menus em vez de emojis genéricos). -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    
+
     <!-- IMPORTAÇÃO DE ESTILOS CSS:
          - style.css: Folha global (traz o reset de margens, variáveis do sistema de cores e estilos repetitivos).
          - index.css: Roupagem exclusiva desta página inicial (responsável pelo layout da Hero, cards e efeitos).
@@ -37,21 +40,21 @@
          - A classe "cabecalho" alinha os itens usando Flexbox (uma linha flexível).
     -->
     <header class="cabecalho">
-      <!-- O logotipo do blog. A tag <span> permite destacar a palavra "Blog" com a cor laranja. -->
-      <a href="index.html" class="logo">Dev<span>Blog</span></a>
+        <!-- O logotipo do blog. A tag <span> permite destacar a palavra "Blog" com a cor laranja. -->
+        <a href="index.html" class="logo">Dev<span>Blog</span></a>
 
-      <!-- A tag <nav> indica que este bloco abriga a barra de navegação principal. -->
-      <nav class="navbar">
-        <ul class="nav-lista">
-          <!-- A classe "ativo" dá um destaque laranja fixo para sinalizar em qual tela estamos. -->
-          <li><a href="index.html" class="nav-link ativo">Início</a></li>
-          <li><a href="artigos/artigos.html" class="nav-link">Artigos</a></li>
-          <li><a href="#sobre" class="nav-link">Sobre</a></li>
-          <li><a href="#contato" class="nav-link">Contato</a></li>
-        </ul>
-        <!-- Botão contornado e com bordas arredondadas (estilo "Pill") que simula o botão de Login. -->
-        <a href="auth/login/login.html" class="btn-sair">Login</a>
-      </nav>
+        <!-- A tag <nav> indica que este bloco abriga a barra de navegação principal. -->
+        <nav class="navbar">
+            <ul class="nav-lista">
+                <!-- A classe "ativo" dá um destaque laranja fixo para sinalizar em qual tela estamos. -->
+                <li><a href="index.html" class="nav-link ativo">Início</a></li>
+                <li><a href="artigos/artigos.html" class="nav-link">Artigos</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <!-- Botão contornado e com bordas arredondadas (estilo "Pill") que simula o botão de Login. -->
+            <a href="auth/login/login.html" class="btn-sair">Login</a>
+        </nav>
     </header>
 
     <!-- CONTEÚDO PRINCIPAL (Abriga todas as seções exclusivas desta página) -->
@@ -67,15 +70,18 @@
                 <!-- A tag decorativa estilizada com fundo laranja pastel e texto laranja vivo -->
                 <span class="hero-tag"><i class="fas fa-sparkles"></i> Conectando Mentes Dev</span>
                 <h1 class="hero-titulo">Onde o código e a criatividade se encontram.</h1>
-                <p class="hero-subtitulo">Explore tutoriais práticos, dicas de carreira e novidades sobre o mundo do desenvolvimento web de forma simples e direta.</p>
-                
+                <p class="hero-subtitulo">Explore tutoriais práticos, dicas de carreira e novidades sobre o mundo do
+                    desenvolvimento web de forma simples e direta.</p>
+
                 <!-- Grupo de botões com ícones do Font Awesome. Ótimo padrão de usabilidade e design comercial. -->
                 <div class="hero-botoes">
-                    <a href="artigos/artigos.html" class="btn-primario"><i class="fas fa-rocket"></i> Explorar Artigos</a>
-                    <a href="auth/cadastro/cadastro.html" class="btn-secundario"><i class="fas fa-user-plus"></i> Criar Conta Grátis</a>
+                    <a href="artigos/artigos.html" class="btn-primario"><i class="fas fa-rocket"></i> Explorar
+                        Artigos</a>
+                    <a href="auth/cadastro/cadastro.html" class="btn-secundario"><i class="fas fa-user-plus"></i> Criar
+                        Conta Grátis</a>
                 </div>
             </div>
-            
+
             <!-- Grafismo interativo que simula uma tela do editor VS Code pura em CSS -->
             <div class="hero-imagem animar-escalar delay-2">
                 <!-- A classe "code-card" rotaciona levemente a caixa em 3D usando propriedades do CSS. -->
@@ -88,18 +94,19 @@
                         <span class="code-title">DevBlog.js</span>
                     </div>
                     <!-- A tag <pre> mantém o espaçamento original do código e <code> exibe código técnico. -->
-                    <pre class="code-body"><code><span class="keyword">const</span> <span class="variable">dev</span> = {
-    <span class="property">name</span>: <span class="string">'Você'</span>,
-    <span class="property">status</span>: <span class="string">'Em Constante Evolução'</span>,
-    <span class="property">skills</span>: [<span class="string">'HTML'</span>, <span class="string">'CSS'</span>, <span class="string">'JavaScript'</span>],
-    <span class="property">passion</span>: <span class="string">'Criar o Futuro da Web'</span>
+                    <pre
+                        class="code-body"><code><span class="keyword">const</span> <span class="variable">desenvolvedor</span> = {
+    <span class="property">nome</span>: <span class="string">'Nathan'</span>,
+    <span class="property">cargo</span>: <span class="string">'Desenvolvedor Frontend'</span>,
+    <span class="property">tecnologias</span>: [<span class="string">'HTML5'</span>, <span class="string">'CSS3'</span>, <span class="string">'JavaScript'</span>],
+    <span class="property">missao</span>: <span class="string">'Ensinar a criar experiências na web!'</span>
 };
 
-<span class="keyword">function</span> <span class="function">update</span>(<span class="variable">profile</span>) {
-    <span class="keyword">return</span> <span class="string">`🚀 ${profile.name} está decolando!`</span>;
+<span class="keyword">function</span> <span class="function">iniciarProgramacao</span>(<span class="variable">dev</span>) {
+    <span class="keyword">return</span> <span class="string">`${dev.nome} está construindo o futuro!`</span>;
 }
 
-<span class="console">console</span>.<span class="method">log</span>(<span class="function">update</span>(<span class="variable">dev</span>));</code></pre>
+<span class="console">console</span>.<span class="method">log</span>(<span class="function">iniciarProgramacao</span>(<span class="variable">desenvolvedor</span>));</code></pre>
                 </div>
             </div>
         </section>
@@ -114,37 +121,41 @@
                 <h2 class="secao-titulo">Explore por Tecnologia</h2>
                 <p class="secao-subtitulo">Escolha um assunto e aprofunde seus conhecimentos hoje mesmo.</p>
             </div>
-            
+
             <div class="categorias-grid">
                 <!-- Card de HTML5: repare a borda temática inferior laranja no CSS -->
                 <a href="artigos/artigos.html" class="categoria-card html animar-subir delay-1">
                     <div class="categoria-icone"><i class="fab fa-html5"></i></div>
                     <h3>HTML5</h3>
-                    <p>A estrutura de tudo na web. Domine marcação semântica, melhores práticas de acessibilidade e otimização para motores de busca (SEO).</p>
+                    <p>A estrutura de tudo na web. Domine marcação semântica, melhores práticas de acessibilidade e
+                        otimização para motores de busca (SEO).</p>
                     <span class="categoria-link-texto">Ver artigos <i class="fas fa-arrow-right"></i></span>
                 </a>
-                
+
                 <!-- Card de CSS3: borda azul em artigos.css -->
                 <a href="artigos/artigos.html" class="categoria-card css animar-subir delay-2">
                     <div class="categoria-icone"><i class="fab fa-css3-alt"></i></div>
                     <h3>CSS3</h3>
-                    <p>Dando vida e personalidade. Domine layouts modernos (Flexbox/Grid), transições de alto desempenho e design focado no mobile.</p>
+                    <p>Dando vida e personalidade. Domine layouts modernos (Flexbox/Grid), transições de alto desempenho
+                        e design focado no mobile.</p>
                     <span class="categoria-link-texto">Ver artigos <i class="fas fa-arrow-right"></i></span>
                 </a>
-                
+
                 <!-- Card de JavaScript: borda amarela escura -->
                 <a href="artigos/artigos.html" class="categoria-card js animar-subir delay-3">
                     <div class="categoria-icone"><i class="fab fa-js"></i></div>
                     <h3>JavaScript</h3>
-                    <p>O cérebro da interatividade. Entenda conceitos essenciais do JS moderno, assincronismo, manipulação dinâmica e consumo de APIs.</p>
+                    <p>O cérebro da interatividade. Entenda conceitos essenciais do JS moderno, assincronismo,
+                        manipulação dinâmica e consumo de APIs.</p>
                     <span class="categoria-link-texto">Ver artigos <i class="fas fa-arrow-right"></i></span>
                 </a>
-                
+
                 <!-- Card de Carreira: borda verde -->
                 <a href="artigos/artigos.html" class="categoria-card carreira animar-subir delay-4">
                     <div class="categoria-icone"><i class="fas fa-briefcase"></i></div>
                     <h3>Carreira & Dicas</h3>
-                    <p>Planeje seu futuro profissional. Conselhos práticos sobre organização de estudos, criação de portfólio e conquistas de vagas.</p>
+                    <p>Planeje seu futuro profissional. Conselhos práticos sobre organização de estudos, criação de
+                        portfólio e conquistas de vagas.</p>
                     <span class="categoria-link-texto">Ver artigos <i class="fas fa-arrow-right"></i></span>
                 </a>
             </div>
@@ -160,7 +171,7 @@
                 <h2 class="secao-titulo">Leituras Essenciais</h2>
                 <p class="secao-subtitulo">Nossa curadoria dos artigos mais lidos e comentados da comunidade.</p>
             </div>
-            
+
             <div class="destaques-grid">
                 <!-- Card do Artigo Destaque Principal -->
                 <article class="artigo-card destaque animar-subir delay-1">
@@ -172,15 +183,19 @@
                         <h3 class="artigo-card-titulo">O que é o HTML e por que ele é a base de tudo na web?</h3>
                         <!-- A classe "texto-3-linhas" limita o parágrafo a 3 linhas com reticências -->
                         <p class="artigo-card-texto texto-3-linhas">
-                            HTML é a linguagem de marcação que estrutura todo o conteúdo de uma página web. Sem ele, não existiria texto, imagem, link, vídeo ou qualquer outro elemento que você vê no navegador. Entender HTML é o primeiro passo absoluto para qualquer desenvolvedor.
+                            HTML é a linguagem de marcação que estrutura todo o conteúdo de uma página web. Sem ele, não
+                            existiria texto, imagem, link, vídeo ou qualquer outro elemento que você vê no navegador.
+                            Entender HTML é o primeiro passo absoluto para qualquer desenvolvedor.
                         </p>
                         <div class="artigo-card-rodape">
-                            <span class="artigo-card-meta"><i class="far fa-calendar"></i> 25 mai. 2026 · <i class="far fa-clock"></i> 4 min</span>
-                            <a href="artigos/artigos.html" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+                            <span class="artigo-card-meta"><i class="far fa-calendar"></i> 25 mai. 2026 · <i
+                                    class="far fa-clock"></i> 4 min</span>
+                            <a href="artigos/artigos.html" class="artigo-card-link">Ler artigo <i
+                                    class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </article>
-                
+
                 <!-- Coluna de Artigos Secundários à Direita -->
                 <div class="artigos-coluna-destaques">
                     <article class="artigo-card animar-subir delay-2">
@@ -188,25 +203,32 @@
                             <span class="badge badge-azul"><i class="fab fa-css3-alt"></i> CSS</span>
                             <h3 class="artigo-card-titulo">CSS: dando vida e estilo ao seu site</h3>
                             <p class="artigo-card-texto texto-2-linhas">
-                                Entenda como estilizar elementos com seletores complexos, layouts baseados em Flexbox/Grid e manter tudo altamente fluido.
+                                Entenda como estilizar elementos com seletores complexos, layouts baseados em
+                                Flexbox/Grid e manter tudo altamente fluido.
                             </p>
                             <div class="artigo-card-rodape">
-                                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 20 mai. 2026 · <i class="far fa-clock"></i> 5 min</span>
-                                <a href="artigos/artigos.html" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+                                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 20 mai. 2026 · <i
+                                        class="far fa-clock"></i> 5 min</span>
+                                <a href="artigos/artigos.html" class="artigo-card-link">Ler artigo <i
+                                        class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
-                    
+
                     <article class="artigo-card animar-subir delay-3">
                         <div class="artigo-card-corpo">
-                            <span class="badge badge-laranja" style="background-color: #fef3c7; color: #d97706;"><i class="fab fa-js"></i> JavaScript</span>
+                            <span class="badge badge-laranja" style="background-color: #fef3c7; color: #d97706;"><i
+                                    class="fab fa-js"></i> JavaScript</span>
                             <h3 class="artigo-card-titulo">JavaScript: tornando páginas interativas</h3>
                             <p class="artigo-card-texto texto-2-linhas">
-                                Conecte ações aos botões, interaja com formulários e faça manipulação do DOM sem esforço com JavaScript puro.
+                                Conecte ações aos botões, interaja com formulários e faça manipulação do DOM sem esforço
+                                com JavaScript puro.
                             </p>
                             <div class="artigo-card-rodape">
-                                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 15 mai. 2026 · <i class="far fa-clock"></i> 6 min</span>
-                                <a href="artigos/artigos.html" class="artigo-card-link">Ler artigo <i class="fas fa-arrow-right"></i></a>
+                                <span class="artigo-card-meta"><i class="far fa-calendar"></i> 15 mai. 2026 · <i
+                                        class="far fa-clock"></i> 6 min</span>
+                                <a href="artigos/artigos.html" class="artigo-card-link">Ler artigo <i
+                                        class="fas fa-arrow-right"></i></a>
                             </div>
                         </div>
                     </article>
@@ -221,26 +243,30 @@
             <div class="secao-header">
                 <span class="secao-tag"><i class="fas fa-star"></i> Diferenciais</span>
                 <h2 class="secao-titulo">Por que acompanhar o DevBlog?</h2>
-                <p class="secao-subtitulo">Criamos o ecossistema que gostaríamos de ter no começo de nossas trajetórias.</p>
+                <p class="secao-subtitulo">Criamos o ecossistema que gostaríamos de ter no começo de nossas trajetórias.
+                </p>
             </div>
-            
+
             <div class="beneficios-grid">
                 <div class="beneficio-card animar-subir delay-1">
                     <div class="beneficio-icone"><i class="fas fa-graduation-cap"></i></div>
                     <h3>Conteúdo 100% Prático</h3>
-                    <p>Chega de palestras de 5 horas que não vão a lugar algum. Nós vamos direto ao ponto com trechos de código limpos e prontos para uso em ambiente de produção.</p>
+                    <p>Chega de palestras de 5 horas que não vão a lugar algum. Nós vamos direto ao ponto com trechos de
+                        código limpos e prontos para uso em ambiente de produção.</p>
                 </div>
-                
+
                 <div class="beneficio-card animar-subir delay-2">
                     <div class="beneficio-icone"><i class="fas fa-users-cog"></i></div>
                     <h3>Didática Focada</h3>
-                    <p>Desenvolvido por quem está na ativa no mercado internacional. Nossos autores traduzem desafios de engenharia reais para um formato fácil de digerir.</p>
+                    <p>Desenvolvido por quem está na ativa no mercado internacional. Nossos autores traduzem desafios de
+                        engenharia reais para um formato fácil de digerir.</p>
                 </div>
-                
+
                 <div class="beneficio-card animar-subir delay-3">
                     <div class="beneficio-icone"><i class="fas fa-bolt"></i></div>
                     <h3>Foco no Aprendizado</h3>
-                    <p>Plataforma minimalista focada na leitura e no foco do usuário. Sem anúncios abusivos, pop-ups inconvenientes ou elementos poluídos de UI.</p>
+                    <p>Plataforma minimalista focada na leitura e no foco do usuário. Sem anúncios abusivos, pop-ups
+                        inconvenientes ou elementos poluídos de UI.</p>
                 </div>
             </div>
         </section>
@@ -252,17 +278,20 @@
                 <div class="newsletter-conteudo">
                     <span class="newsletter-tag"><i class="fas fa-paper-plane"></i> Newsletter Exclusiva</span>
                     <h2>Acelere seus estudos de programação</h2>
-                    <p>Toda semana enviamos uma curadoria impecável de códigos comentados, dicas de ferramentas úteis e as novidades mais quentes de tech direto na sua caixa de entrada.</p>
-                    
+                    <p>Toda semana enviamos uma curadoria impecável de códigos comentados, dicas de ferramentas úteis e
+                        as novidades mais quentes de tech direto na sua caixa de entrada.</p>
+
                     <!-- Formulário de captura com envelope posicionado absolutamente no CSS -->
                     <form class="newsletter-form" action="#">
                         <div class="input-newsletter-wrapper">
                             <i class="fas fa-envelope input-envelope-icone"></i>
                             <input type="email" placeholder="Digite seu melhor e-mail..." required />
                         </div>
-                        <button type="submit" class="btn-primario">Inscrever-se <i class="fas fa-arrow-right"></i></button>
+                        <button type="submit" class="btn-primario">Inscrever-se <i
+                                class="fas fa-arrow-right"></i></button>
                     </form>
-                    <p class="newsletter-sub"><i class="fas fa-lock"></i> Nós odiamos spam. Você pode sair com apenas um clique a qualquer hora.</p>
+                    <p class="newsletter-sub"><i class="fas fa-lock"></i> Nós odiamos spam. Você pode sair com apenas um
+                        clique a qualquer hora.</p>
                 </div>
             </div>
         </section>
@@ -274,7 +303,8 @@
         <div class="rodape-container">
             <div class="rodape-info">
                 <p class="rodape-logo">Dev<span>Blog</span></p>
-                <p class="rodape-sub">Sua fonte diária de desenvolvimento web de qualidade. Crie interfaces robustas, aprenda boas práticas de design e evolua na sua carreira.</p>
+                <p class="rodape-sub">Sua fonte diária de desenvolvimento web de qualidade. Crie interfaces robustas,
+                    aprenda boas práticas de design e evolua na sua carreira.</p>
                 <div class="rodape-redes">
                     <!-- Links com ícones de redes sociais externos -->
                     <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -282,7 +312,7 @@
                     <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            
+
             <div class="rodape-links">
                 <h4>Navegação</h4>
                 <ul>
@@ -292,7 +322,7 @@
                     <li><a href="#contato">Contato</a></li>
                 </ul>
             </div>
-            
+
             <div class="rodape-links">
                 <h4>Admin</h4>
                 <ul>
@@ -302,10 +332,11 @@
                 </ul>
             </div>
         </div>
-        
+
         <!-- Direitos autorais com coração dinâmico -->
         <div class="rodape-copy">
-            <p>© 2026 · Feito com <i class="fas fa-heart" style="color: var(--cor-acento);"></i> por Devs · Todos os direitos reservados</p>
+            <p>© 2026 · Feito com <i class="fas fa-heart" style="color: var(--cor-acento);"></i> por Devs · Todos os
+                direitos reservados</p>
         </div>
     </footer>
 
