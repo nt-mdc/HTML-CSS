@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentro do Jogo — Painel de Administração</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos globais e locais -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    
+    <script>
+        // Bloqueio de Segurança: Redireciona para o login se não estiver logado
+        if (localStorage.getItem("DENTRO_DO_JOGO_LOGADO") !== "true") {
+            window.location.href = "../auth/login.html";
+        }
+    </script>
+</head>
+<body class="corpo-dashboard">
+
+    <div class="dashboard-container">
+        
+        <!-- SIDEBAR LATERAL -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-logo">
+                <i class="fas fa-trophy"></i> Dentro do <span>Jogo</span>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <p class="menu-secao">Gerenciamento</p>
+                <button class="menu-item ativo" data-tab="visao-geral">
+                    <i class="fas fa-chart-pie"></i> Visão Geral
+                </button>
+                <button class="menu-item" data-tab="gerenciar-jogos">
+                    <i class="fas fa-calendar-alt"></i> Gerenciar Jogos
+                </button>
+                <button class="menu-item" data-tab="gerenciar-noticias">
+                    <i class="fas fa-newspaper"></i> Gerenciar Notícias
+                </button>
+                <button class="menu-item" data-tab="gerenciar-classificacao">
+                    <i class="fas fa-list-ol"></i> Classificação Geral
+                </button>
+                
+                <p class="menu-secao">Configurações</p>
+                <button class="menu-item" data-tab="preferencias">
+                    <i class="fas fa-sliders-h"></i> Preferências
+                </button>
+                <button class="menu-item btn-menu-sair" onclick="fazerLogout()">
+                    <i class="fas fa-sign-out-alt"></i> Sair do Painel
+                </button>
+            </nav>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="dashboard-conteudo">
+            
+            <!-- CABEÇALHO SUPERIOR -->
+            <header class="dashboard-header">
+                <div class="header-info">
+                    <h1 id="titulo-aba">Painel Administrativo</h1>
+                    <p id="subtitulo-aba" class="texto-suave">Acompanhamento e edição de dados da Copa do Mundo.</p>
+                </div>
+                <div class="header-perfil">
+                    <div class="perfil-info">
+                        <span class="perfil-nome">Administrador</span>
+                        <span class="perfil-cargo">Acesso Total</span>
+                    </div>
+                    <div class="perfil-avatar"><i class="fas fa-user-tie"></i></div>
+                </div>
+            </header>
+
+            <!-- ==========================================
+                 TAB 1: VISÃO GERAL (DASHBOARD)
+                 ========================================== -->
+            <section id="tab-visao-geral" class="tab-secao ativo">
+                <!-- Métricas Rápidas -->
+                <div class="stats-grid">
+                    <div class="card-stat card-azul">
+                        <div class="card-stat-topo">
+                            <span class="stat-titulo">Notícias Ativas</span>
+                            <div class="stat-icone"><i class="fas fa-newspaper"></i></div>
+                        </div>
+                        <span class="stat-valor" id="qtd-noticias">0</span>
+                        <p class="stat-desc">Publicadas no portal do Mundial</p>
+                    </div>
+                    
+                    <div class="card-stat card-verde">
+                        <div class="card-stat-topo">
+                            <span class="stat-titulo">Partidas Cadastradas</span>
+                            <div class="stat-icone"><i class="fas fa-futbol"></i></div>
+                        </div>
+                        <span class="stat-valor" id="qtd-jogos">0</span>
+                        <p class="stat-desc">Entre resultados e agendamentos</p>
+                    </div>
+
+                    <div class="card-stat card-laranja">
+                        <div class="card-stat-topo">
+                            <span class="stat-titulo">Grupos Ativos</span>
+                            <div class="stat-icone"><i class="fas fa-sitemap"></i></div>
+                        </div>
+                        <span class="stat-valor" id="qtd-grupos">2</span>
+                        <p class="stat-desc">Grupo A e Grupo B ativos</p>
+                    </div>
+                </div>
+
+                <!-- Lista rápida de jogos e notícias -->
+                <div class="dashboard-split-layout">
+                    <div class="painel-secao">
+                        <h2 class="secao-titulo-painel">Jogos Recentes</h2>
+                        <div id="visao-geral-jogos-lista" class="lista-itens-rapidos">
+                            <!-- Injetado via JS -->
+                        </div>
+                    </div>
+                    <div class="painel-secao">
+                        <h2 class="secao-titulo-painel">Notícias Recentes</h2>
+                        <div id="visao-geral-noticias-lista" class="lista-itens-rapidos">
+                            <!-- Injetado via JS -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 TAB 2: GERENCIAR JOGOS
+                 ========================================== -->
+            <section id="tab-gerenciar-jogos" class="tab-secao">
+                <div class="painel-form-tabela-grid">
+                    <!-- Formulário de Cadastro/Edição -->
+                    <div class="painel-card-formulario">
+                        <h3 id="form-jogo-titulo" class="titulo-formulario">Cadastrar Partida</h3>
+                        <form id="form-jogo" onsubmit="salvarJogo(event)">
+                            <input type="hidden" id="jogo-id" value="">
+                            
+                            <div class="campo-linha">
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="jogo-timeA">Seleção A</label>
+                                    <select class="campo-select" id="jogo-timeA" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="Brasil">Brasil</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Alemanha">Alemanha</option>
+                                        <option value="França">França</option>
+                                        <option value="Espanha">Espanha</option>
+                                        <option value="Itália">Itália</option>
+                                        <option value="Portugal">Portugal</option>
+                                        <option value="Japão">Japão</option>
+                                        <option value="EUA">EUA</option>
+                                        <option value="México">México</option>
+                                        <option value="Canadá">Canadá</option>
+                                        <option value="Marrocos">Marrocos</option>
+                                        <option value="Uruguai">Uruguai</option>
+                                        <option value="Inglaterra">Inglaterra</option>
+                                    </select>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="jogo-timeB">Seleção B</label>
+                                    <select class="campo-select" id="jogo-timeB" required>
+                                        <option value="">Selecione...</option>
+                                        <option value="Brasil">Brasil</option>
+                                        <option value="Argentina">Argentina</option>
+                                        <option value="Alemanha">Alemanha</option>
+                                        <option value="França">França</option>
+                                        <option value="Espanha">Espanha</option>
+                                        <option value="Itália">Itália</option>
+                                        <option value="Portugal">Portugal</option>
+                                        <option value="Japão">Japão</option>
+                                        <option value="EUA">EUA</option>
+                                        <option value="México">México</option>
+                                        <option value="Canadá">Canadá</option>
+                                        <option value="Marrocos">Marrocos</option>
+                                        <option value="Uruguai">Uruguai</option>
+                                        <option value="Inglaterra">Inglaterra</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="jogo-status">Status da Partida</label>
+                                <select class="campo-select" id="jogo-status" onchange="alternarInputsPlacar()" required>
+                                    <option value="Agendado">Agendado</option>
+                                    <option value="Ao Vivo">Ao Vivo</option>
+                                    <option value="Finalizado">Finalizado</option>
+                                </select>
+                            </div>
+
+                            <!-- Placar (Habilitado apenas se Ao Vivo/Finalizado) -->
+                            <div class="campo-linha" id="placar-fields-row" style="display: none;">
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="jogo-golsA">Gols Seleção A</label>
+                                    <input class="campo-input" type="number" id="jogo-golsA" min="0" value="0">
+                                </div>
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="jogo-golsB">Gols Seleção B</label>
+                                    <input class="campo-input" type="number" id="jogo-golsB" min="0" value="0">
+                                </div>
+                            </div>
+
+                            <div class="campo-linha">
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="jogo-data">Data</label>
+                                    <input class="campo-input" type="date" id="jogo-data" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="jogo-horario">Horário</label>
+                                    <input class="campo-input" type="time" id="jogo-horario" required>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="jogo-estadio">Estádio / Local</label>
+                                <input class="campo-input" type="text" id="jogo-estadio" placeholder="Ex: MetLife Stadium, NY" required>
+                            </div>
+
+                            <div class="form-acoes">
+                                <button type="submit" class="btn-primario" id="btn-salvar-jogo">Cadastrar Jogo</button>
+                                <button type="button" class="btn-secundario" id="btn-cancelar-jogo" onclick="limparFormJogo()">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tabela de Jogos Existentes -->
+                    <div class="painel-card-tabela">
+                        <h3>Jogos e Resultados Cadastrados</h3>
+                        <div class="tabela-conteiner-scroll">
+                            <table class="tabela-admin">
+                                <thead>
+                                    <tr>
+                                        <th>Jogo / Confronto</th>
+                                        <th>Data/Hora</th>
+                                        <th>Local</th>
+                                        <th>Status</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabela-jogos-corpo">
+                                    <!-- Injetado via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 TAB 3: GERENCIAR NOTÍCIAS
+                 ========================================== -->
+            <section id="tab-gerenciar-noticias" class="tab-secao">
+                <div class="painel-form-tabela-grid">
+                    <!-- Formulário de Notícia -->
+                    <div class="painel-card-formulario">
+                        <h3 id="form-noticia-titulo" class="titulo-formulario">Publicar Nova Notícia</h3>
+                        <form id="form-noticia" onsubmit="salvarNoticia(event)">
+                            <input type="hidden" id="noticia-id" value="">
+                            
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="noticia-titulo">Título da Notícia</label>
+                                <input class="campo-input" type="text" id="noticia-titulo" placeholder="Digite o título da matéria..." required>
+                            </div>
+                            
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="noticia-resumo">Descrição Curta (Resumo)</label>
+                                <textarea class="campo-textarea" id="noticia-resumo" rows="2" placeholder="Um breve parágrafo que resume a notícia..." required></textarea>
+                            </div>
+
+                            <div class="campo-grupo">
+                                <label class="campo-label" for="noticia-texto">Conteúdo Completo</label>
+                                <textarea class="campo-textarea" id="noticia-texto" rows="5" placeholder="Escreva a matéria inteira aqui..." required></textarea>
+                            </div>
+
+                            <div class="campo-linha">
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="noticia-imagem">Imagem de Capa (URL)</label>
+                                    <input class="campo-input" type="url" id="noticia-imagem" placeholder="https://exemplo.com/imagem.jpg" required>
+                                </div>
+                                <div class="campo-grupo">
+                                    <label class="campo-label" for="noticia-categoria">Categoria</label>
+                                    <select class="campo-select" id="noticia-categoria" required>
+                                        <option value="Destaque">Destaque</option>
+                                        <option value="Últimas">Últimas</option>
+                                        <option value="Copa 2026">Copa 2026</option>
+                                        <option value="Curiosidades">Curiosidades</option>
+                                        <option value="Seleções">Seleções</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="campo-grupo-checkbox">
+                                <input type="checkbox" id="noticia-principal">
+                                <label for="noticia-principal">Definir como Notícia Principal (Hero Banner Destaque)</label>
+                            </div>
+
+                            <div class="form-acoes">
+                                <button type="submit" class="btn-primario" id="btn-salvar-noticia">Publicar Notícia</button>
+                                <button type="button" class="btn-secundario" id="btn-cancelar-noticia" onclick="limparFormNoticia()">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tabela de Notícias -->
+                    <div class="painel-card-tabela">
+                        <h3>Notícias Publicadas</h3>
+                        <div class="tabela-conteiner-scroll">
+                            <table class="tabela-admin">
+                                <thead>
+                                    <tr>
+                                        <th>Título</th>
+                                        <th>Categoria</th>
+                                        <th>Data</th>
+                                        <th>Estilo</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabela-noticias-corpo">
+                                    <!-- Injetado via JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 TAB 4: GERENCIAR CLASSIFICAÇÃO
+                 ========================================== -->
+            <section id="tab-gerenciar-classificacao" class="tab-secao">
+                <div class="painel-secao">
+                    <div class="classificacao-painel-header">
+                        <h2>Tabela Estatística do Mundial</h2>
+                        <p class="texto-suave">Altere os pontos das seleções. O sistema reordena e aplica a tabela atualizada no site principal.</p>
+                    </div>
+                    
+                    <form id="form-classificacao" onsubmit="salvarClassificacao(event)">
+                        <div id="classificacao-editor-grupos" class="classificacao-editor-grupos">
+                            <!-- Injetado via JS -->
+                        </div>
+                        
+                        <div class="form-acoes-salvar-geral">
+                            <button type="submit" class="btn-primario"><i class="fas fa-save"></i> Salvar Tabelas de Classificação</button>
+                            <button type="button" class="btn-secundario" onclick="restaurarClassificacaoPadrao()"><i class="fas fa-undo"></i> Restaurar Padrões</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- ==========================================
+                 TAB 5: PREFERÊNCIAS (DUMMY)
+                 ========================================== -->
+            <section id="tab-preferencias" class="tab-secao">
+                <div class="painel-card-formulario" style="max-width: 600px;">
+                    <h3>Configurações do Painel</h3>
+                    <p class="texto-suave" style="margin-bottom: 20px;">Personalização de regras e configurações do portal.</p>
+                    
+                    <div class="campo-grupo">
+                        <label class="campo-label">Idioma do Painel</label>
+                        <select class="campo-select">
+                            <option>Português (Brasil)</option>
+                            <option>English</option>
+                            <option>Español</option>
+                        </select>
+                    </div>
+                    
+                    <div class="campo-grupo">
+                        <label class="campo-label">Fuso Horário</label>
+                        <select class="campo-select">
+                            <option>UTC-3 (Brasília)</option>
+                            <option>UTC-5 (New York / Miami)</option>
+                            <option>UTC-8 (Los Angeles)</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-grupo-checkbox">
+                        <input type="checkbox" id="auto-refresh" checked>
+                        <label for="auto-refresh">Recarregar tabelas e placares automaticamente a cada 30 segundos</label>
+                    </div>
+
+                    <button class="btn-primario" onclick="alert('Configurações salvas!')">Salvar Preferências</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Script de lógica do Dashboard -->
+    <script src="dashboard.js"></script>
+</body>
+</html>

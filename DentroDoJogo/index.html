@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dentro do Jogo - O portal de cobertura e interatividade completo da Copa do Mundo FIFA 2026. Acompanhe resultados, classificação dos grupos e notícias exclusivas.">
+    <title>Dentro do Jogo — Copa do Mundo FIFA 2026</title>
+
+    <!-- Fontes do Google Fonts: Outfit (Títulos) e DM Sans (Texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Biblioteca de Ícones Font Awesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <!-- 1. NAVEGAÇÃO GLOBAL (HEADER FIXO) -->
+    <header class="cabecalho">
+        <a href="index.html" class="logo">
+            <i class="fas fa-trophy"></i> Dentro do <span>Jogo</span>
+        </a>
+
+        <!-- Botão Menu Mobile Hambúrguer -->
+        <button id="btn-menu-toggle" class="btn-menu-mobile" aria-label="Abrir Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <nav class="navbar" id="navbar-main">
+            <ul class="nav-lista">
+                <li><a href="#noticias" class="nav-link ativo">Notícias</a></li>
+                <li><a href="#jogos" class="nav-link" data-custom-filter="proximos">Jogos</a></li>
+                <li><a href="#jogos" class="nav-link" data-custom-filter="resultados">Resultados</a></li>
+                <li><a href="#classificacao" class="nav-link">Grupos & Classificação</a></li>
+            </ul>
+            <a href="auth/login.html" class="btn-login-admin">
+                <i class="fas fa-user-shield"></i> Painel Admin
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 2. SEÇÃO TELA INICIAL: NOTÍCIA DE DESTAQUE (HERO BANNER) -->
+        <section class="secao-hero" id="inicio">
+            <div id="noticia-destaque-wrapper">
+                <!-- Injetado dinamicamente via app.js -->
+                <div class="banner-destaque-skeleton">
+                    <div class="skeleton-shimmer"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO GRID DE NOTÍCIAS -->
+        <section class="secao-noticias" id="noticias">
+            <div class="secao-container">
+                <div class="secao-header-esportivo">
+                    <span class="subtitulo-secao"><i class="fas fa-bolt"></i> Cobertura Exclusiva</span>
+                    <h2 class="titulo-secao">Últimas do Mundial</h2>
+                    <p class="desc-secao">Informações de seleções, craques do torneio, destaques táticos e curiosidades direto de campo.</p>
+                </div>
+                
+                <div id="noticias-grid" class="noticias-grid">
+                    <!-- Cards de Notícias injetados via app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TELA DE JOGOS E RESULTADOS -->
+        <section class="secao-jogos" id="jogos">
+            <div class="secao-container">
+                <div class="secao-header-esportivo">
+                    <span class="subtitulo-secao"><i class="fas fa-calendar-check"></i> Tabela e Placar</span>
+                    <h2 class="titulo-secao">Partidas da Copa</h2>
+                    <p class="desc-secao">Acompanhe datas, estádios, horários das partidas e os placares em tempo real.</p>
+                </div>
+
+                <!-- Abas de Filtros de Jogos -->
+                <div class="filtro-jogos-container">
+                    <button class="filtro-btn ativo" data-filtro="todos">
+                        <i class="fas fa-list"></i> Todos os Jogos
+                    </button>
+                    <button class="filtro-btn" data-filtro="resultados">
+                        <i class="fas fa-check-circle"></i> Resultados
+                    </button>
+                    <button class="filtro-btn" data-filtro="proximos">
+                        <i class="fas fa-hourglass-start"></i> Próximos Jogos
+                    </button>
+                </div>
+
+                <!-- Grid de Jogos -->
+                <div id="jogos-grid" class="jogos-grid">
+                    <!-- Cards de Partidas injetados via app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. TELA DE GRUPOS E CLASSIFICAÇÃO -->
+        <section class="secao-classificacao" id="classificacao">
+            <div class="secao-container">
+                <div class="secao-header-esportivo">
+                    <span class="subtitulo-secao"><i class="fas fa-list-ol"></i> Classificação Geral</span>
+                    <h2 class="titulo-secao">Tabelas de Grupos</h2>
+                    <p class="desc-secao">Confira a pontuação, estatísticas de saldo de gols e quais seleções caminham para o mata-mata.</p>
+                </div>
+
+                <!-- Lista de Grupos Classificação -->
+                <div id="classificacao-grupos" class="classificacao-grupos">
+                    <!-- Tabelas de classificação de grupos injetadas via app.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="rodape-container">
+            <div class="rodape-info">
+                <h4 class="rodape-logo">Dentro do <span>Jogo</span></h4>
+                <p class="rodape-sub">A sua fonte definitiva para a cobertura em tempo real da maior Copa do Mundo da história. Fique por dentro de cada lance em solo norte-americano.</p>
+                <div class="rodape-redes">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="rodape-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#noticias">Notícias</a></li>
+                    <li><a href="#jogos">Tabela de Jogos</a></li>
+                    <li><a href="#classificacao">Classificação</a></li>
+                </ul>
+            </div>
+
+            <div class="rodape-links">
+                <h4>Administração</h4>
+                <ul>
+                    <li><a href="auth/login.html"><i class="fas fa-sign-in-alt"></i> Login Restrito</a></li>
+                    <li><a href="admin/dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard Admin</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="rodape-copy">
+            <p>© 2026 · Desenvolvido por Equipe Esportiva · Todos os direitos reservados</p>
+            <p>Feito com <i class="fas fa-heart"></i> para os amantes de futebol</p>
+        </div>
+    </footer>
+
+    <!-- Aplicação JavaScript Principal -->
+    <script src="app.js"></script>
+    <script>
+        // Lógica de atalho para os links "Jogos" e "Resultados" da navbar mudarem os filtros diretamente
+        document.querySelectorAll('.navbar [data-custom-filter]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                const filtro = link.getAttribute('data-custom-filter');
+                setTimeout(() => {
+                    const btnFiltro = document.querySelector(`.filtro-btn[data-filtro="${filtro}"]`);
+                    if (btnFiltro) {
+                        btnFiltro.click();
+                    }
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

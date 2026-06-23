@@ -1,0 +1,597 @@
+/* ================================================================
+   [DENTRO DO JOGO - FIFA WORLD CUP 2026]
+   ARQUIVO: admin/dashboard.css — ESTILOS DO PAINEL DE ADMINISTRAÇÃO
+   ================================================================ */
+
+.corpo-dashboard {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  min-height: 100vh;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+/* ================================================================
+   1. SIDEBAR LATERAL
+   ================================================================ */
+.dashboard-sidebar {
+  background-color: var(--cor-card);
+  border-right: 1.5px solid var(--cor-borda);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sidebar-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--cor-texto);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar-logo i {
+  color: var(--cor-principal);
+}
+
+.sidebar-logo span {
+  color: var(--cor-principal);
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu-secao {
+  font-family: var(--fonte-titulo);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #4a5568;
+  letter-spacing: 2px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  padding-left: 12px;
+}
+
+.menu-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: var(--raio-sm);
+  color: var(--cor-texto-suave);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  background-color: transparent;
+  transition: all var(--transicao);
+}
+
+.menu-item i {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--cor-texto);
+}
+
+.menu-item.ativo {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  box-shadow: var(--neon-glow);
+}
+
+.btn-menu-sair:hover {
+  background-color: rgba(244, 63, 94, 0.15) !important;
+  color: var(--cor-erro) !important;
+}
+
+/* ================================================================
+   2. ÁREA DE CONTEÚDO
+   ================================================================ */
+.dashboard-conteudo {
+  background-color: #06070a;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+/* Cabeçalho do Dashboard */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1.5px solid var(--cor-borda);
+  padding-bottom: 24px;
+}
+
+.header-info h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.texto-suave {
+  color: var(--cor-texto-suave);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.header-perfil {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.perfil-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.perfil-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cor-texto);
+}
+
+.perfil-cargo {
+  font-size: 12px;
+  color: var(--cor-secundaria);
+}
+
+.perfil-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--cor-principal);
+  border: 2px solid var(--cor-secundaria);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--cor-texto);
+  box-shadow: var(--sombra-sm);
+}
+
+/* Controle de Exibição das Abas */
+.tab-secao {
+  display: none;
+  animation: fadeIn 0.4s ease both;
+}
+
+.tab-secao.ativo {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ================================================================
+   3. CARDS DE ESTATÍSTICA (VISÃO GERAL)
+   ================================================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card-stat {
+  background-color: var(--cor-card);
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transicao);
+}
+
+.card-stat:hover {
+  transform: translateY(-3px);
+}
+
+.card-stat-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #718096;
+  letter-spacing: 0.5px;
+}
+
+.stat-icone {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--raio-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.card-azul .stat-icone { background-color: rgba(49, 79, 255, 0.1); color: var(--cor-secundaria); }
+.card-verde .stat-icone { background-color: rgba(16, 185, 129, 0.1); color: var(--cor-sucesso); }
+.card-laranja .stat-icone { background-color: rgba(245, 158, 11, 0.1); color: var(--cor-aviso); }
+
+.stat-valor {
+  font-family: var(--fonte-titulo);
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stat-desc {
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+}
+
+/* Efeito decorativo de cor nos cards de stats */
+.card-stat::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+}
+.card-azul::after { background-color: var(--cor-principal); }
+.card-verde::after { background-color: var(--cor-sucesso); }
+.card-laranja::after { background-color: var(--cor-aviso); }
+
+/* Layout da Grid Dividida (Split) */
+.dashboard-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.painel-secao {
+  background-color: var(--cor-card);
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 24px;
+}
+
+.secao-titulo-painel {
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--cor-texto);
+  margin-bottom: 20px;
+  border-bottom: 1.5px solid var(--cor-borda);
+  padding-bottom: 12px;
+}
+
+.lista-itens-rapidos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item-rapido-linha {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #06070a;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  font-size: 13.5px;
+}
+
+/* ================================================================
+   4. FORMULÁRIOS & TABELAS DO PAINEL
+   ================================================================ */
+.painel-form-tabela-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.9fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.painel-card-formulario {
+  background-color: var(--cor-card);
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 28px;
+}
+
+.titulo-formulario {
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--cor-texto);
+  margin-bottom: 24px;
+  border-bottom: 1.5px solid var(--cor-borda);
+  padding-bottom: 12px;
+}
+
+.campo-linha {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.campo-grupo-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.campo-grupo-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--cor-principal);
+}
+
+.campo-grupo-checkbox label {
+  font-size: 13.5px;
+  color: var(--cor-texto-suave);
+  cursor: pointer;
+}
+
+.form-acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.form-acoes button {
+  flex: 1;
+}
+
+/* Tabela Administrativa */
+.painel-card-tabela {
+  background-color: var(--cor-card);
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 28px;
+}
+
+.painel-card-tabela h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  border-bottom: 1.5px solid var(--cor-borda);
+  padding-bottom: 12px;
+}
+
+.tabela-conteiner-scroll {
+  overflow-x: auto;
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+.tabela-admin {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-admin th {
+  padding: 12px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #718096;
+  border-bottom: 1.5px solid var(--cor-borda);
+  background-color: #06070a;
+  text-align: left;
+}
+
+.tabela-admin td {
+  padding: 14px 16px;
+  font-size: 13.5px;
+  border-bottom: 1px solid #161c2d;
+  color: #e2e8f0;
+  vertical-align: middle;
+}
+
+.tabela-admin tr:hover td {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.tabela-confronto-admin {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 600;
+}
+
+.tabela-confronto-admin svg {
+  border-radius: 2px;
+}
+
+.placar-resumo-admin {
+  background-color: #030408;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  color: var(--cor-secundaria);
+}
+
+.tabela-admin-acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-admin-editar {
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  background-color: rgba(49, 79, 255, 0.1);
+  color: var(--cor-secundaria);
+  border: 1px solid rgba(49, 79, 255, 0.2);
+  border-radius: var(--raio-sm);
+}
+
+.btn-admin-editar:hover {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  border-color: var(--cor-principal);
+}
+
+/* ================================================================
+   5. EDITOR DE CLASSIFICAÇÃO
+   ================================================================ */
+.classificacao-painel-header {
+  margin-bottom: 30px;
+}
+
+.classificacao-editor-grupos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.grupo-admin-card {
+  background-color: #06070a;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 20px;
+}
+
+.grupo-admin-card h4 {
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--cor-secundaria);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.tabela-input-admin {
+  width: 100%;
+}
+
+.tabela-input-admin td {
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.tabela-input-admin th {
+  padding: 8px;
+  font-size: 10px;
+}
+
+.input-num-admin {
+  width: 50px;
+  padding: 6px;
+  background-color: #030408;
+  border: 1px solid var(--cor-borda);
+  color: #fff;
+  border-radius: var(--raio-sm);
+  text-align: center;
+}
+
+.input-num-admin:focus {
+  border-color: var(--cor-principal);
+  box-shadow: 0 0 5px rgba(49, 79, 255, 0.2);
+}
+
+.form-acoes-salvar-geral {
+  border-top: 1.5px solid var(--cor-borda);
+  padding-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+/* ================================================================
+   6. RESPONSIVIDADE
+   ================================================================ */
+@media (max-width: 1100px) {
+  .dashboard-container {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-sidebar {
+    border-right: none;
+    border-bottom: 1.5px solid var(--cor-borda);
+    padding: 20px;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sidebar-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .menu-secao {
+    display: none;
+  }
+  .menu-item {
+    width: auto;
+    padding: 8px 14px;
+  }
+  .painel-form-tabela-grid {
+    grid-template-columns: 1fr;
+  }
+  .classificacao-editor-grupos {
+    grid-template-columns: 1fr;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-split-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-sidebar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .dashboard-conteudo {
+    padding: 24px;
+  }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .header-perfil {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .campo-linha {
+    grid-template-columns: 1fr;
+  }
+  .form-acoes-salvar-geral {
+    flex-direction: column;
+  }
+  .form-acoes-salvar-geral button {
+    width: 100%;
+  }
+}

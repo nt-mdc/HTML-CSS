@@ -1,0 +1,187 @@
+/* ================================================================
+   [DENTRO DO JOGO - FIFA WORLD CUP 2026]
+   ARQUIVO: auth/login.css — ESTILOS DA TELA DE LOGIN
+   ================================================================ */
+
+.corpo-login {
+  background: radial-gradient(circle at 50% 50%, #0c122c 0%, #030408 100%);
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.login-wrapper {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  background-color: var(--cor-card);
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 40px 32px;
+  box-shadow: var(--sombra-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.login-card-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.login-card-header h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--cor-texto);
+}
+
+.login-card-header p {
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+  line-height: 1.5;
+}
+
+/* Formulário de Login */
+#form-login {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campo-senha-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.campo-senha-wrapper .campo-input {
+  padding-right: 48px; /* Abre espaço para o botão do olho */
+}
+
+.btn-olho {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #718096;
+  font-size: 16px;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-olho:hover {
+  color: var(--cor-secundaria);
+}
+
+/* Botão de Envio */
+.btn-login-submit {
+  width: 100%;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 15px;
+  border-radius: var(--raio-sm);
+  background-color: var(--cor-principal);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Alertas de Erro */
+.login-alerta {
+  background-color: rgba(244, 63, 94, 0.15);
+  border: 1.5px solid var(--cor-erro);
+  color: #fda4af;
+  border-radius: var(--raio-sm);
+  padding: 12px 16px;
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.erro-escondido {
+  display: none;
+}
+
+/* Campo com erro */
+.campo-input.erro {
+  border-color: var(--cor-erro);
+  box-shadow: 0 0 10px rgba(244, 63, 94, 0.2);
+}
+
+/* Dica Informativa */
+.login-info-dica {
+  background-color: rgba(49, 79, 255, 0.05);
+  border-left: 3px fill var(--cor-secundaria);
+  border: 1px solid rgba(49, 79, 255, 0.15);
+  border-radius: var(--raio-sm);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #a5b4fc;
+  line-height: 1.5;
+}
+
+.login-info-dica code {
+  background-color: #1e2640;
+  color: var(--cor-texto);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+/* Voltar ao Início */
+.login-rodape-voltar {
+  text-align: center;
+}
+
+.login-rodape-voltar a {
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto-suave);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-rodape-voltar a:hover {
+  color: var(--cor-texto);
+}
+
+/* Animações específicas de erro */
+.animar-pulsar {
+  animation: pulsarRapido 0.3s ease;
+}
+
+@keyframes pulsarRapido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 30px 20px;
+  }
+}

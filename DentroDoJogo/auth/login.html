@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dentro do Jogo — Acesso Restrito</title>
+    <!-- Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Estilos globais e locais -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body class="corpo-login">
+
+    <div class="login-wrapper animar-escalar">
+        <div class="login-logo-container">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-trophy"></i> Dentro do <span>Jogo</span>
+            </a>
+        </div>
+        
+        <div class="login-card">
+            <div class="login-card-header">
+                <h2>Acesso Administrativo</h2>
+                <p>Insira suas credenciais para gerenciar notícias, jogos e classificação.</p>
+            </div>
+            
+            <!-- Alerta de erro simulado -->
+            <div id="login-erro" class="login-alerta erro-escondido">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="login-erro-mensagem">Credenciais inválidas. Tente novamente!</span>
+            </div>
+
+            <form id="form-login" onsubmit="realizarLogin(event)">
+                <div class="campo-grupo">
+                    <label class="campo-label" for="usuario"><i class="fas fa-user"></i> Nome de Usuário</label>
+                    <input class="campo-input" type="text" id="usuario" placeholder="Ex: admin" required>
+                </div>
+                
+                <div class="campo-grupo">
+                    <label class="campo-label" for="senha"><i class="fas fa-lock"></i> Senha</label>
+                    <div class="campo-senha-wrapper">
+                        <input class="campo-input" type="password" id="senha" placeholder="••••••••" required>
+                        <button type="button" id="btn-toggle-senha" class="btn-olho" onclick="alternarVisibilidadeSenha()">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn-primario btn-login-submit" type="submit">
+                    Entrar no Painel <i class="fas fa-sign-in-alt"></i>
+                </button>
+            </form>
+            
+            <div class="login-info-dica">
+                <p><strong>Dica de teste:</strong> Use o usuário <code>admin</code> e senha <code>admin</code> para acessar o dashboard.</p>
+            </div>
+        </div>
+        
+        <div class="login-rodape-voltar">
+            <a href="../index.html"><i class="fas fa-arrow-left"></i> Voltar ao Portal Principal</a>
+        </div>
+    </div>
+
+    <script>
+        // Função para mostrar/ocultar senha
+        function alternarVisibilidadeSenha() {
+            const senhaInput = document.getElementById('senha');
+            const btnOlho = document.getElementById('btn-toggle-senha');
+            const icone = btnOlho.querySelector('i');
+            
+            if (senhaInput.type === 'password') {
+                senhaInput.type = 'text';
+                icone.className = 'fas fa-eye-slash';
+            } else {
+                senhaInput.type = 'password';
+                icone.className = 'fas fa-eye';
+            }
+        }
+
+        // Função de validação de login local
+        function realizarLogin(event) {
+            event.preventDefault();
+            
+            const usuario = document.getElementById('usuario').value.trim();
+            const senha = document.getElementById('senha').value;
+            const alertaErro = document.getElementById('login-erro');
+
+            if (usuario === 'admin' && senha === 'admin') {
+                // Salvar estado na sessão
+                localStorage.setItem("DENTRO_DO_JOGO_LOGADO", "true");
+                
+                // Animação de sucesso rápida e redirecionamento
+                const submitBtn = document.querySelector('.btn-login-submit');
+                submitBtn.innerHTML = 'Autenticando... <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.style.backgroundColor = '#10b981';
+                
+                setTimeout(() => {
+                    window.location.href = '../admin/dashboard.html';
+                }, 1000);
+            } else {
+                // Exibe mensagem de erro
+                alertaErro.classList.remove('erro-escondido');
+                alertaErro.classList.add('animar-pulsar');
+                
+                // Foco de erro nos inputs
+                document.getElementById('usuario').classList.add('erro');
+                document.getElementById('senha').classList.add('erro');
+                
+                setTimeout(() => {
+                    alertaErro.classList.remove('animar-pulsar');
+                }, 500);
+            }
+        }
+
+        // Remover classes de erro no foco
+        document.querySelectorAll('.campo-input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.classList.remove('erro');
+                document.getElementById('login-erro').classList.add('erro-escondido');
+            });
+        });
+    </script>
+</body>
+</html>

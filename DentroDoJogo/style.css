@@ -1,0 +1,566 @@
+/* ================================================================
+   [DENTRO DO JOGO - FIFA WORLD CUP 2026]
+   ARQUIVO: style.css — CSS GLOBAL E COMPARTILHADO DO PORTAL
+   ================================================================ */
+
+:root {
+  /* Cores Temáticas Obrigatórias */
+  --cor-fundo: #030408;          /* Fundo Principal - Preto Profundo */
+  --cor-principal: #314FFF;      /* Destaques, Botões, Cabeçalhos - Azul Vibrante */
+  --cor-secundaria: #83B1FE;     /* Cards de notícias, Hover, Detalhes - Azul Claro */
+  
+  /* Cores Adicionais de Suporte para Layout Escuro Premium */
+  --cor-card: #0d0f17;           /* Fundo dos Cards (Contraste com o fundo preto) */
+  --cor-card-hover: #141724;     /* Fundo do card no estado hover */
+  --cor-texto: #ffffff;          /* Texto de leitura padrão */
+  --cor-texto-suave: #a5b4fc;    /* Texto secundário / descrição (azul-cinza claro) */
+  --cor-texto-escuro: #030408;   /* Para botões com texto preto de alto contraste */
+  --cor-borda: #1e2640;          /* Borda padrão de cards e inputs */
+  --cor-borda-foco: #314FFF;     /* Borda com foco ativo */
+  
+  /* Status Semânticos Esportivos */
+  --cor-sucesso: #10b981;        /* Verde para vitória / jogo finalizado */
+  --cor-erro: #f43f5e;           /* Vermelho para derrota / cancelado */
+  --cor-aviso: #f59e0b;          /* Amarelo para cartões / empates / atenção */
+
+  /* Tipografia Importada no HTML */
+  --fonte-titulo: 'Outfit', sans-serif;
+  --fonte-corpo: 'DM Sans', sans-serif;
+
+  /* Espaçamentos Padronizados */
+  --espaco-xs: 4px;
+  --espaco-sm: 8px;
+  --espaco-md: 16px;
+  --espaco-lg: 24px;
+  --espaco-xl: 40px;
+  --espaco-2xl: 60px;
+
+  /* Bordas e Sombras de Alta Tecnologia */
+  --raio: 12px;
+  --raio-sm: 8px;
+  --raio-pill: 100px;
+  
+  /* Sombra com brilho neon azul suave */
+  --sombra-sm: 0 2px 8px rgba(49, 79, 255, 0.08);
+  --sombra-md: 0 8px 24px rgba(49, 79, 255, 0.12);
+  --sombra-lg: 0 16px 48px rgba(49, 79, 255, 0.2);
+  --neon-glow: 0 0 15px rgba(49, 79, 255, 0.4);
+
+  /* Transição Esportiva Rápida e Fluida */
+  --transicao: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ================================================================
+   RESET GLOBAL
+   ================================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--cor-fundo);
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transicao);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--raio-sm);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: var(--fonte-titulo);
+  transition: all var(--transicao);
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--fonte-corpo);
+  outline: none;
+}
+
+/* ================================================================
+   CABEÇALHO GLOBAL (FIXO & ESPORTIVO)
+   ================================================================ */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 6%;
+  background-color: rgba(3, 4, 8, 0.95);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+  color: var(--cor-texto);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo i {
+  color: var(--cor-principal);
+}
+
+.logo span {
+  color: var(--cor-principal);
+  position: relative;
+}
+
+.logo span::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--cor-secundaria);
+  border-radius: var(--raio-pill);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-lista {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-link {
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  position: relative;
+  padding: 6px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-link:hover,
+.nav-link.ativo {
+  color: var(--cor-texto);
+}
+
+/* Efeito de linha animada embaixo dos links */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-principal);
+  transition: width var(--transicao);
+}
+
+.nav-link:hover::after,
+.nav-link.ativo::after {
+  width: 100%;
+  box-shadow: var(--neon-glow);
+}
+
+/* Menu Mobile Toggle Button */
+.btn-menu-mobile {
+  display: none;
+  font-size: 24px;
+  color: var(--cor-texto);
+}
+
+/* Botão Login Admin */
+.btn-login-admin {
+  background-color: transparent;
+  border: 1.5px solid var(--cor-principal);
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--raio-pill);
+  color: var(--cor-texto);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-login-admin:hover {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px);
+}
+
+/* ================================================================
+   BOTÕES DO SISTEMA DE DESIGN
+   ================================================================ */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  padding: 12px 28px;
+  border-radius: var(--raio-sm);
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 14px rgba(49, 79, 255, 0.3);
+}
+
+.btn-primario:hover {
+  background-color: #4b66ff;
+  transform: translateY(-3px);
+  box-shadow: var(--neon-glow);
+}
+
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--cor-secundaria);
+  border: 2px solid var(--cor-borda);
+  padding: 10px 26px;
+  border-radius: var(--raio-sm);
+  font-family: var(--fonte-titulo);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn-secundario:hover {
+  border-color: var(--cor-secundaria);
+  background-color: rgba(131, 177, 254, 0.05);
+  transform: translateY(-3px);
+}
+
+.btn-perigo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--cor-erro);
+  border: 1.5px solid var(--cor-erro);
+  padding: 8px 18px;
+  border-radius: var(--raio-sm);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.btn-perigo:hover {
+  background-color: var(--cor-erro);
+  color: var(--cor-texto);
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.2);
+}
+
+/* ================================================================
+   CAMPOS DE ENTRADA (FORMULÁRIOS)
+   ================================================================ */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.campo-label {
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cor-secundaria);
+  letter-spacing: 0.5px;
+}
+
+.campo-input,
+.campo-textarea,
+.campo-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  font-size: 15px;
+  color: var(--cor-texto);
+  background-color: #0b0c13;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.campo-input:focus,
+.campo-textarea:focus,
+.campo-select:focus {
+  border-color: var(--cor-principal);
+  box-shadow: 0 0 10px rgba(49, 79, 255, 0.25);
+}
+
+.campo-input::placeholder,
+.campo-textarea::placeholder {
+  color: #4b5563;
+}
+
+/* ================================================================
+   BADGES E TAGS ESPORTIVAS
+   ================================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--raio-pill);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: var(--fonte-titulo);
+}
+
+.badge-principal {
+  background-color: rgba(49, 79, 255, 0.15);
+  color: var(--cor-secundaria);
+  border: 1px solid rgba(49, 79, 255, 0.3);
+}
+
+.badge-ao-vivo {
+  background-color: rgba(244, 63, 94, 0.15);
+  color: var(--cor-erro);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  animation: pulsar 2s infinite ease-in-out;
+}
+
+.badge-finalizado {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: var(--cor-sucesso);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-agendado {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: var(--cor-aviso);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* ================================================================
+   ANIMAÇÕES DE ENTRADA E TRANSIÇÕES
+   ================================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes subirFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulsar {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.75; transform: scale(1.05); }
+}
+
+.animar-fade {
+  animation: fadeIn 0.6s ease both;
+}
+
+.animar-subir {
+  animation: subirFadeIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) both;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* ================================================================
+   RODAPÉ GLOBAL DO PORTAL
+   ================================================================ */
+.rodape {
+  background-color: #010204;
+  color: var(--cor-texto-suave);
+  padding: 60px 6% 30px 6%;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.rodape-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rodape-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rodape-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--cor-texto);
+}
+
+.rodape-logo span {
+  color: var(--cor-principal);
+}
+
+.rodape-sub {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 380px;
+  color: #718096;
+}
+
+.rodape-redes {
+  display: flex;
+  gap: 12px;
+}
+
+.rodape-redes a {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--raio-sm);
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--cor-texto);
+}
+
+.rodape-redes a:hover {
+  background-color: var(--cor-principal);
+  color: var(--cor-texto);
+  border-color: var(--cor-principal);
+  box-shadow: var(--neon-glow);
+  transform: translateY(-2px);
+}
+
+.rodape-links h4 {
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--cor-texto);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.rodape-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rodape-links ul a {
+  font-size: 14px;
+  color: #a0aec0;
+}
+
+.rodape-links ul a:hover {
+  color: var(--cor-secundaria);
+}
+
+.rodape-copy {
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid #101524;
+  font-size: 13px;
+  color: #4a5568;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.rodape-copy p i {
+  color: var(--cor-erro);
+}
+
+/* ================================================================
+   RESPONSIVIDADE GERAL
+   ================================================================ */
+@media (max-width: 992px) {
+  .cabecalho {
+    padding: 16px 4%;
+  }
+  .navbar {
+    display: none; /* Menu Mobile será acionado por JS toggle */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(3, 4, 8, 0.98);
+    flex-direction: column;
+    padding: 30px 4%;
+    gap: 24px;
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  }
+  .navbar.ativo {
+    display: flex;
+  }
+  .nav-lista {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+  }
+  .btn-menu-mobile {
+    display: block;
+  }
+  .rodape-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
