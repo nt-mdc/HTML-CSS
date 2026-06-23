@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus — Painel Administrativo</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Globais e Locais -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-pagina">
+    <!-- CABEÇALHO DO DASHBOARD -->
+    <header class="dashboard-cabecalho">
+      <a href="../index.html" class="logo">NEX<span>US</span></a>
+      <div class="dashboard-cabecalho-usuario">
+        <span>Olá, Admin</span>
+        <div class="dashboard-avatar">A</div>
+        <a href="../index.html" class="btn-sair" style="border-color: rgba(255,255,255,0.1); color: var(--cor-texto-suave);">Sair</a>
+      </div>
+    </header>
+
+    <!-- SIDEBAR DE NAVEGAÇÃO -->
+    <aside class="dashboard-sidebar">
+      <p class="sidebar-secao-titulo">Gerenciamento</p>
+      <a href="dashboard.html" class="sidebar-link ativo">
+        <span class="sidebar-icone"><i class="fas fa-chart-line"></i></span> Visão Geral
+      </a>
+      <a href="#tabela-produtos-secao" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-boxes-stacked"></i></span> Produtos
+      </a>
+      <a href="novo-produto/novo-produto.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-plus"></i></span> Novo Produto
+      </a>
+
+      <p class="sidebar-secao-titulo">Atalhos</p>
+      <a href="../index.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-shop"></i></span> Ir para a Vitrine
+      </a>
+      <a href="../cliente/pedidos.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-user"></i></span> Conta Cliente
+      </a>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="dashboard-conteudo">
+      <div class="dashboard-intro">
+        <h1 class="dashboard-titulo-pagina">Painel Geral</h1>
+        <p class="dashboard-subtitulo" id="dashboard-data">Segunda-feira, 25 de maio de 2026</p>
+      </div>
+
+      <!-- ALERTA DE ESTOQUE BAIXO EM DESTAQUE -->
+      <div class="alerta-estoque" id="low-stock-alert-box" style="display: none;">
+        <div class="alerta-icone"><i class="fas fa-triangle-exclamation"></i></div>
+        <div class="alerta-texto">
+          <h3>Atenção: Alerta de Estoque Baixo</h3>
+          <p id="low-stock-alert-text">Os seguintes produtos possuem 3 ou menos unidades no estoque: Nexus Fold X, Nexus Sound Max.</p>
+        </div>
+      </div>
+
+      <!-- CARDS DE ESTATÍSTICA (DINÂMICOS) -->
+      <div class="stats-grid">
+        <div class="card-stat animar-subir delay-1">
+          <div class="card-stat-icone ouro"><i class="fas fa-sack-dollar"></i></div>
+          <span class="card-stat-valor" id="stat-faturamento">R$ 0,00</span>
+          <span class="card-stat-label">Faturamento Total</span>
+          <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +15% este mês</span>
+        </div>
+
+        <div class="card-stat animar-subir delay-2">
+          <div class="card-stat-icone verde"><i class="fas fa-bag-shopping"></i></div>
+          <span class="card-stat-valor" id="stat-pedidos">0</span>
+          <span class="card-stat-label">Pedidos Confirmados</span>
+          <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +8% vs. mês anterior</span>
+        </div>
+
+        <div class="card-stat animar-subir delay-3">
+          <div class="card-stat-icone vermelho" id="stat-estoque-baixo-cor"><i class="fas fa-triangle-exclamation"></i></div>
+          <span class="card-stat-valor" id="stat-estoque-baixo">0</span>
+          <span class="card-stat-label">Alertas de Estoque</span>
+          <span class="card-stat-variacao" id="stat-estoque-critico">Crítico</span>
+        </div>
+
+        <div class="card-stat animar-subir delay-4">
+          <div class="card-stat-icone azul"><i class="fas fa-laptop"></i></div>
+          <span class="card-stat-valor" id="stat-produtos">0</span>
+          <span class="card-stat-label">Produtos no Catálogo</span>
+          <span class="card-stat-variacao positivo"><i class="fas fa-check"></i> Ativos</span>
+        </div>
+      </div>
+
+      <!-- GRÁFICO DE VENDAS SIMULADO -->
+      <div class="dashboard-secao animar-subir delay-1">
+        <div class="grafico-container">
+          <h2 class="grafico-titulo">Desempenho de Vendas Mensal</h2>
+          <div class="grafico-barras">
+            <div class="barra-item">
+              <div class="barra" style="--altura: 30%"></div>
+              <span class="barra-rotulo">Jan</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 45%"></div>
+              <span class="barra-rotulo">Fev</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 60%"></div>
+              <span class="barra-rotulo">Mar</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 80%"></div>
+              <span class="barra-rotulo">Abr</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 100%"></div>
+              <span class="barra-rotulo">Mai</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 75%"></div>
+              <span class="barra-rotulo">Jun</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABELA DE GERENCIAMENTO DE PRODUTOS -->
+      <div class="dashboard-secao animar-subir delay-2" id="tabela-produtos-secao">
+        <div class="dashboard-secao-header">
+          <h2 class="dashboard-secao-titulo">Estoque de Produtos</h2>
+          <a href="novo-produto/novo-produto.html" class="btn-primario" style="padding: 10px 20px; font-size: 13px;">
+            <i class="fas fa-plus"></i> Novo Produto
+          </a>
+        </div>
+
+        <div class="tabela-scroll">
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Imagem</th>
+                <th>Nome do Produto</th>
+                <th>Categoria</th>
+                <th>Estoque</th>
+                <th>Preço</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="produtos-tabela-corpo">
+              <!-- Renderizado dinamicamente via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- NOTIFICAÇÃO TOAST -->
+  <div class="toast" id="toast-notificacao">
+    <i class="fas fa-info-circle toast-icone"></i>
+    <span class="toast-mensagem">Operação realizada com sucesso!</span>
+  </div>
+
+  <script src="../database.js"></script>
+  <script>
+    // Configurar data atual formatada
+    const dataObj = new Date();
+    const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    const dias = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+    document.getElementById("dashboard-data").textContent = `${dias[dataObj.getDay()]}, ${dataObj.getDate()} de ${meses[dataObj.getMonth()]} de ${dataObj.getFullYear()}`;
+
+    // Carregar estatísticas e tabela de produtos
+    function atualizarDashboard() {
+      const products = JSON.parse(localStorage.getItem("nexus_products")) || [];
+      const orders = JSON.parse(localStorage.getItem("nexus_orders")) || [];
+
+      // Faturamento total
+      const totalFaturamento = orders.reduce((sum, order) => sum + order.total, 0);
+      document.getElementById("stat-faturamento").textContent = `R$ ${totalFaturamento.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}`;
+      
+      // Quantidade de pedidos
+      document.getElementById("stat-pedidos").textContent = orders.length;
+
+      // Quantidade de produtos
+      document.getElementById("stat-produtos").textContent = products.length;
+
+      // Alertas de estoque baixo (Estoque <= 3)
+      const produtosEstoqueBaixo = products.filter(p => p.estoque <= 3);
+      document.getElementById("stat-estoque-baixo").textContent = produtosEstoqueBaixo.length;
+
+      const alertBox = document.getElementById("low-stock-alert-box");
+      const alertText = document.getElementById("low-stock-alert-text");
+      const statEstoqueBaixoCor = document.getElementById("stat-estoque-baixo-cor");
+
+      if (produtosEstoqueBaixo.length > 0) {
+        alertBox.style.display = "flex";
+        const nomesProdutos = produtosEstoqueBaixo.map(p => `${p.nome} (${p.estoque} un.)`).join(", ");
+        alertText.textContent = `Os seguintes produtos possuem 3 ou menos unidades no estoque: ${nomesProdutos}.`;
+        statEstoqueBaixoCor.style.color = "var(--cor-erro)";
+      } else {
+        alertBox.style.display = "none";
+        statEstoqueBaixoCor.style.color = "var(--cor-sucesso)";
+      }
+
+      // Renderizar produtos na tabela
+      const tabelaCorpo = document.getElementById("produtos-tabela-corpo");
+      tabelaCorpo.innerHTML = "";
+
+      products.forEach(p => {
+        const tr = document.createElement("tr");
+
+        let badgeEstoqueClass = "badge-pago"; // Verde
+        let estoqueTexto = `${p.estoque} un.`;
+
+        if (p.estoque === 0) {
+          badgeEstoqueClass = "badge-pendente"; // Esgotado / Amarelo
+          estoqueTexto = "Esgotado";
+        } else if (p.estoque <= 3) {
+          badgeEstoqueClass = "badge-enviado"; // Alerta / Azul
+          estoqueTexto = `${p.estoque} un. (Baixo)`;
+        }
+
+        tr.innerHTML = `
+          <td><span class="tabela-id">${p.id}</span></td>
+          <td><img src="${p.imagem}" alt="${p.nome}" class="tabela-img"></td>
+          <td><strong class="tabela-nome">${p.nome}</strong><br><small style="color: var(--cor-texto-suave); font-size:12px;">Marca: ${p.marca}</small></td>
+          <td><span class="tabela-categoria">${p.categoria}</span></td>
+          <td><span class="badge ${badgeEstoqueClass}">${estoqueTexto}</span></td>
+          <td><span class="tabela-preco">R$ ${p.preco.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span></td>
+          <td>
+            <div class="tabela-acoes">
+              <button class="btn-acao" onclick="editarProduto('${p.id}')">Editar</button>
+              <button class="btn-perigo" onclick="excluirProduto('${p.id}')">Excluir</button>
+            </div>
+          </td>
+        `;
+        tabelaCorpo.appendChild(tr);
+      });
+    }
+
+    // Excluir Produto
+    window.excluirProduto = function(id) {
+      if (confirm(`Tem certeza que deseja excluir o produto ${id}?`)) {
+        let products = JSON.parse(localStorage.getItem("nexus_products")) || [];
+        products = products.filter(p => p.id !== id);
+        localStorage.setItem("nexus_products", JSON.stringify(products));
+        
+        mostrarToast("Produto removido com sucesso!");
+        atualizarDashboard();
+      }
+    };
+
+    // Editar Produto (redireciona com parâmetro de query)
+    window.editarProduto = function(id) {
+      window.location.href = `novo-produto/novo-produto.html?edit=${id}`;
+    };
+
+    // Toast Notification
+    function mostrarToast(mensagem) {
+      const toast = document.getElementById("toast-notificacao");
+      toast.querySelector(".toast-mensagem").textContent = mensagem;
+      toast.classList.add("active");
+
+      setTimeout(() => {
+        toast.classList.remove("active");
+      }, 3000);
+    }
+
+    // Iniciar Dashboard
+    atualizarDashboard();
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière — Acessar Conta</title>
+
+  <!-- Google Fonts: Cormorant Garamond (títulos de luxo) e DM Sans (corpo legível) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos Globais e Específicos -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="login-pagina">
+    <!-- PAINEL ESQUERDO — Decorativo Conceitual -->
+    <div class="login-painel-esquerdo fundo-pontos">
+      <a href="../../index.html" class="logo">Lumi<span>è</span>re</a>
+
+      <div>
+        <div class="linha-acento"></div>
+        <h2 class="login-frase">
+          Vista.<br>
+          Sinta.<br>
+          <span>Acolha.</span>
+        </h2>
+      </div>
+
+      <p class="login-rodape-painel">
+        Lumière Boutique & Concierge · 2026
+      </p>
+    </div>
+
+    <!-- PAINEL DIREITO — Formulário Ativo -->
+    <div class="login-painel-direito">
+      <div class="login-form-card card-brilho">
+        <h1 class="login-titulo">Bem-vindo de volta</h1>
+        <p class="login-subtitulo">Acesse seu portal de concierge para acompanhar seus pedidos.</p>
+
+        <form class="login-form" action="#" onsubmit="event.preventDefault(); alert('Login efetuado com sucesso (simulado)!'); window.location.href='../../index.html';">
+          <!-- Campo E-mail -->
+          <div class="campo-grupo">
+            <label class="campo-label" for="email">E-mail</label>
+            <input
+              class="campo-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              required
+            />
+          </div>
+
+          <!-- Campo Senha -->
+          <div class="campo-grupo">
+            <label class="campo-label" for="senha">Senha</label>
+            <input
+              class="campo-input"
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="••••••••"
+              required
+            />
+            <a href="#" class="login-esqueceu">Esqueceu a senha?</a>
+          </div>
+
+          <!-- Botão Ação Principal -->
+          <button class="btn-primario login-btn-submit" type="submit">
+            Entrar na conta <i class="fas fa-sign-in-alt"></i>
+          </button>
+        </form>
+
+        <p class="login-cadastro-link">
+          Ainda não tem conta? <a href="../cadastro/cadastro.html">Criar conta de concierge</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

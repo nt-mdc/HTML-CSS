@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus — Premium Tech Experience</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Globais e Locais -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO PRINCIPAL -->
+  <header class="cabecalho" id="cabecalho">
+    <a href="index.html" class="logo">NEX<span>US</span></a>
+
+    <!-- Barra de busca funcional -->
+    <div class="busca-wrapper">
+      <i class="fas fa-search busca-icone"></i>
+      <input type="text" class="busca-input" id="search-input" placeholder="Buscar smartphones, notebooks...">
+    </div>
+
+    <!-- Navegação -->
+    <nav class="navbar">
+      <ul class="nav-lista">
+        <li><a href="index.html" class="nav-link ativo">Vitrine</a></li>
+        <li><a href="cliente/pedidos.html" class="nav-link" id="nav-cliente-link">Minha Conta</a></li>
+        <li><a href="admin/dashboard.html" class="nav-link">Admin</a></li>
+      </ul>
+      
+      <div class="cabecalho-acoes">
+        <!-- Gatilho do carrinho de compras -->
+        <button class="carrinho-trigger" id="cart-trigger" aria-label="Abrir Carrinho">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="carrinho-contador" id="cart-count">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO BANNER (Destaque Tecnológico) -->
+    <section class="hero animar-fade">
+      <div class="hero-conteudo">
+        <span class="hero-tag"><i class="fas fa-bolt"></i> Nova Era da Performance</span>
+        <h1 class="hero-titulo">Nexus Fold X</h1>
+        <p class="hero-subtitulo">A revolução do display flexível ultrafino combinada com o poder do processador neural Octa-Core. O futuro se dobra para você.</p>
+        <div class="hero-botoes">
+          <button class="btn-primario" onclick="adicionarProdutoDestaque('NEX-002')">
+            <i class="fas fa-shopping-cart"></i> Adquirir agora
+          </button>
+          <a href="#vitrine" class="btn-secundario"><i class="fas fa-arrow-down"></i> Explorar vitrine</a>
+        </div>
+      </div>
+      <div class="hero-imagem-wrapper">
+        <div class="glow-radial"></div>
+        <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?q=80&w=600" alt="Nexus Fold X" class="hero-imagem">
+      </div>
+    </section>
+
+    <!-- VITRINE DE PRODUTOS -->
+    <section class="vitrine-secao" id="vitrine">
+      <div class="vitrine-header animar-subir">
+        <h2 class="secao-titulo">Catálogo Exclusivo</h2>
+        
+        <!-- Filtros de categoria -->
+        <div class="filtros-container">
+          <button class="filtro-btn ativo" data-filter="all">Todos</button>
+          <button class="filtro-btn" data-filter="Smartphones">Smartphones</button>
+          <button class="filtro-btn" data-filter="Notebooks">Notebooks</button>
+          <button class="filtro-btn" data-filter="Fones">Áudio</button>
+        </div>
+      </div>
+
+      <!-- Grade de produtos -->
+      <div class="produtos-grid animar-subir delay-1" id="produtos-vitrine">
+        <!-- Renderizado dinamicamente via JS -->
+      </div>
+    </section>
+
+    <!-- INFORMAÇÕES DE COMPRA PREMIUM -->
+    <section class="diferenciais-secao">
+      <div class="diferencial-card">
+        <div class="diferencial-icone"><i class="fas fa-truck-fast"></i></div>
+        <h3>Frete Priority</h3>
+        <p>Entrega expressa com seguro total garantido em até 48 horas em todo território nacional.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="diferencial-icone"><i class="fas fa-shield-halved"></i></div>
+        <h3>Garantia Nexus 24M</h3>
+        <p>Dois anos de suporte e garantia de hardware completa. Atendimento em domicílio prioritário.</p>
+      </div>
+      <div class="diferencial-card">
+        <div class="diferencial-icone"><i class="fas fa-credit-card"></i></div>
+        <h3>Pagamento Flex</h3>
+        <p>Parcele em até 12x sem juros no cartão ou ganhe 15% de desconto no PIX instantâneo.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- SIDEBAR DO CARRINHO DE COMPRAS -->
+  <div class="carrinho-overlay" id="cart-overlay"></div>
+  <aside class="carrinho-sidebar" id="cart-sidebar">
+    <div class="carrinho-header">
+      <h2>Seu Carrinho</h2>
+      <button class="carrinho-fechar" id="cart-close" aria-label="Fechar Carrinho">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- Lista de Itens no Carrinho -->
+    <div class="carrinho-itens" id="cart-items-container">
+      <!-- Renderizado via JS -->
+    </div>
+
+    <!-- Resumo e Ação -->
+    <div class="carrinho-rodape">
+      <div class="carrinho-resumo">
+        <span class="resumo-label">Subtotal</span>
+        <span class="resumo-valor" id="cart-total">R$ 0,00</span>
+      </div>
+      <button class="btn-primario" id="checkout-btn" style="width: 100%;">
+        Finalizar Compra <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- NOTIFICAÇÃO TOAST -->
+  <div class="toast" id="toast-notificacao">
+    <i class="fas fa-info-circle toast-icone"></i>
+    <span class="toast-mensagem">Produto adicionado ao carrinho!</span>
+  </div>
+
+  <!-- RODAPÉ GLOBAL -->
+  <footer class="rodape">
+    <div class="rodape-container">
+      <div class="rodape-info">
+        <p class="rodape-logo">NEX<span>US</span></p>
+        <p class="rodape-sub">Nexus Electronics. A melhor curadoria de gadgets premium de alta performance sob uma estética de luxo e eficiência.</p>
+        <div class="rodape-redes">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="rodape-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Vitrine</a></li>
+          <li><a href="cliente/pedidos.html">Histórico de Pedidos</a></li>
+          <li><a href="admin/dashboard.html">Painel Administrativo</a></li>
+        </ul>
+      </div>
+      <div class="rodape-links">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#">Garantia & Trocas</a></li>
+          <li><a href="#">Central de Atendimento</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-copy">
+      <p>© 2026 · NEXUS Electronics. Feito com <i class="fas fa-heart" style="color: var(--cor-acento);"></i> por Devs · Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="database.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - SWELL POINT]
+  ARQUIVO: index.html (A Landing Page principal do portal de surf)
+  ========================================================================
+  Olá, Aluno! Este arquivo é a estrutura principal do Swell Point.
+  Utilizamos tags semânticas para organizar o conteúdo de forma acessível e
+  otimizada para motores de busca (SEO).
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <title>Swell Point — Guia & Catálogo dos Melhores Picos de Surf</title>
+    <meta name="description" content="Descubra a avaliação, nível de perigo, melhor temporada e detalhes técnicos dos principais picos de surf do Brasil e do mundo." />
+
+    <!-- Google Fonts: Outfit (Títulos fluidos como ondas) e Plus Jakarta Sans (Texto limpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6.4.0 para ícones temáticos (ondas, caveiras, calendário, troféus, estrelas) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Importação de Folhas de Estilo -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+    <!-- CABEÇALHO GLOBAL -->
+    <header class="cabecalho">
+        <a href="index.html" class="logo">
+            <i class="fas fa-water"></i> Swell<span>Point</span>
+        </a>
+        <nav class="navbar">
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link ativo">Início</a></li>
+                <li><a href="picos/picos.html" class="nav-link">Picos de Surf</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#newsletter" class="nav-link">Previsão</a></li>
+            </ul>
+            <a href="admin/dashboard.html" class="btn-menu-destaque">Painel Admin</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <!-- SEÇÃO HERO (Banner Inicial) -->
+        <section class="hero animar-subir">
+            <div class="hero-conteudo">
+                <span class="hero-tag"><i class="fas fa-certificate"></i> O Guia Definitivo do Surfista</span>
+                <h1 class="hero-titulo">Encontre a onda perfeita para o seu surf.</h1>
+                <p class="hero-subtitulo"> Explore o catálogo completo de picos de surf. Analise a qualidade da onda, os perigos do mar, a temporada ideal e esteja preparado para o swell.</p>
+                <div class="hero-botoes">
+                    <a href="picos/picos.html" class="btn-primario"><i class="fas fa-search-location"></i> Explorar Picos</a>
+                    <a href="admin/novo-pico/novo-pico.html" class="btn-secundario"><i class="fas fa-plus"></i> Cadastrar Pico</a>
+                </div>
+            </div>
+
+            <!-- Previsão do Tempo Dinâmica pura em CSS -->
+            <div class="hero-imagem animar-subir delay-2">
+                <div class="card-previsao">
+                    <div class="previsao-header">
+                        <span class="dot-status active"></span>
+                        <span class="previsao-title"><i class="fas fa-chart-line"></i> Previsão em Tempo Real</span>
+                    </div>
+                    <div class="previsao-corpo">
+                        <div class="previsao-principal">
+                            <span class="previsao-swell">2.4m</span>
+                            <span class="previsao-periodo">14s · SSW</span>
+                        </div>
+                        <div class="previsao-detalhes">
+                            <div class="detalhe-item">
+                                <span class="detalhe-label">Vento</span>
+                                <span class="detalhe-valor"><i class="fas fa-wind"></i> 8kts Terraz</span>
+                            </div>
+                            <div class="detalhe-item">
+                                <span class="detalhe-label">Maré</span>
+                                <span class="detalhe-valor"><i class="fas fa-tint"></i> 1.2m Secando</span>
+                            </div>
+                            <div class="detalhe-item">
+                                <span class="detalhe-label">Temperatura</span>
+                                <span class="detalhe-valor"><i class="fas fa-thermometer-half"></i> 22°C Água</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="previsao-rodape">
+                        <span>Atualizado há 15 min · Swell Point Core</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DE CATEGORIAS (Tipos de Fundo / Wave Break) -->
+        <section class="categorias-secao">
+            <div class="secao-header">
+                <span class="secao-tag"><i class="fas fa-water"></i> Tipo de Fundo</span>
+                <h2 class="secao-titulo">Explore por Bancada</h2>
+                <p class="secao-subtitulo">Diferentes fundos moldam ondas distintas. Conheça as características antes de entrar na água.</p>
+            </div>
+
+            <div class="categorias-grid">
+                <!-- Beach Break -->
+                <a href="picos/picos.html?tipo=areia" class="categoria-card areia animar-subir delay-1">
+                    <div class="categoria-icone"><i class="fas fa-umbrella-beach"></i></div>
+                    <h3>Beach Break</h3>
+                    <p>Fundo de areia. Ondas dinâmicas que mudam constantemente com o movimento dos bancos de areia e as marés. Perfeito para todos os níveis.</p>
+                    <span class="categoria-link-texto">Ver picos <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Reef Break -->
+                <a href="picos/picos.html?tipo=coral" class="categoria-card coral animar-subir delay-2">
+                    <div class="categoria-icone"><i class="fas fa-fish"></i></div>
+                    <h3>Reef Break</h3>
+                    <p>Fundo de coral ou pedra. Ondas perfeitas, consistentes e muito tubulares. Geralmente rasas e indicadas para surfistas experientes.</p>
+                    <span class="categoria-link-texto">Ver picos <i class="fas fa-arrow-right"></i></span>
+                </a>
+
+                <!-- Point Break -->
+                <a href="picos/picos.html?tipo=pedra" class="categoria-card pedra animar-subir delay-3">
+                    <div class="categoria-icone"><i class="fas fa-mountain"></i></div>
+                    <h3>Point Break</h3>
+                    <p>A onda contorna uma ponta de terra, costão rochoso ou península. Proporciona ondas extremamente longas e manobráveis.</p>
+                    <span class="categoria-link-texto">Ver picos <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DO CATÁLOGO DE PICOS (Grade Simétrica) -->
+        <section class="catalogo-secao">
+            <div class="secao-header">
+                <span class="secao-tag"><i class="fas fa-map-marked-alt"></i> Catálogo de Ondas</span>
+                <h2 class="secao-titulo">Picos em Destaque</h2>
+                <p class="secao-subtitulo">Nossa curadoria dos picos mais cobiçados do mundo e suas características fundamentais.</p>
+            </div>
+
+            <!-- Grade Simétrica de Picos de Surf -->
+            <div class="catalogo-grid">
+                
+                <!-- Pico 1: Pipeline -->
+                <article class="pico-card animar-subir delay-1">
+                    <div class="pico-imagem-container">
+                        <img src="images/pipeline.jpg" alt="Pipeline Oahu Hawaii" class="pico-imagem" />
+                        <span class="pico-badge-eventos"><i class="fas fa-trophy"></i> WSL Championship Tour</span>
+                    </div>
+                    <div class="pico-corpo">
+                        <div class="pico-cabecalho-card">
+                            <h3 class="pico-nome">Pipeline</h3>
+                            <span class="pico-localizacao"><i class="fas fa-map-marker-alt"></i> Oahu, Hawaii</span>
+                        </div>
+                        <div class="pico-detalhes-grid">
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Avaliação</span>
+                                <span class="pico-valor-meta avaliacao-estrelas"><i class="fas fa-star"></i> 5.0 / 5.0</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Perigo</span>
+                                <span class="pico-valor-meta valor-perigo"><i class="fas fa-skull-crossbones"></i> Fundo de Coral Raso</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Temporada</span>
+                                <span class="pico-valor-meta"><i class="fas fa-calendar-alt"></i> Nov a Mar (Swell N)</span>
+                            </div>
+                        </div>
+                        <p class="pico-descricao">
+                            A onda mais famosa e desafiadora do planeta. Pipeline quebra em uma rasa e afiada bancada de coral vulcânico, gerando tubos colossais e de alta potência vertical.
+                        </p>
+                        <div class="pico-rodape-card">
+                            <a href="picos/picos.html" class="pico-link-detalhes">Ver Condições Completas <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pico 2: Cacimba do Padre -->
+                <article class="pico-card animar-subir delay-2">
+                    <div class="pico-imagem-container">
+                        <img src="images/noronha.jpg" alt="Cacimba do Padre Fernando de Noronha" class="pico-imagem" />
+                        <span class="pico-badge-eventos"><i class="fas fa-trophy"></i> Hang Loose Pro Contest</span>
+                    </div>
+                    <div class="pico-corpo">
+                        <div class="pico-cabecalho-card">
+                            <h3 class="pico-nome">Cacimba do Padre</h3>
+                            <span class="pico-localizacao"><i class="fas fa-map-marker-alt"></i> Fernando de Noronha, PE</span>
+                        </div>
+                        <div class="pico-detalhes-grid">
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Avaliação</span>
+                                <span class="pico-valor-meta avaliacao-estrelas"><i class="fas fa-star"></i> 4.8 / 5.0</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Perigo</span>
+                                <span class="pico-valor-meta valor-perigo"><i class="fas fa-exclamation-triangle"></i> Correnteza & Caldo Pesado</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Temporada</span>
+                                <span class="pico-valor-meta"><i class="fas fa-calendar-alt"></i> Dez a Mar (Swell N)</span>
+                            </div>
+                        </div>
+                        <p class="pico-descricao">
+                            Conhecido como o "Havaí Brasileiro", a Cacimba do Padre oferece tubos verdes perfeitos e extremamente potentes que quebram muito próximos à areia cristalina.
+                        </p>
+                        <div class="pico-rodape-card">
+                            <a href="picos/picos.html" class="pico-link-detalhes">Ver Condições Completas <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pico 3: Praia de Itaúna -->
+                <article class="pico-card animar-subir delay-3">
+                    <div class="pico-imagem-container">
+                        <img src="images/saquarema.jpg" alt="Praia de Itaúna Saquarema" class="pico-imagem" />
+                        <span class="pico-badge-eventos"><i class="fas fa-trophy"></i> WSL Vivo Rio Pro</span>
+                    </div>
+                    <div class="pico-corpo">
+                        <div class="pico-cabecalho-card">
+                            <h3 class="pico-nome">Praia de Itaúna</h3>
+                            <span class="pico-localizacao"><i class="fas fa-map-marker-alt"></i> Saquarema, RJ</span>
+                        </div>
+                        <div class="pico-detalhes-grid">
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Avaliação</span>
+                                <span class="pico-valor-meta avaliacao-estrelas"><i class="fas fa-star"></i> 4.5 / 5.0</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Perigo</span>
+                                <span class="pico-valor-meta valor-perigo"><i class="fas fa-users"></i> Localismo & Crowd Intenso</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Temporada</span>
+                                <span class="pico-valor-meta"><i class="fas fa-calendar-alt"></i> Abr a Out (Swell S/SW)</span>
+                            </div>
+                        </div>
+                        <p class="pico-descricao">
+                            O "Templo do Surf Brasileiro". Itaúna é famosa por aguentar swells massivos e gerar ondas consistentes, pesadas e compridas que correm ao longo do canal do costão.
+                        </p>
+                        <div class="pico-rodape-card">
+                            <a href="picos/picos.html" class="pico-link-detalhes">Ver Condições Completas <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO NEWSLETTER / PREVISÃO EXCLUSIVA -->
+        <section class="newsletter-secao" id="newsletter">
+            <div class="newsletter-card animar-subir">
+                <div class="newsletter-conteudo">
+                    <span class="newsletter-tag"><i class="fas fa-paper-plane"></i> Alertas de Swell</span>
+                    <h2>Esteja pronto para a série do ano</h2>
+                    <p>Inscreva-se para receber relatórios detalhados, alertas de swells gigantes se aproximando e condições climáticas dos principais picos de surf diretamente no e-mail.</p>
+                    <form class="newsletter-form" action="#" onsubmit="alert('Obrigado! Cadastro efetuado.'); return false;">
+                        <div class="input-newsletter-wrapper">
+                            <i class="fas fa-envelope input-envelope-icone"></i>
+                            <input type="email" placeholder="Digite seu melhor e-mail..." required />
+                        </div>
+                        <button type="submit" class="btn-primario">Inscrever-se <i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <p class="newsletter-sub"><i class="fas fa-lock"></i> Nós também abominamos spam. Cancele sua inscrição quando quiser.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- SEÇÃO SOBRE O PROJETO -->
+    <section class="sobre-secao" id="sobre">
+        <div class="secao-header">
+            <span class="secao-tag"><i class="fas fa-info-circle"></i> O Projeto</span>
+            <h2 class="secao-titulo">Sobre o Swell Point</h2>
+            <p class="secao-subtitulo">Unindo tecnologia e a paixão pelo oceano para criar o catálogo definitivo das ondas brasileiras e internacionais.</p>
+        </div>
+        <div class="sobre-conteudo">
+            <div class="sobre-item">
+                <i class="fas fa-compass"></i>
+                <h3>Navegação Precisa</h3>
+                <p>Nossa plataforma compila dados cruciais de segurança para que você saiba exatamente o que esperar de cada bancada, correnteza e pico.</p>
+            </div>
+            <div class="sobre-item">
+                <i class="fas fa-star"></i>
+                <h3>Comunidade Ativa</h3>
+                <p>Mapeamentos constantemente revisados por surfistas experientes locais garantindo a fidelidade técnica das condições descritas.</p>
+            </div>
+            <div class="sobre-item">
+                <i class="fas fa-wave-square"></i>
+                <h3>Previsão Integrada</h3>
+                <p>Com nosso dashboard dinâmico você monitora o tamanho do swell, intervalo de período e direção do vento sem sair do catálogo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ GLOBAL -->
+    <footer class="rodape">
+        <div class="rodape-container">
+            <p class="rodape-logo"><i class="fas fa-water"></i> Swell<span>Point</span></p>
+            <p>Seu guia especializado em ondas de alta qualidade. Respeite o localismo, cuide das praias e boas ondas!</p>
+            <div class="rodape-redes">
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="rodape-copy">
+            <p>© 2026 · Feito com <i class="fas fa-heart"></i> pela Comunidade Surfista · Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+</html>

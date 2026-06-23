@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus — Gerenciar Produto</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Globais e Locais -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="novo-produto.css">
+</head>
+<body>
+
+  <div class="dashboard-pagina">
+    <!-- CABEÇALHO DO DASHBOARD -->
+    <header class="dashboard-cabecalho">
+      <a href="../../index.html" class="logo">NEX<span>US</span></a>
+      <div class="dashboard-cabecalho-usuario">
+        <span>Olá, Admin</span>
+        <div class="dashboard-avatar">A</div>
+        <a href="../../index.html" class="btn-sair" style="border-color: rgba(255,255,255,0.1); color: var(--cor-texto-suave);">Sair</a>
+      </div>
+    </header>
+
+    <!-- SIDEBAR DE NAVEGAÇÃO -->
+    <aside class="dashboard-sidebar">
+      <p class="sidebar-secao-titulo">Gerenciamento</p>
+      <a href="../dashboard.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-chart-line"></i></span> Visão Geral
+      </a>
+      <a href="../dashboard.html#tabela-produtos-secao" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-boxes-stacked"></i></span> Produtos
+      </a>
+      <a href="novo-produto.html" class="sidebar-link ativo" id="sidebar-novo-link">
+        <span class="sidebar-icone"><i class="fas fa-plus"></i></span> Novo Produto
+      </a>
+
+      <p class="sidebar-secao-titulo">Atalhos</p>
+      <a href="../../index.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-shop"></i></span> Ir para a Vitrine
+      </a>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL (FORMULÁRIO) -->
+    <main class="dashboard-conteudo">
+      <div class="form-header">
+        <h1 class="dashboard-titulo-pagina" id="form-titulo">Novo Produto</h1>
+        <p class="dashboard-subtitulo" id="form-subtitulo">Cadastre um novo produto eletrônico no estoque da loja.</p>
+      </div>
+
+      <div class="form-container animar-subir">
+        <form class="produto-form" id="produto-form-element">
+          
+          <div class="form-row-2">
+            <div class="campo-grupo">
+              <label class="campo-label" for="nome">Nome do Produto</label>
+              <input class="campo-input" type="text" id="nome" placeholder="Ex: Nexus Buds Pro" required>
+            </div>
+            
+            <div class="campo-grupo">
+              <label class="campo-label" for="marca">Marca</label>
+              <input class="campo-input" type="text" id="marca" placeholder="Ex: Nexus, SoundLab" required>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="campo-grupo">
+              <label class="campo-label" for="categoria">Categoria</label>
+              <select class="campo-input" id="categoria" required style="background-color: var(--cor-card); border-color: var(--cor-borda); color: var(--cor-texto);">
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Smartphones">Smartphones</option>
+                <option value="Notebooks">Notebooks</option>
+                <option value="Fones">Áudio</option>
+              </select>
+            </div>
+
+            <div class="campo-grupo">
+              <label class="campo-label" for="preco">Preço (R$)</label>
+              <input class="campo-input" type="number" id="preco" step="0.01" min="0" placeholder="Ex: 1499.90" required>
+            </div>
+
+            <div class="campo-grupo">
+              <label class="campo-label" for="estoque">Estoque (Qtd.)</label>
+              <input class="campo-input" type="number" id="estoque" min="0" placeholder="Ex: 10" required>
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="descricao">Descrição Completa</label>
+            <textarea class="campo-input" id="descricao" rows="4" placeholder="Descreva as especificações técnicas e recursos premium do produto..." required style="resize: vertical;"></textarea>
+          </div>
+
+          <div class="form-row-2 align-bottom">
+            <div class="campo-grupo">
+              <label class="campo-label" for="imagem-url">URL da Imagem</label>
+              <input class="campo-input" type="url" id="imagem-url" placeholder="https://unsplash.com/..." required>
+            </div>
+            
+            <div class="upload-preview-card">
+              <div class="upload-preview-vazio" id="preview-vazio">
+                <i class="fas fa-image"></i>
+                <span>Sem Preview</span>
+              </div>
+              <img src="" alt="Preview" id="preview-imagem" style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: var(--raio-sm);">
+            </div>
+          </div>
+
+          <div class="form-botoes">
+            <a href="../dashboard.html" class="btn-secundario">Cancelar</a>
+            <button class="btn-primario" type="submit" id="btn-submit-form">
+              Cadastrar Produto <i class="fas fa-plus"></i>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script src="../../database.js"></script>
+  <script>
+    // Preview de Imagem Dinâmico
+    const imagemUrlInput = document.getElementById("imagem-url");
+    const previewVazio = document.getElementById("preview-vazio");
+    const previewImagem = document.getElementById("preview-imagem");
+
+    imagemUrlInput.addEventListener("input", function() {
+      const url = this.value;
+      if (url && (url.startsWith("http://") || url.startsWith("https://"))) {
+        previewImagem.src = url;
+        previewImagem.style.display = "block";
+        previewVazio.style.display = "none";
+      } else {
+        previewImagem.style.display = "none";
+        previewVazio.style.display = "flex";
+      }
+    });
+
+    // Detectar Modo de Edição
+    const urlParams = new URLSearchParams(window.location.search);
+    const editId = urlParams.get("edit");
+    const formTitulo = document.getElementById("form-titulo");
+    const formSubtitulo = document.getElementById("form-subtitulo");
+    const btnSubmit = document.getElementById("btn-submit-form");
+    const sidebarLink = document.getElementById("sidebar-novo-link");
+
+    let isEditMode = false;
+    let productsList = JSON.parse(localStorage.getItem("nexus_products")) || [];
+
+    if (editId) {
+      const produtoParaEditar = productsList.find(p => p.id === editId);
+      
+      if (produtoParaEditar) {
+        isEditMode = true;
+        formTitulo.textContent = `Editar Produto: ${produtoParaEditar.nome}`;
+        formSubtitulo.textContent = `Modifique os campos abaixo para atualizar as informações do item no estoque.`;
+        btnSubmit.innerHTML = `Salvar Alterações <i class="fas fa-save"></i>`;
+        sidebarLink.innerHTML = `<span class="sidebar-icone"><i class="fas fa-edit"></i></span> Editar Produto`;
+
+        // Preencher inputs
+        document.getElementById("nome").value = produtoParaEditar.nome;
+        document.getElementById("marca").value = produtoParaEditar.marca;
+        document.getElementById("categoria").value = produtoParaEditar.categoria;
+        document.getElementById("preco").value = produtoParaEditar.preco;
+        document.getElementById("estoque").value = produtoParaEditar.estoque;
+        document.getElementById("descricao").value = produtoParaEditar.descricao;
+        document.getElementById("imagem-url").value = produtoParaEditar.imagem;
+
+        // Preview da imagem cadastrada
+        previewImagem.src = produtoParaEditar.imagem;
+        previewImagem.style.display = "block";
+        previewVazio.style.display = "none";
+      }
+    }
+
+    // Ação ao Submeter
+    document.getElementById("produto-form-element").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const marca = document.getElementById("marca").value;
+      const categoria = document.getElementById("categoria").value;
+      const preco = parseFloat(document.getElementById("preco").value);
+      const estoque = parseInt(document.getElementById("estoque").value);
+      const descricao = document.getElementById("descricao").value;
+      const imagem = document.getElementById("imagem-url").value;
+
+      if (isEditMode) {
+        // Atualizar produto existente
+        productsList = productsList.map(p => {
+          if (p.id === editId) {
+            return { ...p, nome, marca, categoria, preco, estoque, descricao, imagem };
+          }
+          return p;
+        });
+        localStorage.setItem("nexus_products", JSON.stringify(productsList));
+        alert("Produto atualizado com sucesso!");
+      } else {
+        // Criar novo produto
+        // Gerar ID sequencial
+        const IDs = productsList.map(p => parseInt(p.id.split("-")[1])).filter(id => !isNaN(id));
+        const proximoNumero = IDs.length > 0 ? Math.max(...IDs) + 1 : 1;
+        const novoId = `NEX-${String(proximoNumero).padStart(3, "0")}`;
+
+        const novoProduto = {
+          id: novoId,
+          nome,
+          marca,
+          categoria,
+          preco,
+          estoque,
+          descricao,
+          imagem
+        };
+
+        productsList.push(novoProduto);
+        localStorage.setItem("nexus_products", JSON.stringify(productsList));
+        alert("Produto cadastrado com sucesso!");
+      }
+
+      // Redirecionar para o dashboard
+      window.location.href = "../dashboard.html";
+    });
+  </script>
+</body>
+</html>

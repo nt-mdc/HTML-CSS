@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pitoco's Cars — Clássicos & Esportivos</title>
+
+    <!-- Google Fonts: Orbitron para títulos esportivos/agressivos, DM Sans para corpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Biblioteca de Ícones Font Awesome 6.4.0 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Importação de Estilos Globais e da Página -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+    <!-- CABEÇALHO GLOBAL -->
+    <header class="cabecalho">
+        <a href="index.html" class="logo"><i class="fas fa-gauge-high"></i> Pitoco's <span>Cars</span></a>
+        
+        <nav class="navbar">
+            <ul class="nav-lista">
+                <li><a href="index.html" class="nav-link ativo">Início</a></li>
+                <li><a href="artigos/artigos.html" class="nav-link">Catálogo</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#alimentacao" class="nav-link">Praça V8</a></li>
+                <li><a href="#organizador" class="nav-link">Organizador</a></li>
+            </ul>
+            <a href="auth/login/login.html" class="btn-sair">Entrar</a>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <!-- SEÇÃO HERO -->
+        <section class="hero animar-fade">
+            <div class="hero-conteudo">
+                <span class="hero-tag"><i class="fas fa-fire-flame-curved"></i> O Maior Encontro de Motores</span>
+                <h1 class="hero-titulo">CLÁSSICOS & ESPORTIVOS</h1>
+                
+                <div class="hero-data-wrapper">
+                    <div class="data-item">
+                        <i class="far fa-calendar-alt"></i>
+                        <span>27 & 28 de Junho, 2026</span>
+                    </div>
+                    <div class="data-item">
+                        <i class="far fa-clock"></i>
+                        <span>09:00h às 18:00h</span>
+                    </div>
+                    <div class="data-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>Pátio Pitoco's, SP</span>
+                    </div>
+                </div>
+
+                <p class="hero-subtitulo">
+                    Uma imersão completa no universo automobilístico de alta performance e elegância vintage. Sinta o ronco dos motores V8, admire relíquias raras restauradas e viva a nostalgia das lendas das pistas.
+                </p>
+
+                <div class="hero-botoes">
+                    <a href="#ingressos" class="btn-primario"><i class="fas fa-ticket"></i> Comprar Ingresso VIP</a>
+                    <a href="artigos/artigos.html" class="btn-secundario"><i class="fas fa-car"></i> Ver Veículos</a>
+                </div>
+            </div>
+
+            <!-- CARD DE ESPECIFICAÇÕES 3D (SHELBY MUSTANG GT500) -->
+            <div class="hero-imagem animar-escalar delay-2">
+                <div class="car-card">
+                    <div class="car-card-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="car-card-title">SPECS: SHELBY GT500 1967</span>
+                    </div>
+                    
+                    <div class="car-card-visual">
+                        <div class="car-silhouette">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <div class="car-badge-destaque">CONFIRMADO</div>
+                    </div>
+
+                    <div class="car-specs-grid">
+                        <div class="spec-box">
+                            <span class="spec-label">Motor</span>
+                            <span class="spec-value">V8 428ci Cobra Jet</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-label">Potência</span>
+                            <span class="spec-value">355 hp</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-label">0-100 km/h</span>
+                            <span class="spec-value">6.2s</span>
+                        </div>
+                        <div class="spec-box">
+                            <span class="spec-label">Transmissão</span>
+                            <span class="spec-value">Manual 4 marchas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO SOBRE O EVENTO E ALERTA DE VAGAS -->
+        <section class="sobre-secao" id="sobre">
+            <div class="sobre-layout">
+                <div class="sobre-texto-bloco animar-subir delay-1">
+                    <span class="sobre-tag"><i class="fas fa-circle-info"></i> O Encontro</span>
+                    <h2 class="sobre-titulo">LENDAS QUE O TEMPO NÃO APAGOU</h2>
+                    <p class="sobre-descricao">
+                        O **Encontro Classic & Sports Car Pitoco's Cars** reúne colecionadores, restauradores e entusiastas do automobilismo clássico e moderno. Durante dois dias de imersão, o público poderá ver de perto mais de uma centena de veículos que marcaram época nas pistas e ruas do mundo todo.
+                    </p>
+                    <p class="sobre-descricao">
+                        Além da exposição principal de carros originais e modificados, contaremos com praça de alimentação temática, música ao vivo com clássicos do rock e o mercado de peças vintage.
+                    </p>
+                </div>
+
+                <!-- CARD DE AVISO / ESCASSEZ (URGÊNCIA) -->
+                <div class="sobre-aviso-card animar-subir delay-2">
+                    <div class="aviso-header">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <h3>Aviso aos Expositores</h3>
+                    </div>
+                    <p class="aviso-texto">
+                        O pátio principal de exibição possui restrição de espaço para garantir a segurança dos veículos e do público. O limite de inscrições está quase atingido!
+                    </p>
+                    
+                    <div class="vagas-progresso-container">
+                        <div class="vagas-progresso-meta">
+                            <span>Vagas Preenchidas: <strong>137</strong> / 150</span>
+                            <span class="vagas-porcentagem">91%</span>
+                        </div>
+                        <div class="vagas-progresso-barra-fundo">
+                            <div class="vagas-progresso-barra-ativa" style="width: 91.3%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="aviso-alerta-mensagem">
+                        <i class="fas fa-hourglass-half"></i> Apenas 13 vagas de exibição restantes no lote final!
+                    </div>
+
+                    <a href="admin/novo-artigo/novo-artigo.html" class="btn-primario btn-aviso"><i class="fas fa-clipboard-list"></i> Inscrever Meu Veículo</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO PRAÇA DE ALIMENTAÇÃO / MENU -->
+        <section class="alimentacao-secao" id="alimentacao">
+            <div class="secao-header">
+                <span class="secao-tag"><i class="fas fa-utensils"></i> Praça V8</span>
+                <h2 class="secao-titulo">CARDÁPIO OCTANAGEM</h2>
+                <p class="secao-subtitulo">Abasteça suas energias em nossa praça temática de alimentação. Lanches e bebidas batizados com as maiores lendas das pistas.</p>
+            </div>
+
+            <div class="alimentacao-layout">
+                <div class="menu-card animar-subir delay-1">
+                    <h3 class="menu-categoria-titulo"><i class="fas fa-burger"></i> Hambúrgueres Grelhados</h3>
+                    <table class="menu-tabela">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="menu-item-nome">Shelby V8 Supercharger</div>
+                                    <div class="menu-item-desc">Hambúrguer bovino de 200g, cheddar duplo, bacon crocante ao barbecue e cebola caramelizada no pão de brioche.</div>
+                                </td>
+                                <td class="menu-item-preco">R$ 42,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="menu-item-nome">Flat-Six Porsche</div>
+                                    <div class="menu-item-desc">Hambúrguer artesanal de costela, queijo provolone derretido, rúcula fresca e maionese verde artesanal.</div>
+                                </td>
+                                <td class="menu-item-preco">R$ 38,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="menu-item-nome">Classic Beetle Burger</div>
+                                    <div class="menu-item-desc">O clássico que nunca falha. Hambúrguer de 150g, queijo prato, alface, tomate e molho da casa.</div>
+                                </td>
+                                <td class="menu-item-preco">R$ 29,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="menu-card animar-subir delay-2">
+                    <h3 class="menu-categoria-titulo"><i class="fas fa-beer-mug-empty"></i> Combustíveis & Acompanhamentos</h3>
+                    <table class="menu-tabela">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="menu-item-nome">Batata Nitrosa</div>
+                                    <div class="menu-item-desc">Batatas fritas rústicas salpicadas com lemon pepper, servidas com cheddar cremoso e farofa de bacon.</div>
+                                </td>
+                                <td class="menu-item-preco">R$ 22,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="menu-item-nome">Chopp Artesanal Carbono (Pint)</div>
+                                    <div class="menu-item-desc">Cerveja artesanal estilo IPA encorpada, tirada na pressão e servida trincando de gelada.</div>
+                                </td>
+                                <td class="menu-item-preco">R$ 16,00</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="menu-item-nome">Milkshake Octanagem</div>
+                                    <div class="menu-item-desc">Milkshake de chocolate belga cremoso com calda extra de trufa de chocolate e pedaços de brownie.</div>
+                                </td>
+                                <td class="menu-item-preco">R$ 18,00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO ORGANIZADOR DO EVENTO -->
+        <section class="organizador-secao" id="organizador">
+            <div class="organizador-layout">
+                <div class="organizador-foto-wrapper animar-escalar delay-1">
+                    <!-- Placeholder de foto elegante do organizador -->
+                    <div class="organizador-foto-placeholder">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                
+                <div class="organizador-conteudo animar-subir delay-2">
+                    <span class="organizador-tag"><i class="fas fa-user-shield"></i> Curadoria Oficial</span>
+                    <h2 class="organizador-nome">Renan "Pitoco" Toledo</h2>
+                    <p class="organizador-titulo-cargo">Organizador Geral & Colecionador</p>
+                    
+                    <p class="organizador-texto">
+                        Com mais de 15 anos de atuação no mercado de restauração e comercialização de veículos raros, Renan Toledo, mais conhecido como "Pitoco", é o idealizador do evento. Sua oficina e garagem, a Pitoco's Cars, tornaram-se referência nacional em preservação de clássicos americanos e superesportivos modernos.
+                    </p>
+                    <p class="organizador-texto">
+                        "Nossa missão é mais do que simplesmente expor carros; é conectar gerações através do design automotivo e da engenharia mecânica. Cada veículo participante tem uma história única, e nós cuidamos da curadoria para garantir uma experiência inesquecível para o público e expositores."
+                    </p>
+
+                    <div class="organizador-assinatura">
+                        <i class="fas fa-file-signature"></i>
+                        <span>R. Toledo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO INGRESSOS / CTA DE COMPRA -->
+        <section class="ingressos-secao" id="ingressos">
+            <div class="ingressos-card card-brilho animar-escalar">
+                <div class="ingressos-conteudo">
+                    <span class="ingressos-tag"><i class="fas fa-ticket-alt"></i> Garanta Sua Entrada</span>
+                    <h2>ADQUIRA SEU INGRESSO AGORA</h2>
+                    <p>Os lotes são limitados. Garanta acesso exclusivo aos boxes, exposição de veículos, pista de arrancada e praça temática.</p>
+                    
+                    <div class="lotes-grid">
+                        <div class="lote-card">
+                            <span class="lote-titulo">Ingresso Comum</span>
+                            <span class="lote-preco">R$ 45,00</span>
+                            <ul class="lote-beneficios">
+                                <li><i class="fas fa-check text-red"></i> Acesso aos dois dias de evento</li>
+                                <li><i class="fas fa-check text-red"></i> Acesso à Praça V8</li>
+                                <li><i class="fas fa-xmark text-muted"></i> Acesso aos Boxes</li>
+                            </ul>
+                            <a href="#" class="btn-secundario btn-comprar">Comprar Ingresso</a>
+                        </div>
+
+                        <div class="lote-card destaque">
+                            <div class="lote-popular">MAIS VENDIDO</div>
+                            <span class="lote-titulo">Credencial VIP Box</span>
+                            <span class="lote-preco">R$ 120,00</span>
+                            <ul class="lote-beneficios">
+                                <li><i class="fas fa-check"></i> Acesso livre a todas as seções</li>
+                                <li><i class="fas fa-check"></i> Credencial VIP dos Boxes</li>
+                                <li><i class="fas fa-check"></i> Kit Oficial Pitoco's Cars (Boné + Adesivo)</li>
+                            </ul>
+                            <a href="#" class="btn-primario btn-comprar">Comprar VIP</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO NEWSLETTER -->
+        <section class="newsletter-secao">
+            <div class="newsletter-card card-brilho animar-escalar">
+                <div class="newsletter-conteudo">
+                    <span class="newsletter-tag"><i class="fas fa-envelope"></i> Newsletter Pitoco's Cars</span>
+                    <h2>RECEBA AS NOVIDADES NA SUA CAIXA</h2>
+                    <p>Fique por dentro das datas de novos encontros, atualizações do catálogo de carros confirmados e fotos exclusivas do evento.</p>
+
+                    <form class="newsletter-form" action="#">
+                        <div class="input-newsletter-wrapper">
+                            <i class="fas fa-envelope input-envelope-icone"></i>
+                            <input type="email" placeholder="Digite seu melhor e-mail..." required />
+                        </div>
+                        <button type="submit" class="btn-primario">Inscrever-se <i class="fas fa-arrow-right"></i></button>
+                    </form>
+                    <p class="newsletter-sub"><i class="fas fa-shield-halved"></i> Seus dados estão seguros conosco. Zero spam.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="rodape-container">
+            <div class="rodape-info">
+                <p class="rodape-logo"><i class="fas fa-gauge-high"></i> Pitoco's <span>Cars</span></p>
+                <p class="rodape-sub">
+                    O ponto de encontro definitivo dos entusiastas de motores de alta cilindrada, velocidade e design clássico.
+                </p>
+                <div class="rodape-redes">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="rodape-links">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="artigos/artigos.html">Catálogo</a></li>
+                    <li><a href="#sobre">Sobre o Evento</a></li>
+                    <li><a href="#alimentacao">Praça V8</a></li>
+                </ul>
+            </div>
+
+            <div class="rodape-links">
+                <h4>Expositores</h4>
+                <ul>
+                    <li><a href="auth/login/login.html">Login Expositor</a></li>
+                    <li><a href="auth/cadastro/cadastro.html">Cadastrar-se</a></li>
+                    <li><a href="admin/dashboard.html">Painel Administrativo</a></li>
+                    <li><a href="admin/novo-artigo/novo-artigo.html">Inscrever Veículo</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="rodape-copy">
+            <p>© 2026 · Desenvolvido para Pitoco's Cars · Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+</body>
+</html>

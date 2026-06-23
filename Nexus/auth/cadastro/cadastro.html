@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus — Cadastro</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Globais e Locais -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+  <div class="cadastro-pagina">
+    <!-- PAINEL ESQUERDO DECORATIVO (Luxo/Tech) -->
+    <div class="cadastro-painel-esquerdo">
+      <a href="../../index.html" class="logo">NEX<span>US</span></a>
+      
+      <div class="brand-msg-container">
+        <div class="linha-acento"></div>
+        <h2 class="cadastro-frase">
+          Crie sua conta.<br>
+          Explore a linha.<br>
+          <span>Sinta a diferença.</span>
+        </h2>
+      </div>
+      
+      <p class="cadastro-rodape-painel">
+        Nexus Electronics © 2026 · Premium Tech Experience
+      </p>
+    </div>
+
+    <!-- PAINEL DIREITO (Formulário) -->
+    <div class="cadastro-painel-direito">
+      <div class="cadastro-form-card animar-subir">
+        <h1 class="cadastro-titulo">Junte-se à Nexus</h1>
+        <p class="cadastro-subtitulo">Complete as informações abaixo para se cadastrar em nossa plataforma premium.</p>
+        
+        <!-- Formulário de Cadastro -->
+        <form class="cadastro-form" id="cadastro-form-element">
+          
+          <div class="campo-grupo">
+            <label class="campo-label" for="nome">Nome Completo</label>
+            <input class="campo-input" type="text" id="nome" placeholder="Seu nome completo" required>
+          </div>
+          
+          <div class="campo-grupo">
+            <label class="campo-label" for="email">E-mail</label>
+            <input class="campo-input" type="email" id="email" placeholder="seu@email.com" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="password">Senha</label>
+            <input class="campo-input" type="password" id="password" placeholder="Mínimo 6 caracteres" minlength="6" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="telefone">Telefone</label>
+            <input class="campo-input" type="tel" id="telefone" placeholder="(11) 99999-9999" required>
+          </div>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="endereco">Endereço de Entrega</label>
+            <input class="campo-input" type="text" id="endereco" placeholder="Rua, número, complemento, cidade e estado" required>
+          </div>
+
+          <div class="sucesso-mensagem" id="cadastro-success-msg" style="display: none; color: var(--cor-sucesso); font-size: 14px; font-weight: 600;">
+            <i class="fas fa-check-circle"></i> Cadastro realizado com sucesso! Redirecionando...
+          </div>
+          
+          <button class="btn-primario cadastro-btn-submit" type="submit">
+            Finalizar Cadastro <i class="fas fa-user-plus"></i>
+          </button>
+        </form>
+
+        <p class="cadastro-login-link">
+          Já possui uma conta? <a href="../login/login.html">Fazer login</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../database.js"></script>
+  <script>
+    document.getElementById("cadastro-form-element").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const telefone = document.getElementById("telefone").value;
+      const endereco = document.getElementById("endereco").value;
+      const successMsg = document.getElementById("cadastro-success-msg");
+
+      // Buscar usuários atuais ou iniciar vazio
+      let users = JSON.parse(localStorage.getItem("nexus_users")) || [];
+      
+      // Criar novo usuário
+      const newUser = {
+        nome,
+        email,
+        senha: password,
+        telefone,
+        endereco
+      };
+
+      // Adicionar usuário
+      users.push(newUser);
+      localStorage.setItem("nexus_users", JSON.stringify(users));
+      
+      // Auto-logar o usuário recém-criado
+      localStorage.setItem("nexus_current_user", JSON.stringify(newUser));
+
+      // Mostrar feedback visual
+      successMsg.style.display = "block";
+
+      // Redirecionar após 1.5s
+      setTimeout(() => {
+        window.location.href = "../../index.html";
+      }, 1500);
+    });
+  </script>
+</body>
+</html>

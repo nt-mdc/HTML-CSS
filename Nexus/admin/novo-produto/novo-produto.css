@@ -1,0 +1,117 @@
+/* ================================================================
+   [NEXUS ELECTRONICS - CADASTRO/EDIÇÃO DE PRODUTO]
+   ARQUIVO: novo-produto.css — Estilos do Formulário de Estoque
+   ================================================================ */
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-container {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 40px;
+  box-shadow: var(--sombra-sm);
+  width: 100%;
+  max-width: 900px;
+}
+
+.produto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Linhas Flexíveis / Grid */
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+}
+
+.form-row-2.align-bottom {
+  align-items: flex-end;
+}
+
+/* Preview do Card de Imagem */
+.upload-preview-card {
+  height: 48px;
+  background-color: var(--cor-fundo);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.form-row-2.align-bottom .upload-preview-card {
+  height: 48px; /* Mantém na mesma linha e tamanho de um input */
+}
+
+.upload-preview-vazio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--cor-texto-suave);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.upload-preview-vazio i {
+  font-size: 16px;
+  color: var(--cor-acento);
+}
+
+/* Área de botões no rodapé */
+.form-botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 24px;
+  margin-top: 10px;
+}
+
+/* ================================================================
+   1. RESPONSIVIDADE
+   ================================================================ */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 24px;
+  }
+  
+  .form-row-2, 
+  .form-row-3 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .form-row-2.align-bottom .upload-preview-card {
+    height: 120px; /* Expande no mobile para dar mais destaque */
+    margin-top: 10px;
+  }
+  
+  .form-botoes {
+    flex-direction: column-reverse;
+  }
+  
+  .form-botoes a, 
+  .form-botoes button {
+    width: 100%;
+    text-align: center;
+  }
+}

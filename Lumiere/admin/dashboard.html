@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière — Painel Administrativo</title>
+  
+  <!-- Google Fonts: Cormorant Garamond (títulos) e DM Sans (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos Globais e Específicos -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-pagina">
+
+    <!-- CABEÇALHO DO PAINEL -->
+    <header class="dashboard-cabecalho">
+      <a href="../index.html" class="logo">Lumi<span>è</span>re</a>
+      <div class="dashboard-cabecalho-usuario">
+        <span>Olá, Administrador</span>
+        <div class="dashboard-avatar">A</div>
+        <a href="../auth/login/login.html" class="btn-sair" style="color: var(--cor-3); border-color: var(--cor-8); background-color: var(--cor-9);">Sair</a>
+      </div>
+    </header>
+
+    <!-- SIDEBAR (MENU LATERAL) -->
+    <aside class="dashboard-sidebar">
+      <p class="sidebar-secao-titulo">Administração</p>
+      <a href="dashboard.html" class="sidebar-link ativo">
+        <span class="sidebar-icone"><i class="fas fa-chart-line"></i></span> Visão Geral
+      </a>
+      <a href="../index.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-store"></i></span> Ver Loja
+      </a>
+      <a href="novo-produto/novo-produto.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-plus-circle"></i></span> Novo Produto
+      </a>
+
+      <p class="sidebar-secao-titulo">Relatórios</p>
+      <a href="#" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-receipt"></i></span> Pedidos
+      </a>
+      <a href="#" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-users"></i></span> Clientes
+      </a>
+      <a href="../auth/login/login.html" class="sidebar-link">
+        <span class="sidebar-icone"><i class="fas fa-sign-out-alt"></i></span> Logoff
+      </a>
+    </aside>
+
+    <!-- ÁREA CENTRAL DE CONTEÚDO -->
+    <main class="dashboard-conteudo">
+      <div>
+        <h1 class="dashboard-titulo-pagina">Visão Geral de Vendas</h1>
+        <p class="dashboard-subtitulo">Gerenciamento concierge da boutique Lumière · Junho de 2026</p>
+      </div>
+
+      <!-- CARDS DE ESTATÍSTICA -->
+      <div class="stats-grid">
+        <div class="card-stat animar-subir delay-1">
+          <div class="card-stat-icone vermelho"><i class="fas fa-dollar-sign"></i></div>
+          <span class="card-stat-valor">R$ 14.280</span>
+          <span class="card-stat-label">Faturamento Mensal</span>
+          <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +18% este mês</span>
+        </div>
+
+        <div class="card-stat animar-subir delay-2">
+          <div class="card-stat-icone verde"><i class="fas fa-shopping-bag"></i></div>
+          <span class="card-stat-valor">38</span>
+          <span class="card-stat-label">Vendas Concluídas</span>
+          <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +10% vs. anterior</span>
+        </div>
+
+        <div class="card-stat animar-subir delay-3">
+          <div class="card-stat-icone azul"><i class="fas fa-clock"></i></div>
+          <span class="card-stat-valor">4</span>
+          <span class="card-stat-label">Pedidos Pendentes</span>
+          <span class="card-stat-variacao negativo"><i class="fas fa-minus"></i> Sem alteração</span>
+        </div>
+
+        <div class="card-stat animar-subir delay-4">
+          <div class="card-stat-icone roxo"><i class="fas fa-user-plus"></i></div>
+          <span class="card-stat-valor">89</span>
+          <span class="card-stat-label">Clientes Concierge</span>
+          <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +12 novos</span>
+        </div>
+      </div>
+
+      <!-- ANALYTICS: GRÁFICO DE VENDAS -->
+      <div class="dashboard-secao animar-subir delay-3">
+        <div class="grafico-container">
+          <h2 class="grafico-titulo"><i class="far fa-chart-bar" style="margin-right: 8px;"></i>Faturamento Histórico (Milhares de Reais)</h2>
+          <div class="grafico-barras">
+            <div class="barra-item">
+              <div class="barra" style="--altura: 45%" title="Janeiro: R$ 4.500"></div>
+              <span class="barra-rotulo">Jan</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 60%" title="Fevereiro: R$ 6.000"></div>
+              <span class="barra-rotulo">Fev</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 55%" title="Março: R$ 5.500"></div>
+              <span class="barra-rotulo">Mar</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 80%" title="Abril: R$ 8.000"></div>
+              <span class="barra-rotulo">Abr</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 100%" title="Maio: R$ 10.000"></div>
+              <span class="barra-rotulo">Mai</span>
+            </div>
+            <div class="barra-item">
+              <div class="barra" style="--altura: 90%" title="Junho: R$ 9.000"></div>
+              <span class="barra-rotulo">Jun</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUTOS ATIVOS NA VITRINE -->
+      <div class="dashboard-secao animar-subir delay-4">
+        <div class="dashboard-secao-header">
+          <h2 class="dashboard-secao-titulo"><i class="fas fa-tshirt" style="margin-right: 8px;"></i>Produtos na Vitrine</h2>
+          <a href="novo-produto/novo-produto.html" class="btn-primario" style="padding: 10px 20px; font-size: 13px;">
+            <i class="fas fa-plus"></i> Novo Produto
+          </a>
+        </div>
+
+        <table class="tabela">
+          <thead>
+            <tr>
+              <th>Peça</th>
+              <th>Categoria</th>
+              <th>Status Geral</th>
+              <th>Preço</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tabela-titulo-artigo">Vestido de Seda Lumière</span></td>
+              <td><span class="badge badge-decorativo">Vestidos</span></td>
+              <td><span class="badge badge-sucesso"><i class="fas fa-check"></i> Ativo</span></td>
+              <td>R$ 389,90</td>
+              <td>
+                <div class="tabela-acoes">
+                  <button class="btn-acao" onclick="window.location.href='novo-produto/novo-produto.html'">Editar</button>
+                  <button class="btn-perigo" style="padding: 5px 12px; font-size: 12px; border-radius: var(--raio-pill); border: 1.5px solid var(--cor-5); color: var(--cor-5);" onclick="alert('Produto removido (simulado).')">Remover</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tabela-titulo-artigo">Blazer Linho Acolhedor</span></td>
+              <td><span class="badge badge-decorativo">Blazers</span></td>
+              <td><span class="badge badge-sucesso"><i class="fas fa-check"></i> Ativo</span></td>
+              <td>R$ 459,90</td>
+              <td>
+                <div class="tabela-acoes">
+                  <button class="btn-acao" onclick="window.location.href='novo-produto/novo-produto.html'">Editar</button>
+                  <button class="btn-perigo" style="padding: 5px 12px; font-size: 12px; border-radius: var(--raio-pill); border: 1.5px solid var(--cor-5); color: var(--cor-5);" onclick="alert('Produto removido (simulado).')">Remover</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tabela-titulo-artigo">Trench Coat Elegance</span></td>
+              <td><span class="badge badge-decorativo">Coleções</span></td>
+              <td><span class="badge badge-sucesso"><i class="fas fa-check"></i> Ativo</span></td>
+              <td>R$ 599,90</td>
+              <td>
+                <div class="tabela-acoes">
+                  <button class="btn-acao" onclick="window.location.href='novo-produto/novo-produto.html'">Editar</button>
+                  <button class="btn-perigo" style="padding: 5px 12px; font-size: 12px; border-radius: var(--raio-pill); border: 1.5px solid var(--cor-5); color: var(--cor-5);" onclick="alert('Produto removido (simulado).')">Remover</button>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td><span class="tabela-titulo-artigo">Calça Alfaiataria Natural</span></td>
+              <td><span class="badge badge-decorativo">Alfaiataria</span></td>
+              <td><span class="badge badge-sucesso"><i class="fas fa-check"></i> Ativo</span></td>
+              <td>R$ 279,90</td>
+              <td>
+                <div class="tabela-acoes">
+                  <button class="btn-acao" onclick="window.location.href='novo-produto/novo-produto.html'">Editar</button>
+                  <button class="btn-perigo" style="padding: 5px 12px; font-size: 12px; border-radius: var(--raio-pill); border: 1.5px solid var(--cor-5); color: var(--cor-5);" onclick="alert('Produto removido (simulado).')">Remover</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+/* ================================================================
+   [NEXUS ELECTRONICS - PREMIUM DESIGN SYSTEM]
+   ARQUIVO: style.css — CSS GLOBAL E COMPARTILHADO DO PROJETO
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Urbanist:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Cores Temáticas Nexus (Estritamente de acordo com a paleta solicitada) */
+  --cor-fundo: #0A0A0A;         /* Cor Principal: Preto profundo */
+  --cor-acento: #C9A84C;        /* Cor Secundária: Dourado / Ouro */
+  --cor-acento-hover: #E5C369;  /* Dourado mais brilhante para interações */
+  --cor-acento-dark: #9E8133;   /* Dourado escuro para bordas/ativos */
+  --cor-card: #2E2E2E;          /* Cor Terciária: Cinza escuro para cards/menus/rodapé */
+  --cor-borda: #404040;         /* Cinza intermediário para divisores discretos */
+  --cor-texto: #FFFFFF;         /* Textos Principais: Branco */
+  --cor-texto-suave: #A0A0A0;   /* Textos Secundários: Cinza claro */
+  
+  /* Auxiliares de Status */
+  --cor-sucesso: #28a745;
+  --cor-erro: #dc3545;
+  --cor-aviso: #ffc107;
+  
+  /* Tipografia */
+  --fonte-titulo: 'Syne', sans-serif;
+  --fonte-corpo: 'Urbanist', sans-serif;
+
+  /* Espaçamentos */
+  --espaco-xs: 4px;
+  --espaco-sm: 8px;
+  --espaco-md: 16px;
+  --espaco-lg: 24px;
+  --espaco-xl: 40px;
+  --espaco-2xl: 60px;
+
+  /* Bordas e Sombras */
+  --raio: 12px;
+  --raio-sm: 6px;
+  --raio-lg: 20px;
+  --raio-pill: 100px;
+  --sombra-sm: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --sombra-md: 0 8px 30px rgba(0, 0, 0, 0.7);
+  --sombra-lg: 0 15px 50px rgba(0, 0, 0, 0.9);
+  --sombra-ouro: 0 0 15px rgba(201, 168, 76, 0.2);
+  --sombra-ouro-forte: 0 0 25px rgba(201, 168, 76, 0.4);
+
+  /* Transição Geral */
+  --transicao: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ================================================================
+   2. RESET DE ESTILOS
+   ================================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transicao);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--fonte-corpo);
+  border: none;
+  background: none;
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--fonte-corpo);
+  outline: none;
+}
+
+/* Scrollbar Premium */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cor-fundo);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cor-card);
+  border-radius: var(--raio-sm);
+  border: 2px solid var(--cor-fundo);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cor-acento);
+}
+
+/* ================================================================
+   3. CABEÇALHO GLOBAL (NEXUS HEADER)
+   ================================================================ */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background-color: var(--cor-fundo);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background var(--transicao);
+}
+
+.cabecalho.scrolled {
+  background-color: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 15px 60px;
+}
+
+.logo {
+  font-family: var(--fonte-titulo);
+  font-size: 28px;
+  color: var(--cor-texto);
+  font-weight: 800;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.logo span {
+  color: var(--cor-acento);
+}
+
+/* Barra de busca */
+.busca-wrapper {
+  position: relative;
+  width: 350px;
+}
+
+.busca-input {
+  width: 100%;
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  padding: 10px 16px 10px 40px;
+  border-radius: var(--raio-pill);
+  font-size: 14px;
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.busca-input:focus {
+  border-color: var(--cor-acento);
+  box-shadow: var(--sombra-ouro);
+}
+
+.busca-icone {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cor-texto-suave);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-lista {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cor-texto-suave);
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-acento);
+  transition: width var(--transicao);
+}
+
+.nav-link:hover {
+  color: var(--cor-texto);
+}
+
+.nav-link:hover::after,
+.nav-link.ativo::after {
+  width: 100%;
+}
+
+.nav-link.ativo {
+  color: var(--cor-acento);
+}
+
+/* Menu de Ações (Carrinho + Login) */
+.cabecalho-acoes {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.carrinho-trigger {
+  position: relative;
+  color: var(--cor-texto);
+  font-size: 20px;
+  transition: color var(--transicao), transform var(--transicao);
+}
+
+.carrinho-trigger:hover {
+  color: var(--cor-acento);
+  transform: scale(1.1);
+}
+
+.carrinho-contador {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: var(--cor-acento);
+  color: var(--cor-fundo);
+  font-size: 11px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* ================================================================
+   4. RODAPÉ GLOBAL (NEXUS FOOTER)
+   ================================================================ */
+.rodape {
+  background-color: var(--cor-card);
+  color: var(--cor-texto-suave);
+  padding: 60px 80px 30px;
+  border-top: 1px solid var(--cor-borda);
+  margin-top: auto;
+}
+
+.rodape-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.rodape-info .rodape-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  color: var(--cor-texto);
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.rodape-info .rodape-logo span {
+  color: var(--cor-acento);
+}
+
+.rodape-sub {
+  font-size: 14px;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.rodape-redes {
+  display: flex;
+  gap: 16px;
+}
+
+.rodape-redes a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-size: 16px;
+  border: 1px solid var(--cor-borda);
+  transition: transform var(--transicao), border-color var(--transicao), color var(--transicao);
+}
+
+.rodape-redes a:hover {
+  transform: translateY(-3px);
+  border-color: var(--cor-acento);
+  color: var(--cor-acento);
+  box-shadow: var(--sombra-ouro);
+}
+
+.rodape-links h4 {
+  font-family: var(--fonte-titulo);
+  color: var(--cor-texto);
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rodape-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rodape-links a {
+  font-size: 14px;
+  transition: color var(--transicao);
+}
+
+.rodape-links a:hover {
+  color: var(--cor-acento);
+}
+
+.rodape-copy {
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 20px;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* ================================================================
+   5. BOTÕES COM DESIGN SYSTEM
+   ================================================================ */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--cor-acento);
+  color: var(--cor-fundo);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 12px 28px;
+  border-radius: var(--raio-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+}
+
+.btn-primario:hover {
+  background-color: var(--cor-acento-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-ouro-forte);
+}
+
+.btn-primario:active {
+  transform: translateY(0);
+}
+
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--cor-acento);
+  border: 1.5px solid var(--cor-acento);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 11px 28px;
+  border-radius: var(--raio-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color var(--transicao), color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+}
+
+.btn-secundario:hover {
+  background-color: var(--cor-acento);
+  color: var(--cor-fundo);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-ouro);
+}
+
+.btn-perigo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: transparent;
+  color: var(--cor-erro);
+  border: 1.5px solid var(--cor-erro);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 16px;
+  border-radius: var(--raio-sm);
+  transition: background var(--transicao), color var(--transicao);
+}
+
+.btn-perigo:hover {
+  background-color: var(--cor-erro);
+  color: #fff;
+}
+
+.btn-sair {
+  background-color: transparent;
+  border: 1.5px solid var(--cor-texto-suave);
+  color: var(--cor-texto);
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: var(--raio-sm);
+  transition: border-color var(--transicao), color var(--transicao);
+}
+
+.btn-sair:hover {
+  border-color: var(--cor-acento);
+  color: var(--cor-acento);
+}
+
+/* ================================================================
+   6. CAMPOS DE ENTRADA (INPUTS)
+   ================================================================ */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.campo-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cor-texto);
+  letter-spacing: 0.5px;
+}
+
+.campo-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  font-size: 15px;
+  color: var(--cor-texto);
+  background-color: var(--cor-card);
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+}
+
+.campo-input:focus {
+  border-color: var(--cor-acento);
+  box-shadow: var(--sombra-ouro);
+}
+
+.campo-input::placeholder {
+  color: var(--cor-texto-suave);
+  opacity: 0.7;
+}
+
+/* ================================================================
+   7. BADGES DE STATUS
+   ================================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: var(--raio-sm);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-pendente {
+  background-color: rgba(255, 193, 7, 0.15);
+  color: var(--cor-aviso);
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.badge-pago {
+  background-color: rgba(40, 167, 69, 0.15);
+  color: var(--cor-sucesso);
+  border: 1px solid rgba(40, 167, 69, 0.3);
+}
+
+.badge-enviado {
+  background-color: rgba(0, 123, 255, 0.15);
+  color: #007bff;
+  border: 1px solid rgba(0, 123, 255, 0.3);
+}
+
+.badge-entregue {
+  background-color: rgba(23, 162, 184, 0.15);
+  color: #17a2b8;
+  border: 1px solid rgba(23, 162, 184, 0.3);
+}
+
+/* ================================================================
+   8. ANIMAÇÕES
+   ================================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes subirFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes deslizarEntrada {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animar-fade {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.animar-subir {
+  animation: subirFadeIn 0.5s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* ================================================================
+   9. RESPONSIVIDADE BASE
+   ================================================================ */
+@media (max-width: 1024px) {
+  .cabecalho {
+    padding: 20px 30px;
+  }
+  .cabecalho.scrolled {
+    padding: 15px 30px;
+  }
+  .rodape {
+    padding: 60px 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .busca-wrapper {
+    order: 3;
+    width: 100%;
+  }
+  .rodape-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .navbar {
+    gap: 15px;
+  }
+  .nav-lista {
+    gap: 15px;
+  }
+}

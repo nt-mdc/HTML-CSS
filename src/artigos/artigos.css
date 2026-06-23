@@ -172,8 +172,9 @@
 }
 
 .artigos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas de larguras rigorosamente iguais */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -190,6 +191,21 @@
   flex-direction: column;
   transition: box-shadow var(--transicao), transform var(--transicao);
   animation: subirFadeIn 0.5s ease both;
+  width: calc((100% - 48px) / 3);
+  box-sizing: border-box;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 992px) {
+  .artigo-card {
+    width: calc((100% - 24px) / 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .artigo-card {
+    width: 100%;
+  }
 }
 
 /* Efeito Hover de Flutuação e Sombra */

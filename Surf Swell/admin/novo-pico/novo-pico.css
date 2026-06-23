@@ -1,0 +1,212 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - SWELL POINT]
+   ARQUIVO: admin/novo-pico/novo-pico.css (Estilos do Cadastro de Picos)
+   ================================================================ */
+
+.editor-pagina {
+  display: grid;
+  grid-template-columns: 1.4fr 0.6fr;
+  gap: 30px;
+  padding: 40px 60px;
+  background-color: var(--cor-fundo-suave);
+  min-height: calc(100vh - 80px);
+}
+
+.editor-coluna-principal,
+.editor-coluna-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.editor-card {
+  background-color: #ffffff;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 30px;
+}
+
+.editor-card-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--cor-escuro);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Título de Destaque no Formulário */
+.input-titulo-pico {
+  width: 100%;
+  border: none;
+  font-family: var(--fonte-titulo);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--cor-escuro);
+  padding: 10px 0;
+  border-bottom: 2px solid var(--cor-borda);
+  resize: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.input-titulo-pico::placeholder {
+  color: #a4c2d4;
+}
+
+.input-titulo-pico:focus {
+  border-color: var(--cor-escuro);
+}
+
+.campos-duplos {
+  display: flex;
+  gap: 20px;
+}
+
+.campos-duplos .campo-grupo {
+  flex: 1;
+}
+
+/* Área de Texto Principal */
+.editor-textarea {
+  width: 100%;
+  min-height: 240px;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 16px;
+  font-size: 15px;
+  color: var(--cor-escuro);
+  resize: vertical;
+  background-color: #ffffff;
+  transition: all var(--transicao);
+}
+
+.editor-textarea:focus {
+  border-color: var(--cor-acento);
+  box-shadow: 0 0 0 4px rgba(152, 210, 232, 0.2);
+}
+
+/* Ações do Formulário */
+.editor-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editor-acoes button {
+  width: 100%;
+}
+
+/* upload de Capa */
+.upload-capa {
+  border: 2px dashed var(--cor-borda);
+  border-radius: var(--raio-sm);
+  padding: 30px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transicao);
+  background-color: var(--cor-fundo-suave);
+}
+
+.upload-capa:hover {
+  border-color: var(--cor-escuro);
+  background-color: rgba(0, 55, 85, 0.01);
+}
+
+.upload-capa-icone {
+  font-size: 32px;
+  color: var(--cor-acento);
+  margin-bottom: 12px;
+}
+
+.upload-capa-texto {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-escuro);
+}
+
+.upload-capa-sub {
+  font-size: 11px;
+  color: var(--cor-texto-corpo);
+  margin-top: 4px;
+}
+
+/* CARD DE PREVIEW DA LISTAGEM */
+.preview-card {
+  background-color: #ffffff;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  box-shadow: var(--sombra-sm);
+}
+
+.preview-capa-placeholder {
+  height: 180px;
+  background: linear-gradient(135deg, var(--cor-escuro) 0%, #002235 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.15);
+}
+
+.preview-corpo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preview-tag-categoria {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--cor-acento);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.preview-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--cor-escuro);
+}
+
+.preview-meta {
+  font-size: 12.5px;
+  color: var(--cor-texto-corpo);
+}
+
+.preview-meta i {
+  color: var(--cor-acento);
+}
+
+/* Classes Auxiliares de Espaçamento */
+.mt-md { margin-top: 16px; }
+.mt-lg { margin-top: 24px; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .editor-pagina {
+    grid-template-columns: 1fr;
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .editor-pagina {
+    padding: 20px;
+  }
+
+  .campos-duplos {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .input-titulo-pico {
+    font-size: 26px;
+  }
+}

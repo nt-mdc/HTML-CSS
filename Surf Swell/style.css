@@ -1,0 +1,460 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - SWELL POINT]
+   style.css — CSS GLOBAL E COMPARTILHADO DO PORTAL
+   Este arquivo define as variáveis de design (Design System) e
+   reseta o comportamento dos navegadores para todo o projeto.
+   ================================================================ */
+
+/* ================================================================
+   1. VARIÁVEIS CSS (Custom Properties)
+   ================================================================ */
+:root {
+  /* Paleta de Cores Temáticas (Baseada estritamente no briefing) */
+  --cor-fundo: #ffffff;             /* Cor Principal: Fundo e áreas de respiro */
+  --cor-escuro: #003755;            /* Cor Secundária: Textos principais, cabeçalhos e títulos */
+  --cor-acento: #98D2E8;            /* Cor Terciária: Botões, tags, ícones e destaques */
+  
+  /* Cores de Suporte Harmonizadas com o Universo do Surf */
+  --cor-fundo-suave: #f4f9fc;       /* Fundo claro para contrastes sutis */
+  --cor-borda: #d1e5ed;             /* Borda suave cor de espuma do mar */
+  --cor-texto-corpo: #3b5a6c;       /* Azul marinho atenuado para texto de leitura confortável */
+  --cor-perigo: #e07a5f;            /* Coral terracota para sinalização de perigo */
+  --cor-sucesso: #2a9d8f;           /* Verde oceano para competições e condições ideais */
+  --cor-estrela: #ffd166;           /* Amarelo dourado para avaliação de ondas */
+
+  /* Fontes de Design Moderno */
+  --fonte-titulo: 'Outfit', sans-serif;
+  --fonte-corpo: 'Plus Jakarta Sans', sans-serif;
+
+  /* Espaçamentos Padronizados */
+  --espaco-xs: 4px;
+  --espaco-sm: 8px;
+  --espaco-md: 16px;
+  --espaco-lg: 24px;
+  --espaco-xl: 40px;
+  --espaco-2xl: 60px;
+
+  /* Arredondamento e Sombras Especiais */
+  --raio: 16px;
+  --raio-sm: 8px;
+  --raio-pill: 100px;
+  
+  /* Sombras inspiradas na suavidade da névoa marítima */
+  --sombra-sm: 0 4px 12px rgba(0, 55, 85, 0.04);
+  --sombra-md: 0 8px 24px rgba(0, 55, 85, 0.06);
+  --sombra-lg: 0 16px 48px rgba(0, 55, 85, 0.1);
+
+  /* Transição Suave */
+  --transicao: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ================================================================
+   2. RESET DE NAVEGADORES
+   ================================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-corpo);
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transicao);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--fonte-corpo);
+  border: none;
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--fonte-corpo);
+  outline: none;
+}
+
+/* ================================================================
+   3. CABEÇALHO GLOBAL (SWELL POINT HEADER)
+   ================================================================ */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 60px;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px); /* Efeito vidro na barra de navegação */
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: padding var(--transicao);
+}
+
+.logo {
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  color: var(--cor-escuro);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.5px;
+}
+
+/* Detalhe estético no logo */
+.logo span {
+  color: var(--cor-acento);
+}
+
+.logo i {
+  color: var(--cor-acento);
+  font-size: 22px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-lista {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--cor-texto-corpo);
+  padding: 8px 4px;
+  position: relative;
+}
+
+/* Linha de hover dinâmica simulando o fluxo de uma onda */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-acento);
+  transition: width var(--transicao);
+}
+
+.nav-link:hover::after,
+.nav-link.ativo::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.ativo {
+  color: var(--cor-escuro);
+}
+
+/* Botão de Destaque no Menu (Ex: Entrar / Painel) */
+.btn-menu-destaque {
+  background-color: transparent;
+  border: 2px solid var(--cor-escuro);
+  color: var(--cor-escuro);
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--raio-pill);
+  transition: all var(--transicao);
+}
+
+.btn-menu-destaque:hover {
+  background-color: var(--cor-escuro);
+  color: var(--cor-fundo);
+}
+
+/* ================================================================
+   4. RODAPÉ GLOBAL
+   ================================================================ */
+.rodape {
+  background-color: var(--cor-escuro);
+  color: #a4c2d4;
+  padding: 60px 60px 30px 60px;
+  text-align: center;
+}
+
+.rodape-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rodape-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  color: #ffffff;
+  font-weight: 800;
+}
+
+.rodape-logo span {
+  color: var(--cor-acento);
+}
+
+.rodape-redes {
+  display: flex;
+  gap: 16px;
+}
+
+.rodape-redes a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #ffffff;
+  transition: all var(--transicao);
+}
+
+.rodape-redes a:hover {
+  background-color: var(--cor-acento);
+  color: var(--cor-escuro);
+  transform: translateY(-3px);
+}
+
+.rodape-copy {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 13px;
+  color: #7296ac;
+}
+
+.rodape-copy i {
+  color: var(--cor-perigo);
+}
+
+/* ================================================================
+   5. BOTÕES DO DESIGN SYSTEM
+   ================================================================ */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--cor-acento);
+  color: var(--cor-escuro);
+  padding: 14px 28px;
+  border-radius: var(--raio-pill);
+  font-size: 15px;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(152, 210, 232, 0.4);
+  transition: all var(--transicao);
+}
+
+.btn-primario:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(152, 210, 232, 0.6);
+  background-color: #7bc3df; /* Tom ligeiramente mais encorpado */
+}
+
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--cor-escuro);
+  border: 2px solid var(--cor-borda);
+  padding: 12px 26px;
+  border-radius: var(--raio-pill);
+  font-size: 15px;
+  font-weight: 700;
+  transition: all var(--transicao);
+}
+
+.btn-secundario:hover {
+  border-color: var(--cor-escuro);
+  background-color: rgba(0, 55, 85, 0.02);
+  transform: translateY(-2px);
+}
+
+.btn-perigo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--cor-perigo);
+  border: 2px solid var(--cor-perigo);
+  padding: 8px 18px;
+  border-radius: var(--raio-pill);
+  font-size: 13px;
+  font-weight: 700;
+  transition: all var(--transicao);
+}
+
+.btn-perigo:hover {
+  background-color: var(--cor-perigo);
+  color: #ffffff;
+}
+
+/* ================================================================
+   6. CAMPOS DE ENTRADA (INPUTS)
+   ================================================================ */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-escuro);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.campo-input,
+.campo-select {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-sm);
+  font-size: 15px;
+  color: var(--cor-escuro);
+  background-color: #ffffff;
+  transition: all var(--transicao);
+}
+
+.campo-input:focus,
+.campo-select:focus {
+  border-color: var(--cor-acento);
+  box-shadow: 0 0 0 4px rgba(152, 210, 232, 0.2);
+}
+
+/* ================================================================
+   7. BADGES / TAGS UTILITÁRIAS
+   ================================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--raio-pill);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge-acento {
+  background-color: #e6f6fc;
+  color: #003755;
+  border: 1px solid var(--cor-borda);
+}
+
+.badge-perigo {
+  background-color: #fdeee9;
+  color: var(--cor-perigo);
+}
+
+.badge-sucesso {
+  background-color: #e5f5f3;
+  color: var(--cor-sucesso);
+}
+
+/* ================================================================
+   8. ANIMAÇÕES DE ENTRADA E TRANSIÇÃO
+   ================================================================ */
+@keyframes subirEntrar {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes descerEntrar {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulsarSuave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.animar-subir {
+  animation: subirEntrar 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.animar-descer {
+  animation: descerEntrar 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ================================================================
+   9. RESPONSIVIDADE BÁSICA
+   ================================================================ */
+@media (max-width: 1024px) {
+  .cabecalho {
+    padding: 20px 40px;
+  }
+  .rodape {
+    padding: 40px 40px 20px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    padding: 16px 20px;
+  }
+  .navbar {
+    gap: 16px;
+  }
+  .nav-lista {
+    display: none; /* Em smartphones esconde links simples para focar no CTA */
+  }
+}

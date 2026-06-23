@@ -1,0 +1,104 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - SWELL POINT]
+  ARQUIVO: auth/cadastro/cadastro.html (Página de Cadastro)
+  ========================================================================
+  Olá, Aluno! Este arquivo é o formulário de cadastro de novos surfistas.
+  Demonstra como organizar campos duplos lado a lado e uma barra visual de 
+  força de senha estilizada.
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swell Point — Criar Conta</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Estilos globais da raiz -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+
+    <div class="cadastro-pagina">
+        
+        <!-- TOPO DE NAVEGAÇÃO MINIMALISTA -->
+        <div class="cadastro-topo">
+            <a href="../../index.html" class="logo">
+                <i class="fas fa-water"></i> Swell<span>Point</span>
+            </a>
+            <a href="../login/login.html" class="cadastro-topo-link">Já tenho uma conta <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- FORMULÁRIO CENTRALIZADO -->
+        <div class="cadastro-corpo">
+            <div class="cadastro-form-card">
+                <h1 class="cadastro-titulo">Faça parte da barca</h1>
+                <p class="cadastro-subtitulo">Crie sua conta para registrar picos, enviar previsões locais e interagir.</p>
+
+                <form class="cadastro-form" action="../../admin/dashboard.html">
+                    
+                    <!-- CAMPOS DUPLOS LADO A LADO -->
+                    <div class="campos-duplos">
+                        <div class="campo-grupo">
+                            <label class="campo-label" for="nome">Nome</label>
+                            <input class="campo-input" type="text" id="nome" placeholder="Pedro" required />
+                        </div>
+                        <div class="campo-grupo">
+                            <label class="campo-label" for="sobrenome">Sobrenome</label>
+                            <input class="campo-input" type="text" id="sobrenome" placeholder="Scooby" required />
+                        </div>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="email">E-mail</label>
+                        <input class="campo-input" type="email" id="email" placeholder="seu@email.com" required />
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="senha">Senha</label>
+                        <input class="campo-input" type="password" id="senha" placeholder="Mínimo 8 caracteres" required />
+                        
+                        <!-- Barra de força da senha estilizada -->
+                        <div class="barra-senha-container forte">
+                            <div class="barra-senha-segmento"></div>
+                            <div class="barra-senha-segmento"></div>
+                            <div class="barra-senha-segmento"></div>
+                        </div>
+                    </div>
+
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="confirmar">Confirmar senha</label>
+                        <input class="campo-input" type="password" id="confirmar" placeholder="Repita a senha" required />
+                    </div>
+
+                    <div class="cadastro-termos">
+                        <input type="checkbox" id="termos" required />
+                        <label for="termos">
+                            Eu concordo com os <a href="#">Termos de Uso</a> e as <a href="#">Diretrizes da Comunidade</a> do Swell Point.
+                        </label>
+                    </div>
+
+                    <button class="btn-primario cadastro-btn-submit" type="submit">
+                        Criar minha conta <i class="fas fa-user-plus"></i>
+                    </button>
+                </form>
+
+                <p class="cadastro-login-link">
+                    Já tem conta? <a href="../login/login.html">Entrar</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,275 @@
+/* ================================================================
+   [NEXUS ELECTRONICS - PERFIL E HISTÓRICO DE PEDIDOS]
+   ARQUIVO: pedidos.css — Estilos da Área Logada do Cliente
+   ================================================================ */
+
+.conta-container {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  max-width: 1300px;
+  width: 100%;
+  margin: 40px auto;
+  padding: 0 40px;
+}
+
+/* ================================================================
+   1. PERFIL CARD (COLUNA DA ESQUERDA)
+   ================================================================ */
+.conta-perfil {
+  width: 100%;
+}
+
+.perfil-card {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--sombra-sm);
+  position: sticky;
+  top: 100px;
+}
+
+.perfil-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-acento) 0%, var(--cor-acento-dark) 100%);
+  color: var(--cor-fundo);
+  font-family: var(--fonte-titulo);
+  font-size: 32px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  box-shadow: var(--sombra-ouro);
+}
+
+.perfil-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--cor-texto);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.perfil-tag {
+  background-color: rgba(201, 168, 76, 0.15);
+  color: var(--cor-acento);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--raio-pill);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.perfil-detalhes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid var(--cor-borda);
+  padding-top: 20px;
+}
+
+.detalhe-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.detalhe-label {
+  font-size: 12px;
+  color: var(--cor-texto-suave);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.detalhe-valor {
+  font-size: 14px;
+  color: var(--cor-texto);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+/* ================================================================
+   2. HISTÓRICO DE PEDIDOS (COLUNA DA DIREITA)
+   ================================================================ */
+.conta-pedidos {
+  background-color: var(--cor-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 40px;
+  box-shadow: var(--sombra-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.pedidos-header h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.pedidos-subtitulo {
+  font-size: 15px;
+  color: var(--cor-texto-suave);
+}
+
+.tabela-container {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.tabela-pedidos {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabela-pedidos th {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--cor-borda);
+  font-family: var(--fonte-titulo);
+  color: var(--cor-texto);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tabela-pedidos td {
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+}
+
+.tabela-pedidos tr:hover td {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+.pedido-id {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--cor-acento);
+}
+
+.pedido-data {
+  color: var(--cor-texto);
+  font-weight: 600;
+}
+
+.pedido-itens {
+  line-height: 1.5;
+}
+
+.pedido-total {
+  font-family: var(--fonte-titulo);
+  color: var(--cor-texto);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Estado Vazio */
+.pedidos-vazio {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.pedidos-vazio-icone {
+  font-size: 48px;
+  color: var(--cor-texto-suave);
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+.pedidos-vazio h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.pedidos-vazio p {
+  font-size: 14px;
+  color: var(--cor-texto-suave);
+  max-width: 350px;
+}
+
+/* ================================================================
+   3. RESPONSIVIDADE
+   ================================================================ */
+@media (max-width: 1024px) {
+  .conta-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 0 20px;
+  }
+  
+  .perfil-card {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .conta-pedidos {
+    padding: 24px;
+  }
+  
+  /* Transformando tabela em blocos flexíveis no mobile */
+  .tabela-pedidos, 
+  .tabela-pedidos thead, 
+  .tabela-pedidos tbody, 
+  .tabela-pedidos th, 
+  .tabela-pedidos td, 
+  .tabela-pedidos tr {
+    display: block;
+  }
+  
+  .tabela-pedidos thead {
+    display: none; /* Esconde cabeçalho */
+  }
+  
+  .tabela-pedidos tr {
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-sm);
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: var(--cor-fundo);
+  }
+  
+  .tabela-pedidos td {
+    border-bottom: none;
+    padding: 6px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .tabela-pedidos td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--cor-texto);
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: 15px;
+  }
+  
+  .pedido-itens {
+    text-align: right;
+  }
+}

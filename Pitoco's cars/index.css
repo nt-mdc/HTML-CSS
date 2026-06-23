@@ -1,0 +1,1102 @@
+/* ================================================================
+   [PITOCO'S CARS]
+   index.css — Estilos exclusivos da Página Inicial / Landing Page
+   ================================================================ */
+
+/* ================================================================
+   1. HERO SECTION
+   ================================================================ */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 60px;
+  min-height: calc(100vh - 74px);
+  background: radial-gradient(circle at 10% 20%, rgba(229, 56, 59, 0.05) 0%, rgba(11, 9, 10, 0) 70%);
+}
+
+.hero-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(229, 56, 59, 0.1);
+  color: var(--cor-morango);
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 14px;
+  border-radius: var(--raio-sm);
+  border: 1px solid rgba(229, 56, 59, 0.3);
+}
+
+.hero-tag i {
+  animation: pulsar 2s infinite ease-in-out;
+}
+
+.hero-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 54px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+.hero-data-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 8px 0;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-branco-fumaca);
+}
+
+.data-item i {
+  color: var(--cor-morango);
+  font-size: 15px;
+}
+
+.hero-subtitulo {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--cor-poeira);
+  max-width: 540px;
+}
+
+.hero-botoes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* ================================================================
+   MOCKUP / CARD DE ESPECIFICAÇÕES DO CARRO
+   ================================================================ */
+.hero-imagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.car-card {
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--cor-onyx);
+  border: 2px solid var(--cor-granada);
+  border-radius: var(--raio);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transform: rotateY(-8deg) rotateX(8deg) rotateZ(1deg);
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.5s ease;
+}
+
+.car-card:hover {
+  transform: rotateY(-2deg) rotateX(2deg) rotateZ(0deg) translateY(-6px);
+  box-shadow: 0 30px 60px rgba(229, 56, 59, 0.25);
+  border-color: var(--cor-morango);
+}
+
+.car-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--cor-carbon);
+  padding: 12px 18px;
+  border-bottom: 2px solid var(--cor-granada);
+}
+
+.car-card-header .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.car-card-header .dot.red { background-color: var(--cor-morango); }
+.car-card-header .dot.yellow { background-color: #f59e0b; }
+.car-card-header .dot.green { background-color: #28a745; }
+
+.car-card-title {
+  font-family: var(--fonte-titulo);
+  color: var(--cor-prata);
+  font-size: 11px;
+  font-weight: 700;
+  margin-left: 8px;
+  letter-spacing: 1px;
+}
+
+.car-card-visual {
+  height: 180px;
+  background: linear-gradient(135deg, #161a1d 0%, #0b090a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 2px solid var(--cor-granada);
+}
+
+.car-silhouette {
+  font-size: 72px;
+  color: rgba(229, 56, 59, 0.06);
+  animation: pulsar 3s infinite ease-in-out;
+}
+
+.car-badge-destaque {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--cor-morango);
+  color: var(--cor-branco);
+  font-family: var(--fonte-titulo);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: var(--raio-sm);
+  box-shadow: 0 0 10px rgba(229, 56, 59, 0.5);
+}
+
+.car-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 24px;
+}
+
+.spec-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spec-label {
+  font-family: var(--fonte-titulo);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cor-prata);
+  letter-spacing: 0.5px;
+}
+
+.spec-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-branco);
+}
+
+/* ================================================================
+   2. SEÇÃO SOBRE O EVENTO & ALERTA DE VAGAS
+   ================================================================ */
+.sobre-secao,
+.alimentacao-secao,
+.organizador-secao,
+.ingressos-secao,
+.newsletter-secao {
+  padding: 100px 60px;
+  border-bottom: 2px solid var(--cor-granada);
+}
+
+.sobre-secao {
+  background-color: var(--cor-onyx);
+}
+
+.sobre-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.sobre-texto-bloco {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.sobre-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cor-morango);
+  background-color: rgba(229, 56, 59, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--raio-sm);
+  border: 1px solid rgba(229, 56, 59, 0.2);
+}
+
+.sobre-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--cor-branco);
+}
+
+.sobre-descricao {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--cor-poeira);
+}
+
+/* CARD DE AVISO / ESCASSEZ (URGÊNCIA) */
+.sobre-aviso-card {
+  background-color: var(--cor-carbon);
+  border: 2px solid var(--cor-magno-escuro);
+  padding: 40px;
+  border-radius: var(--raio);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.sobre-aviso-card:hover {
+  border-color: var(--cor-morango);
+  box-shadow: var(--sombra-md);
+}
+
+.aviso-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.aviso-header i {
+  color: var(--cor-morango);
+  font-size: 24px;
+  animation: pulsar 1.5s infinite ease-in-out;
+}
+
+.aviso-header h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+}
+
+.aviso-texto {
+  font-size: 14.5px;
+  color: var(--cor-poeira);
+  line-height: 1.7;
+}
+
+.vagas-progresso-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vagas-progresso-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--cor-branco-fumaca);
+}
+
+.vagas-progresso-meta strong {
+  color: var(--cor-morango);
+}
+
+.vagas-porcentagem {
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  color: var(--cor-morango);
+}
+
+.vagas-progresso-barra-fundo {
+  width: 100%;
+  height: 10px;
+  background-color: var(--cor-onyx);
+  border-radius: var(--raio-sm);
+  overflow: hidden;
+  border: 1px solid var(--cor-granada);
+}
+
+.vagas-progresso-barra-ativa {
+  height: 100%;
+  background-color: var(--cor-morango);
+  border-radius: var(--raio-sm);
+  box-shadow: 0 0 10px rgba(229, 56, 59, 0.8);
+}
+
+.aviso-alerta-mensagem {
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cor-morango);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-aviso {
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* ================================================================
+   3. SEÇÃO PRAÇA DE ALIMENTAÇÃO
+   ================================================================ */
+.alimentacao-secao {
+  background-color: var(--cor-carbon);
+}
+
+.alimentacao-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.secao-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.secao-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cor-morango);
+  background-color: rgba(229, 56, 59, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--raio-sm);
+}
+
+.secao-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 38px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+}
+
+.secao-subtitulo {
+  font-size: 15px;
+  color: var(--cor-poeira);
+}
+
+.menu-card {
+  background-color: var(--cor-onyx);
+  border: 2px solid var(--cor-granada);
+  border-radius: var(--raio);
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: border-color var(--transicao);
+}
+
+.menu-card:hover {
+  border-color: var(--cor-morango);
+}
+
+.menu-categoria-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 18px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--cor-branco);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid var(--cor-granada);
+  padding-bottom: 12px;
+}
+
+.menu-categoria-titulo i {
+  color: var(--cor-morango);
+}
+
+.menu-tabela {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.menu-tabela td {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(102, 7, 8, 0.4);
+  vertical-align: top;
+}
+
+.menu-tabela tr:last-child td {
+  border-bottom: none;
+}
+
+.menu-item-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.menu-item-desc {
+  font-size: 13px;
+  color: var(--cor-prata);
+  line-height: 1.5;
+  padding-right: 16px;
+}
+
+.menu-item-preco {
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--cor-morango);
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* ================================================================
+   4. SEÇÃO ORGANIZADOR
+   ================================================================ */
+.organizador-secao {
+  background-color: var(--cor-onyx);
+}
+
+.organizador-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.organizador-foto-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.organizador-foto-placeholder {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #161a1d 0%, #0b090a 100%);
+  border: 4px solid var(--cor-granada);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80px;
+  color: var(--cor-morango);
+  box-shadow: 0 10px 40px rgba(229, 56, 59, 0.1);
+  transition: all var(--transicao);
+}
+
+.organizador-foto-placeholder:hover {
+  border-color: var(--cor-morango);
+  box-shadow: 0 0 30px rgba(229, 56, 59, 0.4);
+  transform: scale(1.02);
+}
+
+.organizador-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.organizador-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cor-morango);
+  background-color: rgba(229, 56, 59, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--raio-sm);
+}
+
+.organizador-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+}
+
+.organizador-titulo-cargo {
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cor-prata);
+  margin-top: -12px;
+}
+
+.organizador-texto {
+  font-size: 15px;
+  color: var(--cor-poeira);
+  line-height: 1.7;
+}
+
+.organizador-assinatura {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  font-weight: 900;
+  color: var(--cor-morango);
+  margin-top: 10px;
+}
+
+.organizador-assinatura i {
+  font-size: 20px;
+}
+
+/* ================================================================
+   5. SEÇÃO INGRESSOS
+   ================================================================ */
+.ingressos-secao {
+  background-color: var(--cor-carbon);
+}
+
+.ingressos-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #0b090a 0%, #161a1d 100%);
+  border: 2px solid var(--cor-granada);
+  border-radius: var(--raio);
+  padding: 60px 48px;
+  box-shadow: var(--sombra-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.ingressos-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(229, 56, 59, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ingressos-conteudo {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.ingressos-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cor-morango);
+  font-weight: 700;
+  background-color: rgba(229, 56, 59, 0.1);
+  padding: 6px 14px;
+  border-radius: var(--raio-sm);
+  border: 1px solid rgba(229, 56, 59, 0.2);
+}
+
+.ingressos-conteudo h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  letter-spacing: 1px;
+}
+
+.ingressos-conteudo p {
+  font-size: 15px;
+  color: var(--cor-poeira);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.lotes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  width: 100%;
+  margin-top: 30px;
+  max-width: 720px;
+}
+
+.lote-card {
+  background-color: var(--cor-onyx);
+  border: 2px solid var(--cor-granada);
+  border-radius: var(--raio);
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  transition: all var(--transicao);
+}
+
+.lote-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cor-magno-claro);
+}
+
+.lote-card.destaque {
+  border-color: var(--cor-morango);
+  background-color: #120304;
+  box-shadow: var(--sombra-md);
+}
+
+.lote-card.destaque:hover {
+  box-shadow: var(--sombra-lg);
+  border-color: var(--cor-morango);
+}
+
+.lote-popular {
+  position: absolute;
+  top: 12px;
+  background-color: var(--cor-morango);
+  color: var(--cor-branco);
+  font-family: var(--fonte-titulo);
+  font-size: 9px;
+  font-weight: 900;
+  padding: 3px 8px;
+  border-radius: var(--raio-sm);
+  letter-spacing: 0.5px;
+}
+
+.lote-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--cor-branco);
+  margin-top: 8px;
+}
+
+.lote-preco {
+  font-family: var(--fonte-titulo);
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--cor-morango);
+}
+
+.lote-beneficios {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--cor-poeira);
+  margin: 10px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.lote-beneficios li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lote-beneficios li i {
+  font-size: 14px;
+}
+
+.lote-beneficios li i.text-red {
+  color: var(--cor-morango);
+}
+
+.lote-beneficios li i.text-muted {
+  color: #555;
+}
+
+.btn-comprar {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* ================================================================
+   6. SEÇÃO NEWSLETTER
+   ================================================================ */
+.newsletter-secao {
+  background-color: var(--cor-onyx);
+}
+
+.newsletter-card {
+  max-width: 860px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #161a1d 0%, #0b090a 100%);
+  border: 2px solid var(--cor-granada);
+  border-radius: var(--raio);
+  padding: 60px 48px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(229, 56, 59, 0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.newsletter-conteudo {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.newsletter-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cor-morango);
+  font-weight: 700;
+  background-color: rgba(229, 56, 59, 0.1);
+  padding: 6px 14px;
+  border-radius: var(--raio-sm);
+  border: 1px solid rgba(229, 56, 59, 0.2);
+}
+
+.newsletter-conteudo h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 34px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.newsletter-conteudo p {
+  font-size: 15px;
+  color: var(--cor-poeira);
+  max-width: 560px;
+  line-height: 1.7;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 12px;
+}
+
+.input-newsletter-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.input-envelope-icone {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6b6b76;
+  font-size: 16px;
+}
+
+.input-newsletter-wrapper input {
+  width: 100%;
+  padding: 14px 16px 14px 46px;
+  background-color: var(--cor-onyx);
+  border: 1.5px solid var(--cor-granada);
+  border-radius: var(--raio-sm);
+  font-size: 14.5px;
+  color: var(--cor-branco);
+  outline: none;
+  transition: all var(--transicao);
+}
+
+.input-newsletter-wrapper input:focus {
+  border-color: var(--cor-morango);
+  box-shadow: 0 0 10px rgba(229, 56, 59, 0.2);
+}
+
+.input-newsletter-wrapper input::placeholder {
+  color: #55555c;
+}
+
+.newsletter-sub {
+  font-size: 11px !important;
+  color: var(--cor-prata) !important;
+}
+
+/* ================================================================
+   7. RODAPÉ ESTILIZADO EM COLUNAS
+   ================================================================ */
+.rodape {
+  background-color: var(--cor-onyx);
+  color: var(--cor-prata);
+  padding: 80px 60px 40px 60px;
+  border-top: 2px solid var(--cor-granada);
+}
+
+.rodape-container {
+  display: grid;
+  grid-template-columns: 1.8fr 1.1fr 1.1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(102, 7, 8, 0.4);
+}
+
+.rodape-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+  text-align: left;
+}
+
+.rodape-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+}
+
+.rodape-logo span {
+  color: var(--cor-morango);
+}
+
+.rodape-sub {
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 360px;
+  color: var(--cor-poeira);
+}
+
+.rodape-redes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.rodape-redes a {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--raio-sm);
+  background-color: var(--cor-carbon);
+  border: 1.5px solid var(--cor-granada);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-prata);
+  font-size: 16px;
+  transition: all var(--transicao);
+}
+
+.rodape-redes a:hover {
+  background-color: var(--cor-morango);
+  color: var(--cor-branco);
+  border-color: var(--cor-morango);
+  transform: translateY(-2px);
+}
+
+.rodape-links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.rodape-links h4 {
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  color: var(--cor-branco);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.rodape-links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rodape-links ul a {
+  font-size: 14px;
+  color: var(--cor-poeira);
+  transition: color var(--transicao);
+}
+
+.rodape-links ul a:hover {
+  color: var(--cor-morango);
+}
+
+.rodape-copy {
+  text-align: center;
+  padding-top: 40px;
+  font-size: 12px;
+  color: var(--cor-prata);
+}
+
+/* ================================================================
+   8. RESPONSIVIDADE (MEDIA QUERIES)
+   ================================================================ */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 60px 40px;
+    text-align: center;
+  }
+
+  .hero-conteudo {
+    align-items: center;
+  }
+
+  .hero-titulo {
+    font-size: 44px;
+  }
+
+  .sobre-layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .alimentacao-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .organizador-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .organizador-foto-wrapper {
+    order: -1;
+  }
+
+  .organizador-conteudo {
+    align-items: center;
+  }
+
+  .lotes-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cabecalho {
+    padding: 20px;
+  }
+
+  .navbar {
+    display: none; /* Em um cenário real, teríamos um menu sanduíche */
+  }
+
+  .sobre-secao,
+  .alimentacao-secao,
+  .organizador-secao,
+  .ingressos-secao,
+  .newsletter-secao {
+    padding: 60px 20px;
+  }
+
+  .secao-titulo {
+    font-size: 30px;
+  }
+
+  .sobre-titulo {
+    font-size: 30px;
+  }
+
+  .sobre-aviso-card {
+    padding: 24px;
+  }
+
+  .menu-card {
+    padding: 24px;
+  }
+
+  .ingressos-card {
+    padding: 40px 20px;
+  }
+
+  .ingressos-conteudo h2 {
+    font-size: 28px;
+  }
+
+  .newsletter-card {
+    padding: 40px 20px;
+  }
+
+  .newsletter-conteudo h2 {
+    font-size: 26px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .rodape-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus — Login</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Globais e Locais -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+  <div class="login-pagina">
+    <!-- PAINEL ESQUERDO DECORATIVO (Luxo/Tech) -->
+    <div class="login-painel-esquerdo">
+      <a href="../../index.html" class="logo">NEX<span>US</span></a>
+      
+      <div class="brand-msg-container">
+        <div class="linha-acento"></div>
+        <h2 class="login-frase">
+          Performance.<br>
+          Inovação.<br>
+          <span>Exclusividade.</span>
+        </h2>
+      </div>
+      
+      <p class="login-rodape-painel">
+        Nexus Electronics © 2026 · Premium Tech Experience
+      </p>
+    </div>
+
+    <!-- PAINEL DIREITO (Formulário) -->
+    <div class="login-painel-direito">
+      <div class="login-form-card animar-subir">
+        <h1 class="login-titulo">Conecte-se à sua conta</h1>
+        <p class="login-subtitulo">Insira suas credenciais para gerenciar suas compras e pedidos.</p>
+        
+        <!-- Formulário de Login -->
+        <form class="login-form" id="login-form-element">
+          <div class="campo-grupo">
+            <label class="campo-label" for="email">E-mail</label>
+            <input class="campo-input" type="email" id="email" placeholder="nome@exemplo.com" required>
+          </div>
+          
+          <div class="campo-grupo">
+            <div class="senha-label-linha">
+              <label class="campo-label" for="password">Senha</label>
+              <a href="#" class="login-esqueceu">Esqueceu a senha?</a>
+            </div>
+            <input class="campo-input" type="password" id="password" placeholder="••••••••" required>
+          </div>
+
+          <div class="erro-mensagem" id="login-error-msg" style="display: none; color: var(--cor-erro); font-size: 14px; font-weight: 600;">
+            <i class="fas fa-exclamation-circle"></i> E-mail ou senha incorretos!
+          </div>
+          
+          <button class="btn-primario login-btn-submit" type="submit">
+            Entrar na conta <i class="fas fa-sign-in-alt"></i>
+          </button>
+        </form>
+
+        <p class="login-cadastro-link">
+          Ainda não tem conta? <a href="../cadastro/cadastro.html">Cadastre-se grátis</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../database.js"></script>
+  <script>
+    // Gerenciador de Login
+    document.getElementById("login-form-element").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const errorMsg = document.getElementById("login-error-msg");
+
+      // Buscar usuários no localStorage
+      const users = JSON.parse(localStorage.getItem("nexus_users")) || [];
+      const user = users.find(u => u.email === email && u.senha === password);
+
+      if (user) {
+        // Salvar usuário logado
+        localStorage.setItem("nexus_current_user", JSON.stringify(user));
+        
+        // Se for o admin, vai pro painel administrativo, senão pra home ou pedidos
+        if (email === "admin@nexus.com.br" || email === "nathan@nexus.com.br") {
+          window.location.href = "../../index.html"; // Redireciona
+        } else {
+          window.location.href = "../../index.html";
+        }
+      } else {
+        errorMsg.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pitoco's Cars — Dashboard</title>
+    
+    <!-- Importação de fontes e biblioteca de ícones do Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS LINKINGS -->
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+
+    <div class="dashboard-pagina">
+
+      <!-- CABEÇALHO DO DASHBOARD -->
+      <header class="dashboard-cabecalho">
+        <a href="../index.html" class="logo"><i class="fas fa-gauge-high"></i> Pitoco's <span>Cars</span></a>
+        <div class="dashboard-cabecalho-usuario">
+          <span>Olá, Renan Toledo</span>
+          <div class="dashboard-avatar">RT</div>
+          <a href="../auth/login/login.html" class="btn-sair" style="color: var(--cor-poeira); border-color: var(--cor-granada);">Sair</a>
+        </div>
+      </header>
+
+      <!-- MENU LATERAL (SIDEBAR) -->
+      <aside class="dashboard-sidebar">
+
+        <p class="sidebar-secao-titulo">Menu do Evento</p>
+
+        <a href="dashboard.html" class="sidebar-link ativo">
+          <span class="sidebar-icone"><i class="fas fa-chart-line"></i></span> Visão Geral
+        </a>
+        <a href="../artigos/artigos.html" class="sidebar-link">
+          <span class="sidebar-icone"><i class="fas fa-car"></i></span> Catálogo de Veículos
+        </a>
+        <a href="novo-artigo/novo-artigo.html" class="sidebar-link">
+          <span class="sidebar-icone"><i class="fas fa-plus"></i></span> Inscrever Veículo
+        </a>
+
+        <p class="sidebar-secao-titulo">Configurações</p>
+
+        <a href="#" class="sidebar-link">
+          <span class="sidebar-icone"><i class="fas fa-user-gear"></i></span> Perfil do Curador
+        </a>
+        <a href="#" class="sidebar-link">
+          <span class="sidebar-icone"><i class="fas fa-cogs"></i></span> Preferências
+        </a>
+        <a href="../auth/login/login.html" class="sidebar-link">
+          <span class="sidebar-icone"><i class="fas fa-sign-out-alt"></i></span> Sair do Grid
+        </a>
+
+      </aside>
+
+      <!-- CONTEÚDO CENTRAL EXPANSÍVEL -->
+      <main class="dashboard-conteudo">
+
+        <div>
+          <h1 class="dashboard-titulo-pagina">Painel Administrativo</h1>
+          <p class="dashboard-subtitulo">Status do Evento em tempo real</p>
+        </div>
+
+        <!-- CARDS DE ESTATÍSTICA -->
+        <div class="stats-grid">
+
+          <div class="card-stat animar-subir delay-1">
+            <div class="card-stat-icone laranja"><i class="fas fa-car-side"></i></div>
+            <span class="card-stat-valor">137</span>
+            <span class="card-stat-label">Carros inscritos</span>
+            <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +12 esta semana</span>
+          </div>
+
+          <div class="card-stat animar-subir delay-2">
+            <div class="card-stat-icone verde"><i class="fas fa-ticket"></i></div>
+            <span class="card-stat-valor">1.420</span>
+            <span class="card-stat-label">Ingressos VIP vendidos</span>
+            <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +18% vs. meta</span>
+          </div>
+
+          <div class="card-stat animar-subir delay-3">
+            <div class="card-stat-icone azul"><i class="fas fa-burger"></i></div>
+            <span class="card-stat-valor">312</span>
+            <span class="card-stat-label">Refeições reservadas</span>
+            <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +5% este lote</span>
+          </div>
+
+          <div class="card-stat animar-subir delay-4">
+            <div class="card-stat-icone roxo"><i class="fas fa-users-line"></i></div>
+            <span class="card-stat-valor">2.8k</span>
+            <span class="card-stat-label">Visitantes confirmados</span>
+            <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +142 inscritos</span>
+          </div>
+
+        </div>
+
+        <!-- GRÁFICO DE BARRAS SIMULADO -->
+        <div class="dashboard-secao">
+          <div class="grafico-container">
+            <h2 class="grafico-titulo">Afluxo Esperado de Público por Hora (Sábado)</h2>
+            <div class="grafico-barras">
+              <div class="barra-item">
+                <div class="barra" style="--altura: 30%"></div>
+                <span class="barra-rotulo">09:00</span>
+              </div>
+              <div class="barra-item">
+                <div class="barra" style="--altura: 55%"></div>
+                <span class="barra-rotulo">11:00</span>
+              </div>
+              <div class="barra-item">
+                <div class="barra" style="--altura: 80%"></div>
+                <span class="barra-rotulo">13:00</span>
+              </div>
+              <div class="barra-item">
+                <div class="barra" style="--altura: 100%"></div>
+                <span class="barra-rotulo">15:00</span>
+              </div>
+              <div class="barra-item">
+                <div class="barra" style="--altura: 75%"></div>
+                <span class="barra-rotulo">17:00</span>
+              </div>
+              <div class="barra-item">
+                <div class="barra" style="--altura: 45%"></div>
+                <span class="barra-rotulo">18:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABELA DE ELEMENTOS -->
+        <div class="dashboard-secao">
+          <div class="dashboard-secao-header">
+            <h2 class="dashboard-secao-titulo">Inscrições de Veículos Recentes</h2>
+            <a href="novo-artigo/novo-artigo.html" class="btn-primario" style="padding: 10px 20px; font-size: 11px;">
+              <i class="fas fa-plus"></i> Inscrever Carro
+            </a>
+          </div>
+
+          <table class="tabela">
+            <thead>
+              <tr>
+                <th>Modelo do Carro</th>
+                <th>Categoria</th>
+                <th>Status</th>
+                <th>Avaliações</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tabela-titulo-artigo">Ford Mustang Shelby GT500 1967</span></td>
+                <td><span class="badge badge-laranja"><i class="fas fa-fire"></i> Muscle Cars</span></td>
+                <td><span class="badge badge-verde"><i class="fas fa-check"></i> Confirmado</span></td>
+                <td>4.2k</td>
+                <td>
+                  <div class="tabela-acoes">
+                    <button class="btn-acao">Editar</button>
+                    <button class="btn-perigo">Excluir</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tabela-titulo-artigo">Chevrolet Corvette Stingray C3 1973</span></td>
+                <td><span class="badge badge-laranja"><i class="fas fa-fire"></i> Clássicos</span></td>
+                <td><span class="badge badge-verde"><i class="fas fa-check"></i> Confirmado</span></td>
+                <td>3.8k</td>
+                <td>
+                  <div class="tabela-acoes">
+                    <button class="btn-acao">Editar</button>
+                    <button class="btn-perigo">Excluir</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tabela-titulo-artigo">Porsche 911 Turbo (930) 1989</span></td>
+                <td><span class="badge badge-azul"><i class="fas fa-bolt"></i> Superesportivos</span></td>
+                <td><span class="badge badge-cinza"><i class="fas fa-hourglass-half"></i> Pendente</span></td>
+                <td>—</td>
+                <td>
+                  <div class="tabela-acoes">
+                    <button class="btn-acao">Aprovar</button>
+                    <button class="btn-perigo">Excluir</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="tabela-titulo-artigo">Nissan Skyline GT-R R34 V-Spec II</span></td>
+                <td><span class="badge badge-verde"><i class="fas fa-gauge-simple"></i> JDM</span></td>
+                <td><span class="badge badge-verde"><i class="fas fa-check"></i> Confirmado</span></td>
+                <td>6.1k</td>
+                <td>
+                  <div class="tabela-acoes">
+                    <button class="btn-acao">Editar</button>
+                    <button class="btn-perigo">Excluir</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </main>
+    </div>
+
+  </body>
+</html>

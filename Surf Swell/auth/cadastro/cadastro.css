@@ -1,0 +1,194 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - SWELL POINT]
+   ARQUIVO: auth/cadastro/cadastro.css (Estilos da página de Cadastro)
+   ================================================================ */
+
+.cadastro-pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-fundo);
+  background: radial-gradient(circle at 90% 10%, rgba(152, 210, 232, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+.cadastro-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+}
+
+.cadastro-topo-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto-corpo);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cadastro-topo-link:hover {
+  color: var(--cor-escuro);
+}
+
+.cadastro-topo-link i {
+  color: var(--cor-acento);
+  transition: transform var(--transicao);
+}
+
+.cadastro-topo-link:hover i {
+  transform: translateX(4px);
+}
+
+.cadastro-corpo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px 60px 20px;
+}
+
+.cadastro-form-card {
+  width: 100%;
+  max-width: 520px;
+  background-color: #ffffff;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 40px;
+  box-shadow: var(--sombra-md);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: subirEntrar 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.cadastro-form-card:hover {
+  border-color: var(--cor-acento);
+}
+
+.cadastro-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--cor-escuro);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.cadastro-subtitulo {
+  font-size: 14px;
+  color: var(--cor-texto-corpo);
+  line-height: 1.5;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Campos alinhados lado a lado */
+.campos-duplos {
+  display: flex;
+  gap: 16px;
+}
+
+.campos-duplos .campo-grupo {
+  flex: 1;
+}
+
+/* Barra de força da senha */
+.barra-senha-container {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.barra-senha-segmento {
+  height: 4px;
+  flex: 1;
+  background-color: var(--cor-borda);
+  border-radius: var(--raio-pill);
+  transition: background-color var(--transicao);
+}
+
+/* Força da senha: Fraca (Vermelho/Coral) */
+.barra-senha-container.fraca .barra-senha-segmento:nth-child(1) {
+  background-color: var(--cor-perigo);
+}
+
+/* Força da senha: Média (Azul Claro) */
+.barra-senha-container.media .barra-senha-segmento:nth-child(1),
+.barra-senha-container.media .barra-senha-segmento:nth-child(2) {
+  background-color: var(--cor-acento);
+}
+
+/* Força da senha: Forte (Verde) */
+.barra-senha-container.forte .barra-senha-segmento {
+  background-color: var(--cor-sucesso);
+}
+
+/* Checkbox dos termos */
+.cadastro-termos {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--cor-texto-corpo);
+  line-height: 1.4;
+  margin: 4px 0;
+}
+
+.cadastro-termos input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: var(--cor-escuro);
+  width: 16px;
+  height: 16px;
+}
+
+.cadastro-termos a {
+  font-weight: 700;
+  color: var(--cor-escuro);
+}
+
+.cadastro-termos a:hover {
+  text-decoration: underline;
+}
+
+.cadastro-btn-submit {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.cadastro-login-link {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--cor-texto-corpo);
+}
+
+.cadastro-login-link a {
+  font-weight: 700;
+  color: var(--cor-escuro);
+}
+
+.cadastro-login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .cadastro-topo {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  .campos-duplos {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cadastro-form-card {
+    padding: 30px 20px;
+  }
+}

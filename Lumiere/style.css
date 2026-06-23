@@ -1,0 +1,337 @@
+/* ================================================================
+   [LUMIÈRE — BOUTIQUE ELEGANTE]
+   style.css — ESTILOS GLOBAIS E DIRETRIZES DE DESIGN SYSTEM
+   Este arquivo centraliza resets, variáveis de cores e componentes base.
+   ================================================================ */
+
+:root {
+  /* Paleta de Cores Estrita */
+  --cor-1: #DEE4B8; /* Fundos secundários ou destaques suaves */
+  --cor-2: #F0FFCE; /* Cor de fundo principal */
+  --cor-3: #DECFA6; /* Bordas e divisórias */
+  --cor-4: #CB9F7D; /* Elementos secundários de interface */
+  --cor-5: #A53F2B; /* Botões de ação principais, como "Comprar" ou alertas */
+  --cor-6: #79311B; /* Hover dos botões principais */
+  --cor-7: #4C230A; /* Títulos e textos em destaque */
+  --cor-8: #3A1207; /* Rodapés ou menus de navegação */
+  --cor-9: #280004; /* Textos principais e contrastes fortes */
+
+  /* Cores de feedback adicionais integradas ao tema */
+  --cor-sucesso: #2d6a4f;
+  --cor-alerta: #d97706;
+  --cor-erro: #9b2226;
+
+  /* Tipografia Premium */
+  --fonte-titulo: 'Cormorant Garamond', Georgia, serif;
+  --fonte-corpo: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Espaçamentos Consistentes (Foco em layouts elegantes e espaçosos) */
+  --espaco-xs: 4px;
+  --espaco-sm: 8px;
+  --espaco-md: 16px;
+  --espaco-lg: 24px;
+  --espaco-xl: 40px;
+  --espaco-2xl: 64px;
+
+  /* Detalhes de Acabamento */
+  --raio: 16px;          /* Cantos mais orgânicos e sofisticados */
+  --raio-sm: 8px;
+  --raio-pill: 100px;
+  --sombra-suave: 0 4px 20px rgba(76, 35, 10, 0.06);
+  --sombra-media: 0 10px 30px rgba(76, 35, 10, 0.12);
+  --sombra-forte: 0 20px 50px rgba(40, 0, 4, 0.18);
+
+  /* Transição Acolhedora */
+  --transicao: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* ================================================================
+   1. RESET E ESTRUTURA BASE
+   ================================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-2);
+  color: var(--cor-9);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transicao), opacity var(--transicao);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--fonte-corpo);
+  border: none;
+  background: none;
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--fonte-corpo);
+  outline: none;
+}
+
+/* Scrollbar Personalizada Elegante */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cor-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cor-3);
+  border-radius: var(--raio-pill);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cor-4);
+}
+
+/* ================================================================
+   2. BOTÕES PREMIUM
+   ================================================================ */
+/* Botão Principal - Chamativo e Acolhedor */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: var(--cor-5);
+  color: #ffffff;
+  padding: 14px 28px;
+  border-radius: var(--raio-pill);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(165, 63, 43, 0.25);
+  transition: background-color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+}
+
+.btn-primario:hover {
+  background-color: var(--cor-6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(121, 49, 27, 0.35);
+}
+
+.btn-primario:active {
+  transform: translateY(0);
+}
+
+.btn-primario:disabled {
+  background-color: var(--cor-3);
+  color: var(--cor-7);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botão Secundário - Contornado */
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--cor-7);
+  border: 1.5px solid var(--cor-4);
+  padding: 13px 26px;
+  border-radius: var(--raio-pill);
+  font-size: 15px;
+  font-weight: 500;
+  transition: border-color var(--transicao), background-color var(--transicao), color var(--transicao), transform var(--transicao);
+}
+
+.btn-secundario:hover {
+  border-color: var(--cor-7);
+  background-color: rgba(76, 35, 10, 0.04);
+  color: var(--cor-9);
+  transform: translateY(-2px);
+}
+
+.btn-secundario:active {
+  transform: translateY(0);
+}
+
+/* Botão Minimalista de Ações */
+.btn-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--cor-7);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--transicao);
+}
+
+.btn-link:hover {
+  color: var(--cor-5);
+}
+
+/* ================================================================
+   3. FORMULÁRIOS E INPUTS
+   ================================================================ */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.campo-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-7);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.campo-input {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1.5px solid var(--cor-3);
+  border-radius: var(--raio-sm);
+  font-size: 15px;
+  color: var(--cor-9);
+  background-color: rgba(222, 228, 184, 0.3); /* --cor-1 com transparência */
+  transition: border-color var(--transicao), background-color var(--transicao), box-shadow var(--transicao);
+}
+
+.campo-input::placeholder {
+  color: var(--cor-4);
+  opacity: 0.7;
+}
+
+.campo-input:focus {
+  border-color: var(--cor-4);
+  background-color: rgba(222, 228, 184, 0.5);
+  box-shadow: 0 0 0 4px rgba(203, 159, 125, 0.15);
+}
+
+/* ================================================================
+   4. BADGES E TAGS
+   ================================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--raio-pill);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badge-sucesso {
+  background-color: #e8f5e9;
+  color: var(--cor-sucesso);
+}
+
+.badge-alerta {
+  background-color: #fffbeb;
+  color: var(--cor-alerta);
+}
+
+.badge-erro {
+  background-color: #ffebee;
+  color: var(--cor-erro);
+}
+
+.badge-decorativo {
+  background-color: var(--cor-1);
+  color: var(--cor-7);
+}
+
+/* ================================================================
+   5. ANIMAÇÕES EXCLUSIVAS
+   ================================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes subirFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes descerFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulseSutil {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(165, 63, 43, 0.25);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(165, 63, 43, 0.4);
+  }
+}
+
+.animar-fade {
+  animation: fadeIn 0.8s var(--transicao) both;
+}
+
+.animar-subir {
+  animation: subirFadeIn 0.8s var(--transicao) both;
+}
+
+.animar-descer {
+  animation: descerFadeIn 0.8s var(--transicao) both;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }

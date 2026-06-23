@@ -1,0 +1,168 @@
+/* ================================================================
+   [PITOCO'S CARS]
+   cadastro.css — CSS ESPECÍFICO DA PÁGINA DE CADASTRO
+   ================================================================ */
+
+.cadastro-pagina {
+  min-height: 100vh;
+  background-color: var(--cor-carbon);
+  display: flex;
+  flex-direction: column;
+}
+
+.cadastro-topo {
+  background-color: var(--cor-onyx);
+  padding: 32px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--cor-granada);
+}
+
+.cadastro-topo-link {
+  font-family: var(--fonte-titulo);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--cor-prata);
+  transition: color var(--transicao);
+}
+
+.cadastro-topo-link:hover {
+  color: var(--cor-morango);
+}
+
+.cadastro-corpo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.cadastro-form-card {
+  width: 100%;
+  max-width: 520px;
+  background-color: var(--cor-onyx);
+  border: 2px solid var(--cor-granada);
+  border-radius: var(--raio);
+  padding: 48px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  animation: subirFadeIn 0.5s ease both;
+}
+
+.cadastro-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  margin-bottom: var(--espaco-sm);
+  text-transform: uppercase;
+}
+
+.cadastro-subtitulo {
+  font-size: 14px;
+  color: var(--cor-poeira);
+  margin-bottom: var(--espaco-xl);
+}
+
+/* GRID DE CAMPOS */
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+.campos-duplos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espaco-md);
+}
+
+@media (max-width: 600px) {
+  .campos-duplos {
+    grid-template-columns: 1fr;
+  }
+  .cadastro-form-card {
+    padding: 30px 20px;
+  }
+}
+
+/* BARRA DE FORÇA DA SENHA */
+.barra-senha-container {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.barra-senha-segmento {
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background-color: var(--cor-granada);
+  transition: background-color 0.3s ease;
+}
+
+/* Simulações de Senha */
+.barra-senha-container.fraca .barra-senha-segmento:nth-child(1) {
+  background-color: var(--cor-morango);
+}
+
+.barra-senha-container.media .barra-senha-segmento:nth-child(1),
+.barra-senha-container.media .barra-senha-segmento:nth-child(2) {
+  background-color: var(--cor-magno-claro);
+}
+
+.barra-senha-container.forte .barra-senha-segmento {
+  background-color: var(--cor-sucesso);
+}
+
+/* TERMOS E SUBMIT */
+.cadastro-termos {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--cor-poeira);
+  margin-top: var(--espaco-sm);
+}
+
+.cadastro-termos input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: var(--cor-morango);
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.cadastro-termos a {
+  color: var(--cor-morango);
+  font-weight: 700;
+}
+
+.cadastro-termos a:hover {
+  text-decoration: underline;
+}
+
+.cadastro-btn-submit {
+  width: 100%;
+  padding: 15px;
+  font-size: 14px;
+  margin-top: var(--espaco-sm);
+}
+
+.cadastro-login-link {
+  text-align: center;
+  margin-top: var(--espaco-lg);
+  font-size: 13.5px;
+  color: var(--cor-prata);
+}
+
+.cadastro-login-link a {
+  color: var(--cor-morango);
+  font-weight: 700;
+}
+
+.cadastro-login-link a:hover {
+  text-decoration: underline;
+}

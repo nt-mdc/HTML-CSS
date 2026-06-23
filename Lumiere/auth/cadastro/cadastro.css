@@ -1,0 +1,185 @@
+/* ================================================================
+   [LUMIÈRE — BOUTIQUE ELEGANTE]
+   cadastro.css — ESTILOS ESPECÍFICOS DA TELA DE CADASTRO
+   ================================================================ */
+
+.cadastro-pagina {
+  min-height: 100vh;
+  background-color: var(--cor-2); /* Fundo principal suave */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 1. CABEÇALHO MINIMALISTA */
+.cadastro-topo {
+  background-color: var(--cor-8); /* Fundo escuro do cabeçalho */
+  padding: var(--espaco-md) var(--espaco-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--cor-3);
+  box-shadow: var(--sombra-suave);
+}
+
+.cadastro-topo .logo {
+  color: var(--cor-2);
+}
+
+.cadastro-topo-link {
+  font-size: 14px;
+  color: var(--cor-3);
+  font-weight: 500;
+  transition: color var(--transicao);
+}
+
+.cadastro-topo-link:hover {
+  color: var(--cor-2);
+}
+
+/* 2. CORPO DO CADASTRO */
+.cadastro-corpo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--espaco-xl) var(--espaco-lg);
+}
+
+.cadastro-form-card {
+  width: 100%;
+  max-width: 560px;
+  background-color: #ffffff;
+  border: 1.5px solid var(--cor-3);
+  border-radius: var(--raio);
+  padding: var(--espaco-xl);
+  box-shadow: var(--sombra-media);
+  animation: subirFadeIn 0.6s var(--transicao) both;
+}
+
+.cadastro-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 36px;
+  color: var(--cor-7);
+  margin-bottom: var(--espaco-xs);
+  font-weight: 700;
+}
+
+.cadastro-subtitulo {
+  font-size: 14px;
+  color: var(--cor-4);
+  margin-bottom: var(--espaco-xl);
+  line-height: 1.4;
+}
+
+.cadastro-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espaco-md);
+}
+
+/* Campo Duplo lado a lado no desktop */
+.campos-duplos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espaco-md);
+}
+
+/* 3. MEDIDOR DE FORÇA DA SENHA */
+.barra-senha-container {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.barra-senha-segmento {
+  flex: 1;
+  height: 4px;
+  border-radius: var(--raio-pill);
+  background-color: var(--cor-3);
+  transition: background-color var(--transicao);
+}
+
+/* Quando classe .fraca for inserida pelo script: */
+.barra-senha-container.fraca .barra-senha-segmento:nth-child(1) {
+  background-color: var(--cor-erro);
+}
+
+/* Quando classe .media for inserida pelo script: */
+.barra-senha-container.media .barra-senha-segmento:nth-child(1),
+.barra-senha-container.media .barra-senha-segmento:nth-child(2) {
+  background-color: var(--cor-alerta);
+}
+
+/* Quando classe .forte for inserida pelo script: */
+.barra-senha-container.forte .barra-senha-segmento {
+  background-color: var(--cor-sucesso);
+}
+
+.senha-status-texto {
+  font-size: 11px;
+  font-weight: 700;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 4. TERMOS E AÇÕES */
+.cadastro-termos {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--cor-7);
+  margin-top: var(--espaco-xs);
+  line-height: 1.4;
+}
+
+.cadastro-termos input[type="checkbox"] {
+  margin-top: 3px;
+  accent-color: var(--cor-5);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.cadastro-termos a {
+  color: var(--cor-5);
+  font-weight: 600;
+}
+
+.cadastro-termos a:hover {
+  color: var(--cor-6);
+}
+
+.cadastro-btn-submit {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  margin-top: var(--espaco-sm);
+  font-weight: 600;
+}
+
+.cadastro-login-link {
+  text-align: center;
+  margin-top: var(--espaco-lg);
+  font-size: 14px;
+  color: var(--cor-7);
+}
+
+.cadastro-login-link a {
+  color: var(--cor-5);
+  font-weight: 600;
+}
+
+.cadastro-login-link a:hover {
+  color: var(--cor-6);
+}
+
+/* ================================================================
+   MEDIA QUERIES (Responsividade)
+   ================================================================ */
+@media (min-width: 600px) {
+  .campos-duplos {
+    grid-template-columns: 1fr 1fr;
+  }
+}

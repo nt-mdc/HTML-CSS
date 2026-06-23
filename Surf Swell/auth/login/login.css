@@ -1,0 +1,142 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - SWELL POINT]
+   ARQUIVO: auth/login/login.css (Estilos da página de Login)
+   ================================================================ */
+
+.login-pagina {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cor-fundo);
+  background: radial-gradient(circle at 10% 20%, rgba(152, 210, 232, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+/* Barra superior minimalista */
+.login-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+}
+
+.login-topo-link {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto-corpo);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.login-topo-link:hover {
+  color: var(--cor-escuro);
+}
+
+.login-topo-link i {
+  color: var(--cor-acento);
+  transition: transform var(--transicao);
+}
+
+.login-topo-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Área central */
+.login-corpo {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 80px 20px;
+}
+
+.login-form-card {
+  width: 100%;
+  max-width: 460px;
+  background-color: #ffffff;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  padding: 50px 40px;
+  box-shadow: var(--sombra-md);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: subirEntrar 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.login-form-card:hover {
+  border-color: var(--cor-acento);
+}
+
+.login-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--cor-escuro);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.login-subtitulo {
+  font-size: 14.5px;
+  color: var(--cor-texto-corpo);
+  line-height: 1.5;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo-header-senha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.esqueci-senha-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--cor-texto-corpo);
+}
+
+.esqueci-senha-link:hover {
+  color: var(--cor-escuro);
+  text-decoration: underline;
+}
+
+.login-btn-submit {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.login-footer-link {
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--cor-texto-corpo);
+}
+
+.login-footer-link a {
+  font-weight: 700;
+  color: var(--cor-escuro);
+}
+
+.login-footer-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .login-topo {
+    padding: 20px;
+  }
+
+  .login-form-card {
+    padding: 40px 24px;
+  }
+
+  .login-titulo {
+    font-size: 28px;
+  }
+}

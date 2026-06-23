@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière — Criar Conta Concierge</title>
+
+  <!-- Google Fonts: Cormorant Garamond (títulos de luxo) e DM Sans (corpo legível) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos Globais e Específicos -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+<body>
+
+  <div class="cadastro-pagina">
+    <!-- TOPO DE NAVEGAÇÃO DE CADASTRO -->
+    <header class="cadastro-topo">
+      <a href="../../index.html" class="logo">Lumi<span>è</span>re</a>
+      <a href="../login/login.html" class="cadastro-topo-link">Já possuo conta <i class="fas fa-arrow-right"></i></a>
+    </header>
+
+    <!-- CORPO DE CADASTRO -->
+    <main class="cadastro-corpo">
+      <div class="cadastro-form-card">
+        <h1 class="cadastro-titulo">Criar sua Conta</h1>
+        <p class="cadastro-subtitulo">Torne-se um cliente concierge Lumière para gerenciar suas sacolas e compras.</p>
+
+        <form class="cadastro-form" action="#" onsubmit="event.preventDefault(); alert('Conta criada com sucesso (simulado)!'); window.location.href='../login/login.html';">
+          <!-- Linha Dupla: Nome + Sobrenome -->
+          <div class="campos-duplos">
+            <div class="campo-grupo">
+              <label class="campo-label" for="nome">Nome</label>
+              <input class="campo-input" type="text" id="nome" placeholder="Maria" required />
+            </div>
+            <div class="campo-grupo">
+              <label class="campo-label" for="sobrenome">Sobrenome</label>
+              <input class="campo-input" type="text" id="sobrenome" placeholder="Oliveira" required />
+            </div>
+          </div>
+
+          <!-- Campo E-mail -->
+          <div class="campo-grupo">
+            <label class="campo-label" for="email">E-mail</label>
+            <input class="campo-input" type="email" id="email" placeholder="seu@email.com" required />
+          </div>
+
+          <!-- Campo Senha com Medidor de Segurança -->
+          <div class="campo-grupo">
+            <label class="campo-label" for="senha">Senha</label>
+            <input class="campo-input" type="password" id="senha" placeholder="Mínimo 8 caracteres" required oninput="atualizarBarraSenha(this.value)" />
+            
+            <!-- Barra de Força da Senha com classes de feedback baseadas no CSS do design system -->
+            <div class="barra-senha-container" id="barra-senha-feedback">
+              <div class="barra-senha-segmento"></div>
+              <div class="barra-senha-segmento"></div>
+              <div class="barra-senha-segmento"></div>
+            </div>
+            <span class="senha-status-texto" id="senha-status-texto">Digite uma senha segura</span>
+          </div>
+
+          <!-- Campo Confirmar Senha -->
+          <div class="campo-grupo">
+            <label class="campo-label" for="confirmar">Confirmar senha</label>
+            <input class="campo-input" type="password" id="confirmar" placeholder="Repita a senha criada" required />
+          </div>
+
+          <!-- Termos de Aceite -->
+          <div class="cadastro-termos">
+            <input type="checkbox" id="termos" required />
+            <label for="termos">
+              Declaro que concordo com os <a href="#">Termos de Associação Concierge</a> e a <a href="#">Política de Privacidade</a> da Lumière.
+            </label>
+          </div>
+
+          <!-- Botão Submeter -->
+          <button class="btn-primario cadastro-btn-submit" type="submit">
+            Registrar Conta <i class="fas fa-user-plus"></i>
+          </button>
+        </form>
+
+        <p class="cadastro-login-link">
+          Já tem uma conta cadastrada? <a href="../login/login.html">Entrar</a>
+        </p>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Lógica rápida para simular a barra de segurança da senha
+    function atualizarBarraSenha(senha) {
+      const container = document.getElementById("barra-senha-feedback");
+      const texto = document.getElementById("senha-status-texto");
+      container.className = "barra-senha-container"; // Reset
+      
+      if (senha.length === 0) {
+        texto.textContent = "Digite uma senha segura";
+        return;
+      }
+      
+      if (senha.length < 6) {
+        container.classList.add("fraca");
+        texto.textContent = "Senha Fraca (muito curta)";
+        texto.style.color = "var(--cor-erro)";
+      } else if (senha.length < 10) {
+        container.classList.add("media");
+        texto.textContent = "Senha Moderada";
+        texto.style.color = "var(--cor-alerta)";
+      } else {
+        container.classList.add("forte");
+        texto.textContent = "Senha Forte e Segura";
+        texto.style.color = "var(--cor-sucesso)";
+      }
+    }
+  </script>
+</body>
+</html>

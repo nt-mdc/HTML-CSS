@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pitoco's Cars — Catálogo de Veículos</title>
+    
+    <!-- Importação de Fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    
+    <!-- Importação da biblioteca Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS LINKINGS -->
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="artigos.css" />
+  </head>
+  <body>
+
+    <!-- CABEÇALHO COMPARTILHADO -->
+    <header class="cabecalho">
+      <a href="../index.html" class="logo"><i class="fas fa-gauge-high"></i> Pitoco's <span>Cars</span></a>
+      <nav class="navbar">
+        <ul class="nav-lista">
+          <li><a href="../index.html" class="nav-link">Início</a></li>
+          <li><a href="artigos.html" class="nav-link ativo">Catálogo</a></li>
+          <li><a href="../index.html#sobre" class="nav-link">Sobre</a></li>
+          <li><a href="../index.html#alimentacao" class="nav-link">Praça V8</a></li>
+        </ul>
+        <a href="../admin/dashboard.html" class="btn-sair">Painel Admin</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <!-- BANNER HERO DA SEÇÃO -->
+      <section class="artigos-banner">
+        <span class="artigos-banner-tag"><i class="fas fa-car"></i> Máquinas Confirmadas</span>
+        <h1 class="artigos-banner-titulo">A Lenda das Pistas<br>ao Seu Alcance</h1>
+        <p class="artigos-banner-sub">
+          Explore o catálogo oficial de carros clássicos, esportivos e colecionáveis que estarão brilhando no pátio do encontro deste ano.
+        </p>
+        <div class="banner-numero-fundo">137</div>
+      </section>
+
+      <!-- BARRA DE BUSCA E FILTROS RÁPIDOS -->
+      <div class="artigos-controles">
+        <div class="busca-container">
+          <span class="busca-icone"><i class="fas fa-search"></i></span>
+          <input class="busca-input" type="text" placeholder="Buscar veículo por modelo, ano ou marca..." />
+        </div>
+
+        <div class="filtros-lista">
+          <button class="filtro-btn ativo">Todos</button>
+          <button class="filtro-btn">Muscle Cars</button>
+          <button class="filtro-btn">Clássicos</button>
+          <button class="filtro-btn">Superesportivos</button>
+          <button class="filtro-btn">JDM</button>
+          <button class="filtro-btn">Euro</button>
+          <button class="filtro-btn">Raros</button>
+        </div>
+      </div>
+
+      <!-- GRADE DE VEÍCULOS (GRID LAYOUT) -->
+      <section class="artigos-grid-container">
+        <p class="artigos-grid-titulo">137 veículos confirmados</p>
+
+        <div class="artigos-grid">
+
+          <!-- VEÍCULO DESTAQUE (Mustang) -->
+          <article class="artigo-card animar-subir delay-1">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">SHELBY GT500</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-laranja"><i class="fas fa-fire"></i> Muscle Cars</span>
+              <h2 class="artigo-card-titulo">Ford Mustang Shelby GT500 1967</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                O lendário "Eleanor". Modelo impecável com pintura cinza e faixas pretas. Equipado com o estrondoso motor V8 428 Cobra Jet de 355 cv e transmissão mecânica de quatro marchas.
+              </p>
+              
+              <div class="car-quick-specs">
+                <span><i class="fas fa-gauge"></i> 7.0L V8</span>
+                <span><i class="fas fa-horse"></i> 355 hp</span>
+                <span><i class="fas fa-calendar-days"></i> 1967</span>
+              </div>
+
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="fas fa-shield-halved"></i> Curadoria Toledo</span>
+                <a href="../admin/dashboard.html" class="artigo-card-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- VEÍCULO 2 (Corvette C3) -->
+          <article class="artigo-card animar-subir delay-2">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">CORVETTE C3</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-laranja"><i class="fas fa-fire"></i> Clássicos</span>
+              <h2 class="artigo-card-titulo">Chevrolet Corvette C3 Stingray 1973</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                A agressiva silhueta inspirada na arraia-torta. Pintura original vermelha metálica, motor V8 350 Small Block e teto T-Top removível. Uma verdadeira obra de arte sobre rodas.
+              </p>
+
+              <div class="car-quick-specs">
+                <span><i class="fas fa-gauge"></i> 5.7L V8</span>
+                <span><i class="fas fa-horse"></i> 250 hp</span>
+                <span><i class="fas fa-calendar-days"></i> 1973</span>
+              </div>
+
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="fas fa-shield-halved"></i> Curadoria Toledo</span>
+                <a href="../admin/dashboard.html" class="artigo-card-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- VEÍCULO 3 (Porsche 911 Turbo) -->
+          <article class="artigo-card animar-subir delay-3">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">911 TURBO 1989</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-azul"><i class="fas fa-bolt"></i> Superesportivos</span>
+              <h2 class="artigo-card-titulo">Porsche 911 Turbo (930) 1989</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                O famoso "Criador de Viúvas" devido à sua entrega brutal de torque. Motor Boxer de 6 cilindros turboalimentado refrigerado a ar de 300 cv de potência.
+              </p>
+
+              <div class="car-quick-specs">
+                <span><i class="fas fa-gauge"></i> 3.3L Flat-6</span>
+                <span><i class="fas fa-horse"></i> 300 hp</span>
+                <span><i class="fas fa-calendar-days"></i> 1989</span>
+              </div>
+
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="fas fa-shield-halved"></i> Curadoria Toledo</span>
+                <a href="../admin/dashboard.html" class="artigo-card-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- VEÍCULO 4 (Nissan Skyline GT-R R34) -->
+          <article class="artigo-card animar-subir delay-4">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">SKYLINE R34</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-verde"><i class="fas fa-gauge-simple"></i> JDM</span>
+              <h2 class="artigo-card-titulo">Nissan Skyline GT-R R34 V-Spec II</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                O Godzilla das pistas. Modelo japonês lendário equipado com o venerado motor biturbo RB26DETT e o avançado sistema de tração ATTESA E-TS Pro.
+              </p>
+
+              <div class="car-quick-specs">
+                <span><i class="fas fa-gauge"></i> 2.6L L6 TT</span>
+                <span><i class="fas fa-horse"></i> 280 hp</span>
+                <span><i class="fas fa-calendar-days"></i> 2002</span>
+              </div>
+
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="fas fa-shield-halved"></i> Curadoria Toledo</span>
+                <a href="../admin/dashboard.html" class="artigo-card-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- VEÍCULO 5 (Ferrari F40) -->
+          <article class="artigo-card animar-subir delay-5">
+            <div class="artigo-card-imagem">
+              <div class="artigo-card-imagem-placeholder">FERRARI F40</div>
+            </div>
+            <div class="artigo-card-corpo">
+              <span class="badge badge-cinza"><i class="fas fa-gem"></i> Raros</span>
+              <h2 class="artigo-card-titulo">Ferrari F40 Berlinetta 1990</h2>
+              <p class="artigo-card-texto texto-3-linhas">
+                O último supercarro encomendado pessoalmente por Enzo Ferrari. Carroceria em fibra de carbono e Kevlar, com motor V8 biturbo de 478 cv de potência purista.
+              </p>
+
+              <div class="car-quick-specs">
+                <span><i class="fas fa-gauge"></i> 2.9L V8 TT</span>
+                <span><i class="fas fa-horse"></i> 478 hp</span>
+                <span><i class="fas fa-calendar-days"></i> 1990</span>
+              </div>
+
+              <div class="artigo-card-rodape">
+                <span class="artigo-card-meta"><i class="fas fa-shield-halved"></i> Curadoria Toledo</span>
+                <a href="../admin/dashboard.html" class="artigo-card-link">Ver detalhes <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- PAGINAÇÃO -->
+      <div class="paginacao">
+        <button class="paginacao-btn"><i class="fas fa-chevron-left"></i></button>
+        <button class="paginacao-btn ativo">1</button>
+        <button class="paginacao-btn">2</button>
+        <button class="paginacao-btn">3</button>
+        <button class="paginacao-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+
+    </main>
+
+    <!-- RODAPÉ COMPARTILHADO -->
+    <footer class="rodape">
+      <p class="rodape-logo"><i class="fas fa-gauge-high"></i> Pitoco's <span>Cars</span></p>
+      <p class="rodape-texto">© 2026 · Feito para amantes da velocidade e clássicos automotivos.</p>
+    </footer>
+
+  </body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière — Moda Elegante e Acolhedora</title>
+
+  <!-- Google Fonts: Cormorant Garamond (títulos de luxo) e DM Sans (corpo legível) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para Ícones Profissionais -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Estilos Globais e Específicos -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO GLOBAL (Menu e Busca) -->
+  <header class="cabecalho">
+    <div class="cabecalho-principal">
+      <!-- Logo Principal -->
+      <a href="index.html" class="logo">Lumi<span>è</span>re</a>
+
+      <!-- Barra de Busca -->
+      <div class="busca-container">
+        <i class="fas fa-search busca-icone"></i>
+        <input type="text" class="busca-input" id="busca-produtos" placeholder="Pesquisar por peças, alfaiataria ou tecidos...">
+      </div>
+
+      <!-- Ações Rápidas -->
+      <div class="cabecalho-acoes">
+        <a href="auth/login/login.html" class="cabecalho-link" title="Minha Conta">
+          <i class="far fa-user"></i> <span style="display: none; @media(min-width: 600px) { display: inline; }">Entrar</span>
+        </a>
+        <a href="#suporte" class="cabecalho-link" id="nav-suporte-link" title="Suporte">
+          <i class="far fa-question-circle"></i>
+        </a>
+        <button class="sacola-btn" id="sacola-btn" aria-label="Abrir Sacola de Compras">
+          <i class="fas fa-shopping-bag"></i>
+          <span class="sacola-contador" id="sacola-count">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navegação Secundária (Filtros Conceituais) -->
+    <nav class="cabecalho-menu">
+      <ul class="menu-lista">
+        <li><a href="#" class="menu-link ativo">Novidades</a></li>
+        <li><a href="#" class="menu-link">Coleções</a></li>
+        <li><a href="#" class="menu-link">Vestidos</a></li>
+        <li><a href="#" class="menu-link">Alfaiataria</a></li>
+        <li><a href="#" class="menu-link">Suéteres</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO BANNER CONCEITUAL -->
+    <section class="hero animar-fade">
+      <div class="hero-conteudo">
+        <span class="hero-tag"><i class="fas fa-feather"></i> Alta Costura Acolhedora</span>
+        <h1 class="hero-titulo">O calor do linho e a suavidade da seda para o seu <span>cotidiano</span>.</h1>
+        <p class="hero-subtitulo">Peças selecionadas que abraçam o corpo e refletem a luz natural com elegância. Descubra nossa nova Coleção de Inverno.</p>
+        <div class="hero-botoes">
+          <a href="#vitrine" class="btn-primario"><i class="fas fa-shopping-cart"></i> Ver Vitrine</a>
+          <a href="auth/cadastro/cadastro.html" class="btn-secundario"><i class="fas fa-user-plus"></i> Receber Novidades</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VITRINE DE PRODUTOS -->
+    <section class="vitrine-secao" id="vitrine">
+      <div class="secao-header animar-subir">
+        <h2 class="secao-titulo">Peças em Destaque</h2>
+        <p class="secao-subtitulo">Cortes clássicos estruturados em tecidos nobres</p>
+      </div>
+
+      <div class="vitrine-grid">
+        <!-- CARD 1: Vestido Seda -->
+        <article class="produto-card animar-subir delay-1" data-id="vestido-seda" data-name="Vestido de Seda Lumière" data-price="389.90" data-image="assets/vestido_seda.png">
+          <div class="produto-imagem-wrapper">
+            <img src="assets/vestido_seda.png" alt="Vestido de Seda Lumière" class="produto-imagem">
+            <div class="produto-badges">
+              <span class="badge badge-decorativo">Exclusivo</span>
+            </div>
+          </div>
+          <div class="produto-info">
+            <h3 class="produto-nome">Vestido de Seda Lumière</h3>
+            <span class="produto-preco">R$ 389,90</span>
+          </div>
+
+          <!-- Seletor de Tamanho -->
+          <div class="produto-tamanhos-wrapper">
+            <span class="tamanhos-label">Selecione o tamanho:</span>
+            <div class="tamanhos-botoes">
+              <button class="tamanho-opcao" data-tamanho="P">P</button>
+              <button class="tamanho-opcao" data-tamanho="M">M</button>
+              <button class="tamanho-opcao" data-tamanho="G" disabled>G</button> <!-- Esgotado -->
+              <button class="tamanho-opcao" data-tamanho="GG">GG</button>
+            </div>
+            <!-- Status de Estoque Dinâmico -->
+            <div class="tamanho-estoque-status">
+              <span class="status-texto">Selecione um tamanho</span>
+            </div>
+          </div>
+
+          <button class="btn-primario produto-btn-comprar" disabled>
+            <i class="fas fa-cart-plus"></i> Adicionar à Sacola
+          </button>
+        </article>
+
+        <!-- CARD 2: Blazer Linho -->
+        <article class="produto-card animar-subir delay-2" data-id="blazer-linho" data-name="Blazer Linho Acolhedor" data-price="459.90" data-image="assets/blazer_linho.png">
+          <div class="produto-imagem-wrapper">
+            <img src="assets/blazer_linho.png" alt="Blazer Linho Acolhedor" class="produto-imagem">
+            <div class="produto-badges">
+              <span class="badge badge-decorativo">Tendência</span>
+            </div>
+          </div>
+          <div class="produto-info">
+            <h3 class="produto-nome">Blazer Linho Acolhedor</h3>
+            <span class="produto-preco">R$ 459,90</span>
+          </div>
+
+          <div class="produto-tamanhos-wrapper">
+            <span class="tamanhos-label">Selecione o tamanho:</span>
+            <div class="tamanhos-botoes">
+              <button class="tamanho-opcao" data-tamanho="P">P</button>
+              <button class="tamanho-opcao" data-tamanho="M">M</button>
+              <button class="tamanho-opcao" data-tamanho="G">G</button>
+              <button class="tamanho-opcao" data-tamanho="GG">GG</button>
+            </div>
+            <div class="tamanho-estoque-status">
+              <span class="status-texto">Selecione um tamanho</span>
+            </div>
+          </div>
+
+          <button class="btn-primario produto-btn-comprar" disabled>
+            <i class="fas fa-cart-plus"></i> Adicionar à Sacola
+          </button>
+        </article>
+
+        <!-- CARD 3: Trench Coat -->
+        <article class="produto-card animar-subir delay-3" data-id="trench-coat" data-name="Trench Coat Elegance" data-price="599.90" data-image="assets/trench_coat.png">
+          <div class="produto-imagem-wrapper">
+            <img src="assets/trench_coat.png" alt="Trench Coat Elegance" class="produto-imagem">
+            <div class="produto-badges">
+              <span class="badge badge-decorativo">Mais Vendido</span>
+            </div>
+          </div>
+          <div class="produto-info">
+            <h3 class="produto-nome">Trench Coat Elegance</h3>
+            <span class="produto-preco">R$ 599,90</span>
+          </div>
+
+          <div class="produto-tamanhos-wrapper">
+            <span class="tamanhos-label">Selecione o tamanho:</span>
+            <div class="tamanhos-botoes">
+              <button class="tamanho-opcao" data-tamanho="P">P</button>
+              <button class="tamanho-opcao" data-tamanho="M">M</button>
+              <button class="tamanho-opcao" data-tamanho="G">G</button>
+              <button class="tamanho-opcao" data-tamanho="GG" disabled>GG</button> <!-- Esgotado -->
+            </div>
+            <div class="tamanho-estoque-status">
+              <span class="status-texto">Selecione um tamanho</span>
+            </div>
+          </div>
+
+          <button class="btn-primario produto-btn-comprar" disabled>
+            <i class="fas fa-cart-plus"></i> Adicionar à Sacola
+          </button>
+        </article>
+
+        <!-- CARD 4: Calça Alfaiataria -->
+        <article class="produto-card animar-subir delay-4" data-id="calca-alfaiataria" data-name="Calça Alfaiataria Natural" data-price="279.90" data-image="assets/calca_alfaiataria.png">
+          <div class="produto-imagem-wrapper">
+            <img src="assets/calca_alfaiataria.png" alt="Calça Alfaiataria Natural" class="produto-imagem">
+            <div class="produto-badges">
+              <span class="badge badge-decorativo">Clássico</span>
+            </div>
+          </div>
+          <div class="produto-info">
+            <h3 class="produto-nome">Calça Alfaiataria Natural</h3>
+            <span class="produto-preco">R$ 279,90</span>
+          </div>
+
+          <div class="produto-tamanhos-wrapper">
+            <span class="tamanhos-label">Selecione o tamanho:</span>
+            <div class="tamanhos-botoes">
+              <button class="tamanho-opcao" data-tamanho="P">P</button>
+              <button class="tamanho-opcao" data-tamanho="M" disabled>M</button> <!-- Esgotado -->
+              <button class="tamanho-opcao" data-tamanho="G">G</button>
+              <button class="tamanho-opcao" data-tamanho="GG">GG</button>
+            </div>
+            <div class="tamanho-estoque-status">
+              <span class="status-texto">Selecione um tamanho</span>
+            </div>
+          </div>
+
+          <button class="btn-primario produto-btn-comprar" disabled>
+            <i class="fas fa-cart-plus"></i> Adicionar à Sacola
+          </button>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ INSTITUCIONAL -->
+  <footer class="rodape">
+    <div class="rodape-container">
+      <div class="rodape-info">
+        <p class="logo" style="color: var(--cor-2);">Lumi<span>è</span>re</p>
+        <p class="rodape-sub">Vestuário premium que une o design minimalista à sofisticação orgânica. Criado para vestir sua melhor versão com naturalidade e conforto.</p>
+        <div class="rodape-redes">
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+
+      <div class="rodape-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#">Início</a></li>
+          <li><a href="#vitrine">Vitrine</a></li>
+          <li><a href="#">Coleção Inverno</a></li>
+          <li><a href="#">Guia de Tecidos</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-links">
+        <h4>Conta & Ajuda</h4>
+        <ul>
+          <li><a href="auth/login/login.html">Entrar / Cadastrar</a></li>
+          <li><a href="#FAQ" id="footer-faq-link">Dúvidas Frequentes</a></li>
+          <li><a href="#Politicas">Políticas de Troca</a></li>
+          <li><a href="#FaleConosco">Fale Conosco</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rodape-copy">
+      <p>© 2026 Lumière Boutique · Todos os direitos reservados. Feito com amor em tecidos naturais.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL CARRINHO (OFFCANVAS) -->
+  <div class="carrinho-overlay" id="carrinho-overlay"></div>
+  <aside class="carrinho-offcanvas" id="carrinho-offcanvas">
+    <div class="carrinho-header">
+      <h2 class="carrinho-titulo">Sua Sacola</h2>
+      <button class="carrinho-fechar" id="carrinho-fechar" aria-label="Fechar Sacola">&times;</button>
+    </div>
+    
+    <div class="carrinho-corpo" id="carrinho-items-container">
+      <!-- Inserido dinamicamente via JS -->
+      <div class="carrinho-vazio">
+        <i class="fas fa-shopping-basket"></i>
+        <p>Sua sacola está vazia por enquanto.</p>
+        <button class="btn-secundario" id="carrinho-continuar-comprando" style="margin-top: 8px;">Continuar Comprando</button>
+      </div>
+    </div>
+
+    <div class="carrinho-rodape">
+      <div class="resumo-linha">
+        <span class="resumo-label">Subtotal:</span>
+        <span class="resumo-valor" id="carrinho-subtotal">R$ 0,00</span>
+      </div>
+      <button class="btn-primario carrinho-btn-finalizar" id="carrinho-finalizar" disabled>Finalizar Pedido</button>
+    </div>
+  </aside>
+
+  <!-- WIDGET DE SUPORTE FLUTUANTE -->
+  <div class="suporte-widget-container">
+    <!-- Chat Widget Expansível -->
+    <div class="suporte-widget" id="suporte-widget">
+      <div class="suporte-header">
+        <i class="far fa-comments"></i>
+        <span class="suporte-header-titulo">Suporte Lumière</span>
+      </div>
+      
+      <div class="suporte-corpo">
+        <p class="suporte-intro">Olá! Ficamos muito felizes em ajudar você. Como podemos ajudar hoje?</p>
+        
+        <!-- FAQs -->
+        <div class="faq-lista">
+          <div class="faq-item">
+            <button class="faq-pergunta">Prazo de Entrega <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-resposta">
+              O prazo médio para capitais é de 3 a 5 dias úteis. Para demais localidades, você pode calcular inserindo seu CEP no checkout.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-pergunta">Política de Trocas <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-resposta">
+              A primeira troca é totalmente grátis e pode ser solicitada em até 30 dias após o recebimento da peça, desde que esteja com a etiqueta original.
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-pergunta">Tecidos e Lavagem <i class="fas fa-chevron-down"></i></button>
+            <div class="faq-resposta">
+              Nossas peças são feitas com seda, linho e algodão puro. Recomendamos lavagem manual ou em ciclo delicado para preservar a fibra e a textura original.
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulário de Mensagem -->
+        <form class="suporte-form" id="suporte-form" action="#">
+          <span class="suporte-form-titulo">Envie uma mensagem</span>
+          <div class="campo-grupo">
+            <input type="text" class="campo-input" placeholder="Seu nome" required>
+          </div>
+          <div class="campo-grupo">
+            <input type="email" class="campo-input" placeholder="Seu e-mail" required>
+          </div>
+          <div class="campo-grupo">
+            <textarea class="campo-input" placeholder="Em que podemos ajudar?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primario suporte-btn-enviar">Enviar Mensagem</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Botão de Trigger -->
+    <button class="suporte-trigger" id="suporte-trigger" aria-label="Abrir Suporte e Ajuda" title="Suporte Lumière">
+      <i class="far fa-comment-dots"></i>
+    </button>
+  </div>
+
+  <!-- Script da Aplicação -->
+  <script src="app.js"></script>
+</body>
+</html>

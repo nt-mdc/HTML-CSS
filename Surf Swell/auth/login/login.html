@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - SWELL POINT]
+  ARQUIVO: auth/login/login.html (Página de Login)
+  ========================================================================
+  Olá, Aluno! Este arquivo é o formulário de login para acesso à área
+  administrativa. Usamos classes utilitárias globais para os botões e inputs.
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swell Point — Entrar</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Estilos globais da raiz (Acessa via "../../" pois está 2 subpastas adentro) -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+
+    <div class="login-pagina">
+        
+        <!-- TOPO DE NAVEGAÇÃO MINIMALISTA -->
+        <div class="login-topo">
+            <a href="../../index.html" class="logo">
+                <i class="fas fa-water"></i> Swell<span>Point</span>
+            </a>
+            <a href="../cadastro/cadastro.html" class="login-topo-link">Criar uma conta <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- FORMULÁRIO CENTRALIZADO -->
+        <div class="login-corpo">
+            <div class="login-form-card">
+                <h1 class="login-titulo">Bem-vindo de volta!</h1>
+                <p class="login-subtitulo">Entre para gerenciar seus picos favoritos e alertas de swell.</p>
+
+                <form class="login-form" action="../../admin/dashboard.html">
+                    <div class="campo-grupo">
+                        <label class="campo-label" for="email">E-mail</label>
+                        <input class="campo-input" type="email" id="email" placeholder="seu@email.com" required />
+                    </div>
+
+                    <div class="campo-grupo">
+                        <div class="campo-header-senha">
+                            <label class="campo-label" for="senha">Senha</label>
+                            <a href="#" class="esqueci-senha-link">Esqueceu a senha?</a>
+                        </div>
+                        <input class="campo-input" type="password" id="senha" placeholder="Digite sua senha" required />
+                    </div>
+
+                    <button class="btn-primario login-btn-submit" type="submit">
+                        Entrar na conta <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                </form>
+
+                <p class="login-footer-link">
+                    Ainda não é cadastrado? <a href="../cadastro/cadastro.html">Cadastre-se</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

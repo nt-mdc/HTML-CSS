@@ -1,0 +1,478 @@
+/* ================================================================
+   [PITOCO'S CARS]
+   style.css — CSS GLOBAL E COMPARTILHADO DO PORTAL
+   Este arquivo define a identidade visual e os componentes base
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  /* Paleta de Cores Estrita */
+  --cor-onyx: #0b090a;
+  --cor-carbon: #161a1d;
+  
+  --cor-granada: #660708;
+  --cor-magno-escuro: #a4161a;
+  --cor-magno-claro: #ba181b;
+  --cor-morango: #e5383b;
+
+  --cor-branco: #ffffff;
+  --cor-branco-fumaca: #f5f3f4;
+  
+  --cor-poeira: #d3d3d3;
+  --cor-prata: #b1a7a6;
+
+  /* Mapeamento Semântico para Compatibilidade */
+  --cor-fundo: var(--cor-carbon);
+  --cor-escuro: var(--cor-onyx);
+  --cor-texto: var(--cor-branco-fumaca);
+  --cor-texto-suave: var(--cor-poeira);
+  --cor-cinza: var(--cor-prata);
+  --cor-borda: var(--cor-granada);
+  --cor-acento: var(--cor-morango);
+  --cor-acento-claro: var(--cor-magno-claro);
+  --cor-acento-hover: var(--cor-morango);
+  --cor-sucesso: #28a745;
+  --cor-erro: var(--cor-morango);
+  --cor-aviso: var(--cor-magno-claro);
+
+  /* Fontes Automotivas */
+  --fonte-titulo: 'Orbitron', sans-serif;
+  --fonte-corpo: 'DM Sans', sans-serif;
+
+  /* Espaçamentos */
+  --espaco-xs: 4px;
+  --espaco-sm: 8px;
+  --espaco-md: 16px;
+  --espaco-lg: 24px;
+  --espaco-xl: 40px;
+  --espaco-2xl: 60px;
+
+  /* Arredondamento e Sombras */
+  --raio: 8px; /* Cantos um pouco mais retos/angulares combinam com design agressivo */
+  --raio-sm: 4px;
+  --raio-pill: 100px;
+  --sombra-sm: 0 2px 10px rgba(0, 0, 0, 0.5);
+  --sombra-md: 0 8px 30px rgba(229, 56, 59, 0.15);
+  --sombra-lg: 0 16px 50px rgba(229, 56, 59, 0.25);
+  --transicao: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ================================================================
+   2. RESET
+   ================================================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--cor-onyx);
+}
+
+body {
+  font-family: var(--fonte-corpo);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transicao);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+button, input, textarea, select {
+  font-family: var(--fonte-corpo);
+  background: none;
+  border: none;
+  color: inherit;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ================================================================
+   3. CABEÇALHO GLOBAL (FLEXBOX DINÂMICO)
+   ================================================================ */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 60px;
+  background-color: var(--cor-onyx);
+  border-bottom: 2px solid var(--cor-granada);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: var(--fonte-titulo);
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--cor-branco);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo i {
+  color: var(--cor-morango);
+  text-shadow: 0 0 10px rgba(229, 56, 59, 0.6);
+}
+
+.logo span {
+  color: var(--cor-morango);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-lista {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-link {
+  font-family: var(--fonte-titulo);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cor-poeira);
+  padding: 6px 0;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--cor-morango);
+  transition: width var(--transicao);
+}
+
+.nav-link:hover {
+  color: var(--cor-branco);
+}
+
+.nav-link:hover::after,
+.nav-link.ativo::after {
+  width: 100%;
+}
+
+.nav-link.ativo {
+  color: var(--cor-morango);
+}
+
+/* ================================================================
+   4. RODAPÉ GLOBAL
+   ================================================================ */
+.rodape {
+  background-color: var(--cor-onyx);
+  color: var(--cor-poeira);
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  border-top: 2px solid var(--cor-granada);
+}
+
+.rodape-logo {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--cor-branco);
+}
+
+.rodape-logo span {
+  color: var(--cor-morango);
+}
+
+.rodape-texto {
+  font-size: 13px;
+  color: var(--cor-prata);
+}
+
+/* ================================================================
+   5. BOTÕES COM DESIGN SYSTEM (AGRESSIVO E ELEGANTE)
+   ================================================================ */
+.btn-primario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--cor-morango);
+  color: var(--cor-branco);
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 14px 28px;
+  border-radius: var(--raio-sm);
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%); /* Efeito chanfrado esportivo */
+  transition: all var(--transicao);
+  box-shadow: 0 4px 15px rgba(229, 56, 59, 0.4);
+}
+
+.btn-primario:hover {
+  background-color: var(--cor-magno-claro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(229, 56, 59, 0.6);
+}
+
+.btn-secundario {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--cor-branco);
+  border: 1.5px solid var(--cor-granada);
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 13px 28px;
+  border-radius: var(--raio-sm);
+  clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
+  transition: all var(--transicao);
+}
+
+.btn-secundario:hover {
+  border-color: var(--cor-morango);
+  background-color: rgba(229, 56, 59, 0.05);
+  transform: translateY(-2px);
+}
+
+.btn-perigo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(229, 56, 59, 0.1);
+  color: var(--cor-morango);
+  border: 1.5px solid var(--cor-magno-escuro);
+  padding: 8px 18px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: var(--raio-sm);
+  transition: all var(--transicao);
+}
+
+.btn-perigo:hover {
+  background-color: var(--cor-morango);
+  color: var(--cor-branco);
+  border-color: var(--cor-morango);
+}
+
+.btn-sair {
+  font-family: var(--fonte-titulo);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+  border: 1.5px solid var(--cor-prata);
+  padding: 8px 20px;
+  border-radius: var(--raio-sm);
+  transition: all var(--transicao);
+}
+
+.btn-sair:hover {
+  background-color: var(--cor-branco);
+  color: var(--cor-onyx);
+  border-color: var(--cor-branco);
+}
+
+/* ================================================================
+   6. CAMPOS DE FORMULÁRIO (INPUTS)
+   ================================================================ */
+.campo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo-label {
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cor-prata);
+}
+
+.campo-input, .campo-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid var(--cor-granada);
+  border-radius: var(--raio-sm);
+  font-size: 15px;
+  color: var(--cor-branco);
+  background-color: var(--cor-onyx);
+  transition: all var(--transicao);
+}
+
+.campo-input:focus, .campo-select:focus {
+  border-color: var(--cor-morango);
+  box-shadow: 0 0 10px rgba(229, 56, 59, 0.2);
+}
+
+.campo-input::placeholder {
+  color: #55555c;
+}
+
+.campo-input.erro {
+  border-color: var(--cor-morango);
+}
+
+.campo-mensagem-erro {
+  font-size: 12px;
+  color: var(--cor-morango);
+}
+
+/* ================================================================
+   7. BADGES / TAGS
+   ================================================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--raio-sm);
+  font-family: var(--fonte-titulo);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid transparent;
+}
+
+.badge-laranja {
+  background-color: rgba(229, 56, 59, 0.1);
+  color: var(--cor-morango);
+  border-color: rgba(229, 56, 59, 0.2);
+}
+
+.badge-verde {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border-color: rgba(40, 167, 69, 0.2);
+}
+
+.badge-cinza {
+  background-color: rgba(177, 167, 166, 0.1);
+  color: var(--cor-prata);
+  border-color: rgba(177, 167, 166, 0.2);
+}
+
+.badge-azul {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+  border-color: rgba(0, 123, 255, 0.2);
+}
+
+/* ================================================================
+   8. ANIMAÇÕES
+   ================================================================ */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes subirFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes escalarEntrar {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulsar {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 5px rgba(229, 56, 59, 0.4); }
+  50%       { transform: scale(1.05); box-shadow: 0 0 15px rgba(229, 56, 59, 0.8); }
+}
+
+.animar-fade { animation: fadeIn 0.6s ease both; }
+.animar-subir { animation: subirFadeIn 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) both; }
+.animar-escalar { animation: escalarEntrar 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) both; }
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+
+/* ================================================================
+   9. ELEMENTOS DECORATIVOS E GRIDS
+   ================================================================ */
+.divisor {
+  position: relative;
+  text-align: center;
+  margin: var(--espaco-lg) 0;
+}
+
+.divisor::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: var(--cor-granada);
+}
+
+.divisor span {
+  position: relative;
+  background-color: var(--cor-carbon);
+  padding: 0 12px;
+  font-family: var(--fonte-titulo);
+  font-size: 11px;
+  color: var(--cor-prata);
+  text-transform: uppercase;
+}

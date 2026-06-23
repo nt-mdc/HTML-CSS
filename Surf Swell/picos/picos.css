@@ -1,0 +1,429 @@
+/* ================================================================
+   [AULA PEDAGÓGICA - SWELL POINT]
+   ARQUIVO: picos/picos.css (Estilos da Listagem de Picos)
+   ================================================================ */
+
+/* BANNER DE PICOS */
+.picos-banner {
+  background-color: var(--cor-escuro);
+  color: #ffffff;
+  padding: 80px 60px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.picos-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 80% 20%, rgba(152, 210, 232, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.picos-banner-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cor-acento);
+  font-weight: 700;
+  background-color: rgba(152, 210, 232, 0.08);
+  padding: 6px 14px;
+  border-radius: var(--raio-pill);
+  border: 1px solid rgba(152, 210, 232, 0.2);
+}
+
+.picos-banner-titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -1px;
+  position: relative;
+  z-index: 2;
+}
+
+.picos-banner-sub {
+  font-size: 16px;
+  color: #a4c2d4;
+  max-width: 520px;
+  position: relative;
+  z-index: 2;
+  line-height: 1.7;
+}
+
+/* Marca d'água enorme ao fundo */
+.banner-onda-fundo {
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-family: var(--fonte-titulo);
+  font-size: 180px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03);
+  text-transform: uppercase;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* CONTROLES (PESQUISA E FILTROS) */
+.picos-controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 60px;
+  border-bottom: 1.5px solid var(--cor-borda);
+  background-color: #ffffff;
+  position: sticky;
+  top: 80px; /* Gruda abaixo do cabeçalho */
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 55, 85, 0.02);
+}
+
+.busca-container {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+}
+
+.busca-icone {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cor-texto-corpo);
+  font-size: 16px;
+}
+
+.busca-input {
+  width: 100%;
+  padding: 14px 16px 14px 48px;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio-pill);
+  font-size: 14.5px;
+  color: var(--cor-escuro);
+  background-color: #ffffff;
+  transition: all var(--transicao);
+}
+
+.busca-input:focus {
+  border-color: var(--cor-escuro);
+  box-shadow: var(--sombra-sm);
+}
+
+.filtros-lista {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.filtro-btn {
+  background-color: var(--cor-fundo-suave);
+  color: var(--cor-texto-corpo);
+  border: 2px solid var(--cor-borda);
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: var(--raio-pill);
+  transition: all var(--transicao);
+  white-space: nowrap;
+}
+
+.filtro-btn:hover,
+.filtro-btn.ativo {
+  background-color: var(--cor-escuro);
+  color: #ffffff;
+  border-color: var(--cor-escuro);
+}
+
+/* LISTAGEM DE PICOS */
+.picos-grid-container {
+  padding: 50px 60px;
+  background-color: var(--cor-fundo-suave);
+}
+
+.picos-contador {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--cor-texto-corpo);
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.picos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* pico-card base styling is inherited from style.css. Let's add variations. */
+.pico-card {
+  background-color: #ffffff;
+  border: 2px solid var(--cor-borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transicao);
+}
+
+.pico-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-lg);
+  border-color: var(--cor-acento);
+}
+
+.pico-imagem-container {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--cor-escuro);
+}
+
+.pico-imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pico-corpo {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.pico-cabecalho-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.badge-fundo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--raio-pill);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-areia { background-color: #e6f6fc; color: #003755; }
+.badge-coral { background-color: #fdeee9; color: var(--cor-perigo); }
+.badge-pedra { background-color: #e5f5f3; color: var(--cor-sucesso); }
+
+.pico-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--cor-escuro);
+}
+
+.pico-localizacao {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cor-texto-corpo);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pico-localizacao i {
+  color: var(--cor-acento);
+}
+
+.pico-detalhes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1.5px solid var(--cor-borda);
+  border-bottom: 1.5px solid var(--cor-borda);
+}
+
+.pico-detalhes-grid .detalhe-celula:nth-child(3) {
+  grid-column: span 2;
+}
+
+.detalhe-celula {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pico-label-meta {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--cor-texto-corpo);
+}
+
+.pico-valor-meta {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-escuro);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.avaliacao-estrelas {
+  color: var(--cor-estrela);
+}
+
+.valor-perigo {
+  color: var(--cor-perigo);
+}
+
+.pico-descricao {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--cor-texto-corpo);
+  flex: 1;
+}
+
+.pico-rodape-card {
+  padding-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pico-link-detalhes {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cor-escuro);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+}
+
+.pico-card:hover .pico-link-detalhes {
+  gap: 10px;
+}
+
+/* COMUNICADO DE CARD DESTAQUE (LAYOUT HORIZONTAL) */
+@media (min-width: 992px) {
+  .pico-card.destaque {
+    grid-column: span 3; /* Ocupa as 3 colunas */
+    flex-direction: row;
+  }
+
+  .pico-card.destaque .pico-imagem-container {
+    width: 45%;
+    height: auto;
+    flex-shrink: 0;
+  }
+}
+
+/* PAGINAÇÃO */
+.paginacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 60px 80px 60px;
+  background-color: var(--cor-fundo-suave);
+}
+
+.paginacao-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--cor-borda);
+  color: var(--cor-texto-corpo);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transicao);
+}
+
+.paginacao-btn:hover,
+.paginacao-btn.ativo {
+  background-color: var(--cor-escuro);
+  color: #ffffff;
+  border-color: var(--cor-escuro);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 1024px) {
+  .picos-controles {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 30px 40px;
+  }
+
+  .busca-container {
+    max-width: 100%;
+  }
+
+  .picos-grid-container {
+    padding: 40px 40px;
+  }
+
+  .picos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pico-card.destaque {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .picos-banner {
+    padding: 60px 20px;
+  }
+  
+  .picos-banner-titulo {
+    font-size: 38px;
+  }
+
+  .picos-controles {
+    top: 73px;
+    padding: 20px;
+  }
+
+  .picos-grid-container {
+    padding: 30px 20px;
+  }
+
+  .picos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pico-card.destaque {
+    grid-column: span 1;
+    flex-direction: column;
+  }
+
+  .pico-card.destaque .pico-imagem-container {
+    width: 100%;
+    height: 200px;
+  }
+}

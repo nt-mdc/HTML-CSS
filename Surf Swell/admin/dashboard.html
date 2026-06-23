@@ -1,0 +1,231 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - SWELL POINT]
+  ARQUIVO: admin/dashboard.html (Painel Administrativo)
+  ========================================================================
+  Olá, Aluno! Este arquivo é o painel de controle do Swell Point.
+  Demonstra estruturas complexas de gerenciamento, dividindo a tela
+  em uma Sidebar lateral e uma área de conteúdo principal com tabelas e gráficos.
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swell Point — Dashboard</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Estilos globais (Acessa via "../") -->
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+    <div class="dashboard-pagina">
+
+        <!-- CABEÇALHO DO DASHBOARD -->
+        <header class="dashboard-cabecalho">
+            <a href="../index.html" class="logo">
+                <i class="fas fa-water"></i> Swell<span>Point</span>
+            </a>
+            <div class="dashboard-cabecalho-usuario">
+                <span>Olá, Nathan</span>
+                <div class="dashboard-avatar">N</div>
+                <a href="../auth/login/login.html" class="btn-sair" style="color: #7296ac; border-color: rgba(0, 55, 85, 0.2);">Sair</a>
+            </div>
+        </header>
+
+        <!-- MENU LATERAL (SIDEBAR) -->
+        <aside class="dashboard-sidebar">
+            <p class="sidebar-secao-titulo">Navegação</p>
+            <a href="dashboard.html" class="sidebar-link ativo">
+                <span class="sidebar-icone"><i class="fas fa-chart-line"></i></span> Visão Geral
+            </a>
+            <a href="../picos/picos.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-search-location"></i></span> Explorar Picos
+            </a>
+            <a href="novo-pico/novo-pico.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-plus-circle"></i></span> Novo Pico
+            </a>
+
+            <p class="sidebar-secao-titulo">Configurações</p>
+            <a href="#" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-user-circle"></i></span> Perfil
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-sliders-h"></i></span> Preferências
+            </a>
+            <a href="../auth/login/login.html" class="sidebar-link">
+                <span class="sidebar-icone"><i class="fas fa-sign-out-alt"></i></span> Sair
+            </a>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="dashboard-conteudo">
+            <div>
+                <h1 class="dashboard-titulo-pagina">Visão Geral</h1>
+                <p class="dashboard-subtitulo">Terça-feira, 23 de junho de 2026</p>
+            </div>
+
+            <!-- CARDS DE ESTATÍSTICA (Grid Layout) -->
+            <div class="stats-grid">
+                
+                <div class="card-stat animar-subir delay-1">
+                    <div class="card-stat-icone azul"><i class="fas fa-map-marked-alt"></i></div>
+                    <span class="card-stat-valor">24</span>
+                    <span class="card-stat-label">Picos catalogados</span>
+                    <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +2 este mês</span>
+                </div>
+
+                <div class="card-stat animar-subir delay-2">
+                    <div class="card-stat-icone verde"><i class="fas fa-bell"></i></div>
+                    <span class="card-stat-valor">3</span>
+                    <span class="card-stat-label">Alertas de swell ativos</span>
+                    <span class="card-stat-variacao positivo"><i class="fas fa-check"></i> Monitorando</span>
+                </div>
+
+                <div class="card-stat animar-subir delay-3">
+                    <div class="card-stat-icone laranja"><i class="fas fa-users"></i></div>
+                    <span class="card-stat-valor">1.2k</span>
+                    <span class="card-stat-label">Membros na comunidade</span>
+                    <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +45 novos</span>
+                </div>
+
+                <div class="card-stat animar-subir delay-4">
+                    <div class="card-stat-icone roxo"><i class="fas fa-chart-bar"></i></div>
+                    <span class="card-stat-valor">18.4k</span>
+                    <span class="card-stat-label">Swell checks (Mês)</span>
+                    <span class="card-stat-variacao positivo"><i class="fas fa-arrow-up"></i> +12% de acessos</span>
+                </div>
+
+            </div>
+
+            <!-- GRÁFICO DE ALTURA DE ONDA SIMULADO -->
+            <div class="dashboard-secao animar-subir delay-5">
+                <div class="grafico-container">
+                    <h2 class="grafico-titulo"><i class="fas fa-water"></i> Média de Altura de Ondas (Swell médio em metros)</h2>
+                    <div class="grafico-barras">
+                        <div class="barra-item">
+                            <div class="barra" style="--altura: 45%; background-color: var(--cor-acento);">
+                                <span class="barra-tooltip">1.2m</span>
+                            </div>
+                            <span class="barra-rotulo">Jan</span>
+                        </div>
+                        <div class="barra-item">
+                            <div class="barra" style="--altura: 60%; background-color: var(--cor-acento);">
+                                <span class="barra-tooltip">1.8m</span>
+                            </div>
+                            <span class="barra-rotulo">Fev</span>
+                        </div>
+                        <div class="barra-item">
+                            <div class="barra" style="--altura: 75%; background-color: var(--cor-acento);">
+                                <span class="barra-tooltip">2.2m</span>
+                            </div>
+                            <span class="barra-rotulo">Mar</span>
+                        </div>
+                        <div class="barra-item">
+                            <div class="barra" style="--altura: 90%; background-color: var(--cor-escuro);">
+                                <span class="barra-tooltip">2.8m</span>
+                            </div>
+                            <span class="barra-rotulo">Abr</span>
+                        </div>
+                        <div class="barra-item">
+                            <div class="barra" style="--altura: 100%; background-color: var(--cor-escuro);">
+                                <span class="barra-tooltip">3.2m</span>
+                            </div>
+                            <span class="barra-rotulo">Mai</span>
+                        </div>
+                        <div class="barra-item">
+                            <div class="barra" style="--altura: 80%; background-color: var(--cor-acento);">
+                                <span class="barra-tooltip">2.4m</span>
+                            </div>
+                            <span class="barra-rotulo">Jun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABELA DE GERENCIAMENTO DE PICOS -->
+            <div class="dashboard-secao animar-subir delay-6">
+                <div class="dashboard-secao-header">
+                    <h2 class="dashboard-secao-titulo">Picos Catalogados Recentemente</h2>
+                    <a href="novo-pico/novo-pico.html" class="btn-primario" style="padding: 10px 20px; font-size: 13px;">
+                        <i class="fas fa-plus"></i> Novo Pico
+                    </a>
+                </div>
+
+                <table class="tabela">
+                    <thead>
+                        <tr>
+                            <th>Nome do Pico</th>
+                            <th>Tipo de Fundo</th>
+                            <th>Qualidade</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="tabela-pico-nome">Pipeline (Hawaii)</span></td>
+                            <td><span class="badge-fundo badge-coral"><i class="fas fa-fish"></i> Reef Break</span></td>
+                            <td><span class="avaliacao-estrelas"><i class="fas fa-star"></i> 5.0</span></td>
+                            <td><span class="badge-sucesso-simples"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                            <td>
+                                <div class="tabela-acoes">
+                                    <button class="btn-acao">Editar</button>
+                                    <button class="btn-perigo">Excluir</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="tabela-pico-nome">Cacimba do Padre (Brasil)</span></td>
+                            <td><span class="badge-fundo badge-areia"><i class="fas fa-umbrella-beach"></i> Beach Break</span></td>
+                            <td><span class="avaliacao-estrelas"><i class="fas fa-star"></i> 4.8</span></td>
+                            <td><span class="badge-sucesso-simples"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                            <td>
+                                <div class="tabela-acoes">
+                                    <button class="btn-acao">Editar</button>
+                                    <button class="btn-perigo">Excluir</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="tabela-pico-nome">Praia de Itaúna (Brasil)</span></td>
+                            <td><span class="badge-fundo badge-pedra"><i class="fas fa-mountain"></i> Point Break</span></td>
+                            <td><span class="avaliacao-estrelas"><i class="fas fa-star"></i> 4.5</span></td>
+                            <td><span class="badge-sucesso-simples"><i class="fas fa-check-circle"></i> Ativo</span></td>
+                            <td>
+                                <div class="tabela-acoes">
+                                    <button class="btn-acao">Editar</button>
+                                    <button class="btn-perigo">Excluir</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="tabela-pico-nome">Teahupoo (Tahiti)</span></td>
+                            <td><span class="badge-fundo badge-coral"><i class="fas fa-fish"></i> Reef Break</span></td>
+                            <td><span class="avaliacao-estrelas"><i class="fas fa-star"></i> 5.0</span></td>
+                            <td><span class="badge-rascunho-simples"><i class="fas fa-pause-circle"></i> Rascunho</span></td>
+                            <td>
+                                <div class="tabela-acoes">
+                                    <button class="btn-acao">Editar</button>
+                                    <button class="btn-perigo">Excluir</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus — Minha Conta</title>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- CSS Globais e Locais -->
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="pedidos.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO -->
+  <header class="cabecalho">
+    <a href="../index.html" class="logo">NEX<span>US</span></a>
+    
+    <nav class="navbar">
+      <ul class="nav-lista">
+        <li><a href="../index.html" class="nav-link">Vitrine</a></li>
+        <li><a href="pedidos.html" class="nav-link ativo">Minha Conta</a></li>
+        <li><a href="../admin/dashboard.html" class="nav-link">Admin</a></li>
+      </ul>
+      
+      <div class="cabecalho-acoes">
+        <a href="../auth/login/login.html" class="btn-sair" id="btn-login-estado">Fazer Login</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="conta-container animar-subir">
+    <!-- BARRA LATERAL DA CONTA (DADOS DO CLIENTE) -->
+    <section class="conta-perfil">
+      <div class="perfil-card">
+        <div class="perfil-avatar" id="usuario-iniciais">N</div>
+        <h2 class="perfil-nome" id="usuario-nome">Nathan</h2>
+        <span class="perfil-tag">Cliente Gold</span>
+        
+        <div class="perfil-detalhes">
+          <div class="detalhe-item">
+            <span class="detalhe-label">E-mail</span>
+            <span class="detalhe-valor" id="usuario-email">nathan@nexus.com.br</span>
+          </div>
+          <div class="detalhe-item">
+            <span class="detalhe-label">Telefone</span>
+            <span class="detalhe-valor" id="usuario-telefone">(11) 98765-4321</span>
+          </div>
+          <div class="detalhe-item">
+            <span class="detalhe-label">Endereço de Entrega</span>
+            <span class="detalhe-valor" id="usuario-endereco">Av. Paulista, 1000 - Bela Vista - São Paulo, SP</span>
+          </div>
+        </div>
+
+        <button class="btn-secundario" id="btn-logout" style="width: 100%; margin-top: 20px;">
+          <i class="fas fa-sign-out-alt"></i> Sair da Conta
+        </button>
+      </div>
+    </section>
+
+    <!-- HISTÓRICO DE PEDIDOS -->
+    <section class="conta-pedidos">
+      <div class="pedidos-header">
+        <h2>Histórico de Pedidos</h2>
+        <p class="pedidos-subtitulo">Acompanhe o status e a entrega dos seus produtos eletrônicos.</p>
+      </div>
+
+      <!-- Tabela de Pedidos -->
+      <div class="tabela-container">
+        <table class="tabela-pedidos">
+          <thead>
+            <tr>
+              <th>ID do Pedido</th>
+              <th>Data</th>
+              <th>Itens</th>
+              <th>Total</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="pedidos-tabela-corpo">
+            <!-- Inserido dinamicamente via JS -->
+          </tbody>
+        </table>
+        
+        <div class="pedidos-vazio" id="pedidos-vazio-msg" style="display: none;">
+          <i class="fas fa-box-open pedidos-vazio-icone"></i>
+          <h3>Nenhum pedido efetuado</h3>
+          <p>Você ainda não realizou compras. Acesse nossa vitrine para adicionar produtos!</p>
+          <a href="../index.html" class="btn-primario" style="margin-top: 15px;">Ir para a vitrine</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ GLOBAL -->
+  <footer class="rodape">
+    <div class="rodape-container">
+      <div class="rodape-info">
+        <p class="rodape-logo">NEX<span>US</span></p>
+        <p class="rodape-sub">Nexus Electronics. A melhor curadoria de gadgets premium de alta performance sob uma estética de luxo e eficiência.</p>
+      </div>
+      <div class="rodape-links">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="../index.html">Vitrine</a></li>
+          <li><a href="pedidos.html">Histórico de Pedidos</a></li>
+          <li><a href="../admin/dashboard.html">Painel Administrativo</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape-copy">
+      <p>© 2026 · NEXUS Electronics. Todos os direitos reservados</p>
+    </div>
+  </footer>
+
+  <script src="../database.js"></script>
+  <script>
+    // Carregar informações do usuário atual
+    const currentUser = JSON.parse(localStorage.getItem("nexus_current_user"));
+    const loginBtn = document.getElementById("btn-login-estado");
+
+    if (currentUser) {
+      document.getElementById("usuario-nome").textContent = currentUser.nome;
+      document.getElementById("usuario-email").textContent = currentUser.email;
+      document.getElementById("usuario-telefone").textContent = currentUser.telefone;
+      document.getElementById("usuario-endereco").textContent = currentUser.endereco;
+      
+      // Iniciais do Avatar
+      const iniciais = currentUser.nome.split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
+      document.getElementById("usuario-iniciais").textContent = iniciais;
+
+      // Atualizar Botão de Login
+      loginBtn.textContent = "Logout";
+      loginBtn.href = "#";
+      loginBtn.addEventListener("click", fazerLogout);
+    } else {
+      // Se não houver usuário logado, redirecionar para login
+      window.location.href = "../auth/login/login.html";
+    }
+
+    // Carregar Pedidos
+    function carregarPedidos() {
+      const orders = JSON.parse(localStorage.getItem("nexus_orders")) || [];
+      const tabelaCorpo = document.getElementById("pedidos-tabela-corpo");
+      const vazioMsg = document.getElementById("pedidos-vazio-msg");
+
+      if (orders.length === 0) {
+        tabelaCorpo.innerHTML = "";
+        vazioMsg.style.display = "block";
+        return;
+      }
+
+      vazioMsg.style.display = "none";
+      tabelaCorpo.innerHTML = "";
+
+      // Renderiza pedidos ordenados por data decrescente
+      orders.slice().reverse().forEach(order => {
+        const tr = document.createElement("tr");
+
+        // Format Date
+        const dataObj = new Date(order.data);
+        const dataFormatada = dataObj.toLocaleDateString("pt-BR") + " às " + dataObj.toLocaleTimeString("pt-BR", {hour: '2-digit', minute:'2-digit'});
+
+        // Format Items list
+        const itensFormatados = order.itens.map(item => `${item.quantidade}x ${item.nome}`).join("<br>");
+
+        // Badge Status class
+        let badgeClass = "badge-pendente";
+        if (order.status === "Pago") badgeClass = "badge-pago";
+        if (order.status === "Enviado") badgeClass = "badge-enviado";
+        if (order.status === "Entregue") badgeClass = "badge-entregue";
+
+        tr.innerHTML = `
+          <td><span class="pedido-id">${order.id}</span></td>
+          <td><span class="pedido-data">${dataFormatada}</span></td>
+          <td><span class="pedido-itens">${itensFormatados}</span></td>
+          <td><span class="pedido-total">R$ ${order.total.toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</span></td>
+          <td><span class="badge ${badgeClass}">${order.status}</span></td>
+        `;
+        tabelaCorpo.appendChild(tr);
+      });
+    }
+
+    function fazerLogout(e) {
+      if (e) e.preventDefault();
+      localStorage.removeItem("nexus_current_user");
+      window.location.href = "../auth/login/login.html";
+    }
+
+    document.getElementById("btn-logout").addEventListener("click", fazerLogout);
+
+    // Iniciar carregamento
+    carregarPedidos();
+  </script>
+</body>
+</html>

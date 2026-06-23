@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière — Novo Produto</title>
+  
+  <!-- Google Fonts: Cormorant Garamond (títulos) e DM Sans (corpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome para Ícones -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Estilos Globais e Específicos -->
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="novo-produto.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO DO EDITOR -->
+  <header class="cabecalho">
+    <a href="../../index.html" class="logo">Lumi<span>è</span>re</a>
+    <nav class="navbar" style="display: flex; align-items: center; gap: 20px;">
+      <a href="../dashboard.html" class="nav-link" style="color: var(--cor-3);"><i class="fas fa-arrow-left"></i> Voltar ao painel</a>
+      <a href="../../auth/login/login.html" class="btn-sair" style="color: var(--cor-3); border-color: var(--cor-8); background-color: var(--cor-9); padding: 6px 16px; border-radius: var(--raio-pill);">Sair</a>
+    </nav>
+  </header>
+
+  <!-- ÁREA DO EDITOR -->
+  <div class="editor-pagina">
+    
+    <!-- COLUNA PRINCIPAL -->
+    <div class="editor-coluna-principal">
+      
+      <!-- CARD 1: Detalhes do Produto e Descrição -->
+      <div class="editor-card">
+        <div class="campo-grupo">
+          <label class="campo-label">Nome do Produto</label>
+          <textarea
+            class="input-titulo-artigo"
+            id="input-nome-produto"
+            placeholder="Digite o nome da peça (ex: Blazer Linho Acolhedor)..."
+            rows="2"
+            oninput="atualizarPreview()"
+          ></textarea>
+        </div>
+
+        <hr style="border: none; border-top: 1px solid var(--cor-3); margin: 16px 0;" />
+
+        <!-- Ferramentas rápidas de formatação da descrição -->
+        <div class="editor-barra-ferramentas">
+          <button class="editor-btn-ferramenta" title="Negrito"><strong>N</strong></button>
+          <button class="editor-btn-ferramenta" title="Itálico"><em>I</em></button>
+          <button class="editor-btn-ferramenta" title="Sublinhado"><u>S</u></button>
+          <button class="editor-btn-ferramenta" title="Marcadores"><i class="fas fa-list-ul"></i> Lista</button>
+          <button class="editor-btn-ferramenta" title="Inserir tabela de tamanhos"><i class="fas fa-table"></i> Tabela Medidas</button>
+        </div>
+
+        <div class="campo-grupo">
+          <label class="campo-label">Descrição detalhada</label>
+          <textarea
+            class="editor-textarea"
+            placeholder="Descreva a peça: composição do tecido, modelagem, orientações de caimento e lavagem..."
+          ></textarea>
+          <div class="contador-wrapper">
+            <span class="contador-caracteres">0 / 2000 caracteres</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Especificações de Produção -->
+      <div class="editor-card">
+        <h2 class="editor-card-titulo">Informações Adicionais</h2>
+        <div class="campo-grupo">
+          <label class="campo-label">Resumo curto (aparece na listagem rápida da vitrine)</label>
+          <textarea
+            class="campo-input"
+            rows="3"
+            placeholder="Um breve parágrafo comercial de apresentação..."
+            style="resize: vertical;"
+          ></textarea>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- COLUNA LATERAL: CONFIGURAÇÕES -->
+    <div class="editor-coluna-lateral">
+      
+      <!-- CARD 1: Status, Preço e Categoria -->
+      <div class="editor-card">
+        <h2 class="editor-card-titulo">Vitrine</h2>
+
+        <div class="campo-grupo">
+          <label class="campo-label" for="status">Status na Loja</label>
+          <select class="campo-select" id="status">
+            <option value="ativo">Ativo na Vitrine</option>
+            <option value="rascunho">Rascunho (Escondido)</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo mt-md">
+          <label class="campo-label" for="categoria">Categoria</label>
+          <select class="campo-select" id="categoria" onchange="atualizarPreview()">
+            <option value="Vestidos">Vestidos</option>
+            <option value="Blazers">Blazers</option>
+            <option value="Trench Coats">Trench Coats</option>
+            <option value="Alfaiataria">Alfaiataria</option>
+            <option value="Coleções">Coleções</option>
+          </select>
+        </div>
+
+        <div class="campo-grupo mt-md">
+          <label class="campo-label" for="preco">Preço (R$)</label>
+          <input class="campo-input" type="number" step="0.01" id="input-preco-produto" placeholder="389.90" oninput="atualizarPreview()" required />
+        </div>
+
+        <!-- Tags / Atributos rápidos -->
+        <div class="campo-grupo mt-md">
+          <label class="campo-label">Tags do Produto</label>
+          <div class="tags-container">
+            <span class="tag-chip">
+              Seda
+              <button class="tag-chip-remover" type="button">×</button>
+            </span>
+            <span class="tag-chip">
+              Inverno
+              <button class="tag-chip-remover" type="button">×</button>
+            </span>
+            <input class="tags-input-fantasma" type="text" placeholder="+ Tag" />
+          </div>
+        </div>
+
+        <div class="editor-acoes mt-lg" style="margin-top: 20px;">
+          <button class="btn-primario" type="button" onclick="alert('Produto salvo com sucesso!'); window.location.href='../dashboard.html';">Salvar Produto <i class="fas fa-save"></i></button>
+          <button class="btn-secundario" type="button" onclick="window.location.href='../dashboard.html'">Cancelar</button>
+        </div>
+      </div>
+
+      <!-- CARD 2: Upload de Foto -->
+      <div class="editor-card">
+        <h2 class="editor-card-titulo">Fotos do Produto</h2>
+        <div class="upload-capa">
+          <div class="upload-capa-icone" style="color: var(--cor-5);"><i class="fas fa-cloud-upload-alt"></i></div>
+          <p class="upload-capa-texto" style="font-weight: 500;">Escolha a foto principal</p>
+          <p class="upload-capa-sub">PNG, JPG, WEBP · Máx. 5MB</p>
+        </div>
+      </div>
+
+      <!-- CARD 3: Preview do Card da Vitrine -->
+      <div class="preview-card">
+        <div class="preview-capa-placeholder" style="background-color: var(--cor-3); color: var(--cor-7); font-family: var(--fonte-titulo); font-size: 15px; font-weight: 500;">
+          <i class="fas fa-image" style="font-size: 24px; margin-right: 8px;"></i> Sem Imagem
+        </div>
+        <div class="preview-corpo" style="background-color: #fff; padding: var(--espaco-md);">
+          <span class="preview-tag-categoria" id="preview-categoria" style="color: var(--cor-5); font-weight: 700;">Vestidos</span>
+          <h3 class="preview-titulo" id="preview-nome" style="font-family: var(--fonte-titulo); font-size: 20px; font-weight: 700; color: var(--cor-7);">Nome do Produto</h3>
+          <p class="preview-meta" id="preview-preco" style="font-weight: 700; color: var(--cor-9); font-size: 14px; margin-top: 4px;">R$ 0,00</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    // Atualização dinâmica do Preview Card
+    function atualizarPreview() {
+      const nomeInput = document.getElementById("input-nome-produto").value;
+      const precoInput = document.getElementById("input-preco-produto").value;
+      const categoriaSelect = document.getElementById("categoria").value;
+
+      const previewNome = document.getElementById("preview-nome");
+      const previewPreco = document.getElementById("preview-preco");
+      const previewCategoria = document.getElementById("preview-categoria");
+
+      previewNome.textContent = nomeInput.trim() !== "" ? nomeInput : "Nome do Produto";
+      previewCategoria.textContent = categoriaSelect;
+      
+      if (precoInput) {
+        const valor = parseFloat(precoInput);
+        previewPreco.textContent = "R$ " + valor.toFixed(2).replace(".", ",");
+      } else {
+        previewPreco.textContent = "R$ 0,00";
+      }
+    }
+  </script>
+</body>
+</html>

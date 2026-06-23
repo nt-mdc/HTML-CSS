@@ -1,0 +1,207 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - SWELL POINT]
+  ARQUIVO: picos/picos.html (Listagem e busca de picos de surf)
+  ========================================================================
+  Olá, Aluno! Este arquivo é o catálogo dinâmico de picos.
+  Traz elementos de interação como barra de pesquisa e botões de filtro.
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swell Point — Picos de Surf Mapeados</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Importação de Estilos (Acessa a pasta raiz via "../") -->
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="picos.css" />
+</head>
+<body>
+
+    <!-- CABEÇALHO COMPARTILHADO (Ajustado com "../" nos links) -->
+    <header class="cabecalho">
+        <a href="../index.html" class="logo">
+            <i class="fas fa-water"></i> Swell<span>Point</span>
+        </a>
+        <nav class="navbar">
+            <ul class="nav-lista">
+                <li><a href="../index.html" class="nav-link">Início</a></li>
+                <li><a href="picos.html" class="nav-link ativo">Picos de Surf</a></li>
+                <li><a href="../index.html#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="../index.html#newsletter" class="nav-link">Previsão</a></li>
+            </ul>
+            <a href="../admin/dashboard.html" class="btn-menu-destaque">Painel Admin</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- BANNER DE PICOS -->
+        <section class="picos-banner">
+            <span class="picos-banner-tag"><i class="fas fa-search-location"></i> Catálogo Completo</span>
+            <h1 class="picos-banner-titulo">As Melhores Ondas<br>do Planeta</h1>
+            <p class="picos-banner-sub">
+                Explore as especificações de perigo, temporadas e qualidade dos picos de surf mais lendários. Planeje sua barca com inteligência técnica.
+            </p>
+            <div class="banner-onda-fundo">Swell</div>
+        </section>
+
+        <!-- BUSCA E FILTROS RÁPIDOS -->
+        <div class="picos-controles">
+            <div class="busca-container">
+                <span class="busca-icone"><i class="fas fa-search"></i></span>
+                <input class="busca-input" type="text" placeholder="Buscar picos por nome ou região..." />
+            </div>
+
+            <div class="filtros-lista">
+                <button class="filtro-btn ativo">Todos</button>
+                <button class="filtro-btn">Beach Break</button>
+                <button class="filtro-btn">Reef Break</button>
+                <button class="filtro-btn">Point Break</button>
+                <button class="filtro-btn">Norte</button>
+                <button class="filtro-btn">Sul</button>
+            </div>
+        </div>
+
+        <!-- LISTAGEM DE PICOS -->
+        <section class="picos-grid-container">
+            <p class="picos-contador">24 picos de surf catalogados</p>
+
+            <div class="picos-grid">
+
+                <!-- Pico Destaque: Pipeline (Tamanho Duplo / Destaque visual) -->
+                <article class="pico-card destaque animar-subir delay-1">
+                    <div class="pico-imagem-container">
+                        <img src="../images/pipeline.jpg" alt="Pipeline Oahu Hawaii" class="pico-imagem" />
+                        <span class="pico-badge-eventos"><i class="fas fa-trophy"></i> WSL Championship Tour</span>
+                    </div>
+                    <div class="pico-corpo">
+                        <div class="pico-cabecalho-card">
+                            <span class="badge-fundo badge-coral"><i class="fas fa-fish"></i> Reef Break</span>
+                            <h2 class="pico-nome">Pipeline</h2>
+                            <span class="pico-localizacao"><i class="fas fa-map-marker-alt"></i> Oahu, Hawaii</span>
+                        </div>
+                        <div class="pico-detalhes-grid">
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Avaliação</span>
+                                <span class="pico-valor-meta avaliacao-estrelas"><i class="fas fa-star"></i> 5.0 / 5.0</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Perigo</span>
+                                <span class="pico-valor-meta valor-perigo"><i class="fas fa-skull-crossbones"></i> Coral Raso Afiado</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Temporada</span>
+                                <span class="pico-valor-meta"><i class="fas fa-calendar-alt"></i> Novembro a Março (Swell Norte)</span>
+                            </div>
+                        </div>
+                        <p class="pico-descricao">
+                            A rainha das ondas tubulares quebra sobre uma bancada vulcânica muito rasa. É um local extremo onde erros custam caro, mas a recompensa é o tubo mais famoso do surf mundial.
+                        </p>
+                        <div class="pico-rodape-card">
+                            <a href="#" class="pico-link-detalhes">Previsão de Swell Local <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pico 2: Cacimba do Padre -->
+                <article class="pico-card animar-subir delay-2">
+                    <div class="pico-imagem-container">
+                        <img src="../images/noronha.jpg" alt="Cacimba do Padre Fernando de Noronha" class="pico-imagem" />
+                        <span class="pico-badge-eventos"><i class="fas fa-trophy"></i> WSL Qualifying Series</span>
+                    </div>
+                    <div class="pico-corpo">
+                        <div class="pico-cabecalho-card">
+                            <span class="badge-fundo badge-areia"><i class="fas fa-umbrella-beach"></i> Beach Break</span>
+                            <h2 class="pico-nome">Cacimba do Padre</h2>
+                            <span class="pico-localizacao"><i class="fas fa-map-marker-alt"></i> Fernando de Noronha, PE</span>
+                        </div>
+                        <div class="pico-detalhes-grid">
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Avaliação</span>
+                                <span class="pico-valor-meta avaliacao-estrelas"><i class="fas fa-star"></i> 4.8 / 5.0</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Perigo</span>
+                                <span class="pico-valor-meta valor-perigo"><i class="fas fa-exclamation-triangle"></i> Correntes Fortes</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Temporada</span>
+                                <span class="pico-valor-meta"><i class="fas fa-calendar-alt"></i> Dezembro a Março (Swell N/NW)</span>
+                            </div>
+                        </div>
+                        <p class="pico-descricao">
+                            O principal pico da esmeralda do Atlântico. Oferece tubos largos, pesados e de água extremamente clara sobre uma bancada de areia que exige ótima leitura de maré.
+                        </p>
+                        <div class="pico-rodape-card">
+                            <a href="#" class="pico-link-detalhes">Previsão de Swell Local <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Pico 3: Praia de Itaúna -->
+                <article class="pico-card animar-subir delay-3">
+                    <div class="pico-imagem-container">
+                        <img src="../images/saquarema.jpg" alt="Praia de Itaúna Saquarema" class="pico-imagem" />
+                        <span class="pico-badge-eventos"><i class="fas fa-trophy"></i> WSL Vivo Rio Pro</span>
+                    </div>
+                    <div class="pico-corpo">
+                        <div class="pico-cabecalho-card">
+                            <span class="badge-fundo badge-pedra"><i class="fas fa-mountain"></i> Point Break</span>
+                            <h2 class="pico-nome">Praia de Itaúna</h2>
+                            <span class="pico-localizacao"><i class="fas fa-map-marker-alt"></i> Saquarema, RJ</span>
+                        </div>
+                        <div class="pico-detalhes-grid">
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Avaliação</span>
+                                <span class="pico-valor-meta avaliacao-estrelas"><i class="fas fa-star"></i> 4.5 / 5.0</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Perigo</span>
+                                <span class="pico-valor-meta valor-perigo"><i class="fas fa-users"></i> Crowd Intenso</span>
+                            </div>
+                            <div class="detalhe-celula">
+                                <span class="pico-label-meta">Temporada</span>
+                                <span class="pico-valor-meta"><i class="fas fa-calendar-alt"></i> Abril a Outubro (Swell S/SW)</span>
+                            </div>
+                        </div>
+                        <p class="pico-descricao">
+                            A força e a consistência das ondas de Itaúna tornam Saquarema o templo nacional do esporte. Ondas volumosas e longas que correm contornando o canal do costão de pedra.
+                        </p>
+                        <div class="pico-rodape-card">
+                            <a href="#" class="pico-link-detalhes">Previsão de Swell Local <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- PAGINAÇÃO -->
+        <div class="paginacao">
+            <button class="paginacao-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="paginacao-btn ativo">1</button>
+            <button class="paginacao-btn">2</button>
+            <button class="paginacao-btn">3</button>
+            <button class="paginacao-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ COMPARTILHADO -->
+    <footer class="rodape">
+        <p class="rodape-logo"><i class="fas fa-water"></i> Swell<span>Point</span></p>
+        <p>© 2026 · Feito com <i class="fas fa-heart" style="color: var(--cor-perigo);"></i> pela Comunidade Surfista · Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>

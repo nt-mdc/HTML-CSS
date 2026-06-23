@@ -1,0 +1,161 @@
+<!doctype html>
+<!-- 
+  ========================================================================
+  [AULA PEDAGÓGICA - SWELL POINT]
+  ARQUIVO: admin/novo-pico/novo-pico.html (Cadastro de Novos Picos)
+  ========================================================================
+  Olá, Aluno! Este arquivo é o painel de cadastro de picos.
+  Trabalha com um layout assimétrico de duas colunas (70% editor, 30% configurações)
+  e demonstra a coleta de metadados técnicos do spot de surf.
+-->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swell Point — Novo Pico</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Estilos globais (Acessa via "../../" pois está 2 subpastas adentro) -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="novo-pico.css" />
+</head>
+<body>
+
+    <!-- CABEÇALHO DO EDITOR -->
+    <header class="cabecalho">
+        <a href="../../index.html" class="logo">
+            <i class="fas fa-water"></i> Swell<span>Point</span>
+        </a>
+        <nav class="navbar">
+            <a href="../dashboard.html" class="nav-link"><i class="fas fa-arrow-left"></i> Painel de Controle</a>
+            <a href="../../auth/login/login.html" class="btn-sair">Sair</a>
+        </nav>
+    </header>
+
+    <!-- ÁREA DO EDITOR -->
+    <div class="editor-pagina">
+        
+        <!-- COLUNA PRINCIPAL: Formulação Técnica do Pico -->
+        <div class="editor-coluna-principal">
+            
+            <!-- CARD 1: Dados Gerais do Pico -->
+            <div class="editor-card">
+                <div class="campo-grupo">
+                    <label class="campo-label">Nome do Pico de Surf</label>
+                    <textarea class="input-titulo-pico" placeholder="Ex: Pipeline, Cacimba do Padre, Saquarema..." rows="1"></textarea>
+                </div>
+
+                <div class="campos-duplos mt-md">
+                    <div class="campo-grupo">
+                        <label class="campo-label">Local / Região</label>
+                        <input class="campo-input" type="text" placeholder="Ex: Oahu, Hawaii ou Ubatuba, SP" />
+                    </div>
+                    <div class="campo-grupo">
+                        <label class="campo-label">Avaliação da Onda (Qualidade)</label>
+                        <select class="campo-select">
+                            <option value="5">5.0 ★★★★★ (Onda de classe mundial)</option>
+                            <option value="4">4.0 ★★★★☆ (Excelente consistência)</option>
+                            <option value="3">3.0 ★★★☆☆ (Boa onda regional)</option>
+                            <option value="2">2.0 ★★☆☆☆ (Onda inconstante/mista)</option>
+                            <option value="1">1.0 ★☆☆☆☆ (Rara de funcionar)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2: Especificações de Segurança e Temporada -->
+            <div class="editor-card">
+                <h2 class="editor-card-titulo">Condições Técnicas & Riscos</h2>
+                
+                <div class="campos-duplos">
+                    <div class="campo-grupo">
+                        <label class="campo-label">Nível de Perigo</label>
+                        <input class="campo-input" type="text" placeholder="Ex: Fundo de coral raso, correntezas..." />
+                    </div>
+                    <div class="campo-grupo">
+                        <label class="campo-label">Melhor Temporada (Mellhor Swell/Vento)</label>
+                        <input class="campo-input" type="text" placeholder="Ex: Nov a Mar (Swell de Norte)" />
+                    </div>
+                </div>
+
+                <div class="campo-grupo mt-md">
+                    <label class="campo-label">Sedia Competições? (Indicação de Eventos)</label>
+                    <input class="campo-input" type="text" placeholder="Ex: WSL Championship Tour, Hang Loose Pro..." />
+                </div>
+            </div>
+
+            <!-- CARD 3: Descrição das Características do Mar -->
+            <div class="editor-card">
+                <h2 class="editor-card-titulo">Descrição Detalhada</h2>
+                <div class="campo-grupo">
+                    <label class="campo-label">Características do mar e formação da onda</label>
+                    <textarea class="editor-textarea" placeholder="Descreva como a onda quebra, tamanho ideal, melhor direção do vento terral, comportamento das correntes, etc..."></textarea>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- COLUNA LATERAL: Publicação e Imagem -->
+        <div class="editor-coluna-lateral">
+            
+            <!-- Configurações de Status -->
+            <div class="editor-card">
+                <h2 class="editor-card-titulo">Publicação</h2>
+                
+                <div class="campo-grupo">
+                    <label class="campo-label">Status do Registro</label>
+                    <select class="campo-select">
+                        <option value="ativo">Ativo (Visível no portal)</option>
+                        <option value="rascunho">Rascunho (Esboço privado)</option>
+                    </select>
+                </div>
+
+                <div class="campo-grupo mt-md">
+                    <label class="campo-label">Tipo de Bancada</label>
+                    <select class="campo-select">
+                        <option>Selecione...</option>
+                        <option>Beach Break (Areia)</option>
+                        <option>Reef Break (Coral/Pedra)</option>
+                        <option>Point Break (Costão)</option>
+                    </select>
+                </div>
+
+                <div class="editor-acoes mt-lg">
+                    <button class="btn-primario">Publicar Pico <i class="fas fa-check-circle"></i></button>
+                    <button class="btn-secundario">Salvar Rascunho</button>
+                </div>
+            </div>
+
+            <!-- Imagem de Capa do Pico -->
+            <div class="editor-card">
+                <h2 class="editor-card-titulo">Imagem do Pico</h2>
+                <div class="upload-capa">
+                    <div class="upload-capa-icone"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <p class="upload-capa-texto">Escolha uma foto da onda</p>
+                    <p class="upload-capa-sub">PNG, JPG, WEBP · Máx. 4MB</p>
+                </div>
+            </div>
+
+            <!-- Preview em tempo real -->
+            <div class="preview-card">
+                <div class="preview-capa-placeholder">Foto do Pico de Surf</div>
+                <div class="preview-corpo">
+                    <span class="preview-tag-categoria">TIPO DE FUNDO</span>
+                    <h3 class="preview-titulo">Nome do Pico</h3>
+                    <p class="preview-meta"><i class="fas fa-map-marker-alt"></i> Região Geográfica</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

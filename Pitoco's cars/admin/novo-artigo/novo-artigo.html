@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pitoco's Cars — Inscrever Veículo</title>
+    
+    <!-- Importação de fontes e biblioteca de ícones do Font Awesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <!-- CSS LINKINGS -->
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="novo-artigo.css" />
+  </head>
+  <body>
+
+    <!-- CABEÇALHO DO EDITOR -->
+    <header class="cabecalho">
+      <a href="../../index.html" class="logo"><i class="fas fa-gauge-high"></i> Pitoco's <span>Cars</span></a>
+      <nav class="navbar">
+        <a href="../dashboard.html" class="nav-link"><i class="fas fa-arrow-left"></i> Voltar ao painel</a>
+        <a href="../../auth/login/login.html" class="btn-sair">Sair</a>
+      </nav>
+    </header>
+
+    <!-- ÁREA DO EDITOR (Layout dividido em duas colunas assimétricas) -->
+    <div class="editor-pagina">
+
+      <!-- COLUNA PRINCIPAL -->
+      <div class="editor-coluna-principal">
+
+        <!-- CARD 1: Nome do Modelo e Descrição de Specs -->
+        <div class="editor-card">
+
+          <div class="campo-grupo">
+            <label class="campo-label">Modelo do Veículo</label>
+            <textarea
+              class="input-titulo-artigo"
+              placeholder="Ex: Dodge Charger R/T 1970..."
+              rows="2"
+            ></textarea>
+          </div>
+
+          <hr style="border: none; border-top: 1px solid var(--cor-granada); margin: 16px 0;" />
+
+          <!-- BARRA DE ATALHOS DE FORMATAÇÃO -->
+          <div class="editor-barra-ferramentas">
+            <button class="editor-btn-ferramenta"><strong>N</strong> Negrito</button>
+            <button class="editor-btn-ferramenta"><em>I</em> Itálico</button>
+            <button class="editor-btn-ferramenta"><i class="fas fa-list-ul"></i> Lista de Modificações</button>
+            <button class="editor-btn-ferramenta"><i class="fas fa-link"></i> Link Externo</button>
+            <button class="editor-btn-ferramenta"><i class="fas fa-image"></i> Galeria</button>
+          </div>
+
+          <div class="campo-grupo">
+            <textarea
+              class="editor-textarea"
+              placeholder="Descreva a história do veículo, detalhes do motor, suspensão, modificações, conquistas ou raridade do projeto..."
+            ></textarea>
+            <!-- CONTADOR DE CARACTERES -->
+            <div class="contador-wrapper">
+              <span class="contador-caracteres">0 / 5000 caracteres</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CARD 2: Resumo Curto -->
+        <div class="editor-card">
+          <h2 class="editor-card-titulo">Ficha Técnica e Apresentação</h2>
+          <div class="campo-grupo">
+            <label class="campo-label">Breve descrição (exibido na busca e catálogo)</label>
+            <textarea
+              class="campo-input"
+              rows="3"
+              placeholder="Ex: Dodge Charger R/T original nacional com motor V8 318 e escapamento dimensionado..."
+              style="resize: vertical;"
+            ></textarea>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUNA LATERAL -->
+      <div class="editor-coluna-lateral">
+
+        <!-- CARD 1: Dados de Publicação -->
+        <div class="editor-card">
+          <h2 class="editor-card-titulo">Status da Inscrição</h2>
+
+          <div class="campo-grupo">
+            <label class="campo-label" for="status">Status</label>
+            <select class="campo-select" id="status">
+              <option value="rascunho">Rascunho</option>
+              <option value="pendente">Pendente para Avaliação</option>
+              <option value="aprovado">Aprovado e Confirmado</option>
+            </select>
+          </div>
+
+          <div class="campo-grupo mt-md" style="margin-top: 16px;">
+            <label class="campo-label" for="categoria">Categoria do Carro</label>
+            <select class="campo-select" id="categoria">
+              <option>Selecione...</option>
+              <option>Muscle Cars</option>
+              <option>Clássicos</option>
+              <option>Superesportivos</option>
+              <option>JDM</option>
+              <option>Euro</option>
+              <option>Raros</option>
+            </select>
+          </div>
+
+          <!-- TAG CHIPS -->
+          <div class="campo-grupo mt-md" style="margin-top: 16px;">
+            <label class="campo-label">Especificações Rápidas</label>
+            <div class="tags-container">
+              <span class="tag-chip">
+                V8
+                <button class="tag-chip-remover">×</button>
+              </span>
+              <span class="tag-chip">
+                Original
+                <button class="tag-chip-remover">×</button>
+              </span>
+              <input class="tags-input-fantasma" type="text" placeholder="+ Especificação" />
+            </div>
+          </div>
+
+          <div class="editor-acoes mt-lg" style="margin-top: 24px;">
+            <button class="btn-primario">Inscrever Carro <i class="fas fa-car"></i></button>
+            <button class="btn-secundario">Salvar Rascunho</button>
+          </div>
+        </div>
+
+        <!-- CARD 2: Imagem do Carro -->
+        <div class="editor-card">
+          <h2 class="editor-card-titulo">Foto de Capa</h2>
+          <div class="upload-capa">
+            <div class="upload-capa-icone" style="color: var(--cor-morango);"><i class="fas fa-cloud-upload-alt"></i></div>
+            <p class="upload-capa-texto">Clique para enviar a foto</p>
+            <p class="upload-capa-sub">PNG, JPG, WEBP · Máx. 5MB</p>
+          </div>
+        </div>
+
+        <!-- CARD 3: Preview -->
+        <div class="preview-card">
+          <div class="preview-capa-placeholder">Visualização do Veículo</div>
+          <div class="preview-corpo">
+            <span class="preview-tag-categoria">Muscle Cars</span>
+            <h3 class="preview-titulo">Nome do Modelo aparecerá aqui</h3>
+            <p class="preview-meta">Pendente de aprovação · por Exibidor</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+</html>
